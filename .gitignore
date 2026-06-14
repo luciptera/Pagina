@@ -20,3 +20,6 @@ tmp/
 
 # local dev tooling
 .claude/
+
+# claude-flow daemon (not part of the site)
+.claude-flow/

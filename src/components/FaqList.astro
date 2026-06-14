@@ -1,0 +1,25 @@
+---
+import type { Faq } from "../data/faqs";
+interface Props {
+  faqs: Faq[];
+  title?: string;
+}
+const { faqs, title = "Preguntas frecuentes" } = Astro.props;
+---
+{
+  faqs.length > 0 && (
+    <section class="container-base py-10">
+      <h2 class="font-head text-2xl font-bold">{title}</h2>
+      <div class="mt-5 divide-y divide-[var(--color-cream-deep)]">
+        {faqs.map((f) => (
+          <details class="group py-3">
+            <summary class="cursor-pointer list-none font-head text-lg font-semibold marker:hidden">
+              <span class="text-[var(--color-gold-deep)]">›</span> {f.question}
+            </summary>
+            <p class="mt-2 text-[15px] text-[var(--color-ink-soft)]">{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )
+}

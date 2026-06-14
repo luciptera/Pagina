@@ -1,0 +1,141 @@
+---
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import { BUSINESS, OG_IMAGE } from "../consts";
+import { logoImg, faviconImg } from "../data/images";
+import StickyWhatsApp from "../components/StickyWhatsApp.astro";
+import JsonLd from "../components/JsonLd.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  /** override OG image URL (absolute or site-relative) */
+  ogImage?: string;
+  ogType?: "website" | "article" | "product";
+  noindex?: boolean;
+  /** JSON-LD objects to embed in <head> */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  ogImage = OG_IMAGE,
+  ogType = "website",
+  noindex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+const fullTitle = title.includes("Luciptera") ? title : `${title} | Luciptera`;
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: "/catalogo/", label: "Catálogo" },
+  { href: "/como-encargar/", label: "Cómo encargar" },
+  { href: "/preguntas-frecuentes/", label: "Preguntas" },
+  { href: "/envios-a-toda-colombia/", label: "Envíos" },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-co" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <link rel="icon" type="image/png" href={faviconImg.src} />
+    <meta name="theme-color" content="#fbf4e4" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Luciptera" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Fonts: Parisienne (wordmark), Aleo (headings), Mulish (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;600;700&family=Mulish:wght@400;500;600;700&family=Parisienne&display=swap"
+    />
+
+    {jsonLd.map((schema) => <JsonLd schema={schema} />)}
+  </head>
+  <body>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2"
+      >Saltar al contenido</a
+    >
+
+    <header class="border-b border-[var(--color-cream-deep)] bg-[var(--color-cream)]/85 backdrop-blur sticky top-0 z-30">
+      <div class="container-base flex items-center justify-between gap-4 py-3">
+        <a href="/" class="flex items-center" aria-label="Luciptera — inicio">
+          <Image
+            src={logoImg}
+            alt="Luciptera — Arte que ilumina recuerdos"
+            height={48}
+            width={Math.round((logoImg.width / logoImg.height) * 48)}
+            loading="eager"
+            class="h-12 w-auto"
+          />
+        </a>
+        <nav aria-label="Principal" class="hidden gap-6 text-sm font-semibold md:flex">
+          {navLinks.map((l) => <a href={l.href} class="hover:text-[var(--color-gold-deep)]">{l.label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <slot />
+    </main>
+
+    <footer class="mt-16 border-t border-[var(--color-cream-deep)] bg-[var(--color-cream-deep)]/40">
+      <div class="container-base grid gap-8 py-12 md:grid-cols-3">
+        <div>
+          <p class="wordmark text-3xl">Luciptera</p>
+          <p class="mt-1 text-sm text-[var(--color-ink-soft)]">{BUSINESS.tagline}</p>
+          <p class="mt-3 text-sm">{BUSINESS.handmadeNote} · {BUSINESS.areaServed}</p>
+        </div>
+        <div class="text-sm">
+          <h2 class="font-head font-bold">Contacto</h2>
+          <ul class="mt-2 space-y-1">
+            <li>WhatsApp: <a class="underline" href={`https://wa.me/573022651859`}>302 265 1859</a></li>
+            <li>Instagram: <a class="underline" href={BUSINESS.instagramUrl}>@{BUSINESS.instagram}</a></li>
+            <li>Medios de pago: Nequi · Bancolombia</li>
+            <li class="text-[var(--color-ink-soft)]">{BUSINESS.shippingNote}</li>
+          </ul>
+        </div>
+        <div class="text-sm">
+          <h2 class="font-head font-bold">Explora</h2>
+          <ul class="mt-2 space-y-1">
+            {navLinks.map((l) => <li><a class="underline" href={l.href}>{l.label}</a></li>)}
+            <li><a class="underline" href="/blog/">Guías y consejos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container-base border-t border-[var(--color-cream-deep)] py-4 text-center text-xs text-[var(--color-ink-soft)]">
+        © {year} Luciptera · {BUSINESS.owner} · Medellín, Colombia
+      </div>
+    </footer>
+
+    <StickyWhatsApp />
+  </body>
+</html>

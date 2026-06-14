@@ -1,0 +1,42 @@
+---
+// Trust + "cómo encargar" — reusable across pages near a CTA.
+const pasos = [
+  { n: 1, t: "Escríbenos por WhatsApp", d: "Cuéntanos qué quieres y envía tu foto favorita." },
+  { n: 2, t: "Confirmamos precio y tiempo", d: "Elegimos juntos tamaño y estilo; te damos el valor exacto." },
+  { n: 3, t: "Haces el abono", d: "Confirmas tu pedido por Nequi o Bancolombia." },
+  { n: 4, t: "Lo pintamos a mano", d: "Creamos tu pieza con dedicación y te enviamos fotos del avance." },
+  { n: 5, t: "Envío o domicilio", d: "Coordinamos la entrega a tu ciudad. ¡A disfrutarlo!" },
+];
+---
+<section class="container-base py-10">
+  <div class="grid gap-8 md:grid-cols-2">
+    <div>
+      <h2 class="font-head text-2xl font-bold">Cómo encargar (5 pasos)</h2>
+      <ol class="mt-4 space-y-3">
+        {
+          pasos.map((p) => (
+            <li class="flex gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-gold)] font-head font-bold text-[var(--color-ink)]">
+                {p.n}
+              </span>
+              <span>
+                <strong class="font-head">{p.t}.</strong>{" "}
+                <span class="text-[var(--color-ink-soft)]">{p.d}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+    <div class="self-start rounded-2xl bg-white/70 p-6 shadow-[var(--shadow-card)]">
+      <h2 class="font-head text-2xl font-bold">¿Por qué Luciptera?</h2>
+      <ul class="mt-4 space-y-2 text-[15px]">
+        <li>🎨 <strong>Pintado 100% a mano</strong>, pieza por pieza. Nada de impresiones.</li>
+        <li>🐾 Desde tu <strong>foto favorita</strong>, cuidando cada detalle.</li>
+        <li>🚚 <strong>Envíos a toda Colombia</strong> y domicilio en Medellín.</li>
+        <li>💛 Más de un producto: un <strong>recuerdo que ilumina</strong>.</li>
+        <li>💳 Pago fácil por <strong>Nequi o Bancolombia</strong>.</li>
+      </ul>
+    </div>
+  </div>
+</section>

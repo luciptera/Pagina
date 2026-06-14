@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import TrustBlock from "../TrustBlock.astro";
+import FaqList from "../FaqList.astro";
+import ProductCard from "../ProductCard.astro";
+import Testimonials from "../Testimonials.astro";
+import type { Intent } from "../../data/intents";
+import { getProduct, type Product } from "../../data/products";
+import { heroImage } from "../../data/images";
+import { globalFaqs } from "../../data/faqs";
+import { testimonials } from "../../data/testimonials";
+import { breadcrumbList, serviceSchema, faqPage } from "../../lib/schema";
+
+interface Props {
+  intent: Intent;
+}
+const { intent } = Astro.props;
+
+const relProducts = intent.relatedProducts
+  .map((s) => getProduct(s))
+  .filter((p): p is Product => Boolean(p));
+const hero = heroImage(intent.relatedProducts[0]);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const faqs = globalFaqs().slice(0, 5);
+
+const waMsg = `Hola Luciptera 🐾 vi la página de "${intent.h1}" y quiero pedir info`;
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: intent.h1, href: `/${intent.slug}/` },
+];
+
+const jsonLd = [
+  serviceSchema(intent.title, intent.metaDescription, url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+
+// pull a couple testimonials related to the intent's products
+const relTestimonials = testimonials
+  .filter((t) => intent.relatedProducts.includes(t.productSlug))
+  .slice(0, 3);
+---
+
+<Layout title={intent.title} description={intent.metaDescription} ogImage={hero?.src} jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base py-10">
+    <div class="prose-co">
+      <h1 class="font-head text-3xl font-bold md:text-4xl">{intent.h1}</h1>
+      <p class="mt-4 text-lg text-[var(--color-ink-soft)]">{intent.lead}</p>
+    </div>
+    <div class="mt-6">
+      <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Te asesoramos para elegir el detalle perfecto." />
+    </div>
+  </section>
+
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">Ideas para ti</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3">
+      {relProducts.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <TrustBlock />
+  <Testimonials items={relTestimonials} />
+  <FaqList faqs={faqs} />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Cuéntanos tu idea</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">Escríbenos por WhatsApp y la hacemos realidad, pintada a mano.</p>
+      <div class="mt-4 flex justify-center">
+        <WhatsAppCTA message={waMsg} label="Escribir por WhatsApp" />
+      </div>
+    </div>
+  </section>
+</Layout>

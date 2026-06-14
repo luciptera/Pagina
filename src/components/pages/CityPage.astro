@@ -1,0 +1,124 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import PriceTable from "../PriceTable.astro";
+import TrustBlock from "../TrustBlock.astro";
+import FaqList from "../FaqList.astro";
+import Testimonials from "../Testimonials.astro";
+import RelatedLinks from "../RelatedLinks.astro";
+import type { Product } from "../../data/products";
+import type { City } from "../../data/cities";
+import { heroImage, productImages } from "../../data/images";
+import { faqsForProduct } from "../../data/faqs";
+import { pickTestimonial } from "../../data/testimonials";
+import { cityCopy, hashSeed } from "../../data/variations";
+import { cop } from "../../consts";
+import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
+
+interface Props {
+  product: Product;
+  city: City;
+  otherCityLinks: { href: string; label: string }[];
+}
+const { product, city, otherCityLinks } = Astro.props;
+
+const copy = cityCopy(product, city);
+const seed = hashSeed(product.slug + city.slug);
+const hero = heroImage(product.slug);
+const images = productImages(product.slug);
+const heroUrl = hero ? new URL(hero.src, Astro.site).href : undefined;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+
+const faqs = faqsForProduct(product.slug);
+const testimonial = pickTestimonial(seed, product.slug);
+
+const framing = city.tier === 1 ? `con domicilio en ${city.name}` : `con envío a ${city.name}`;
+const title = `${product.shortName} en ${city.name} ${framing} | Luciptera`;
+const description = `${product.shortName} pintados a mano, ${framing}. Desde ${cop(product.fromPrice)}. ${city.deliveryEstimate}`;
+const waMsg = `Hola Luciptera 🐾 quiero ${product.waContext} en ${city.name}`;
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: product.shortName, href: `/${product.slug}/` },
+  { name: city.name, href: `/${product.slug}-${city.slug}/` },
+];
+
+const jsonLd = [
+  productSchema(product, url, heroUrl),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+];
+if (faqs.length) jsonLd.push(faqPage(faqs));
+---
+
+<Layout title={title} description={description} ogImage={hero?.src} ogType="product" jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      {
+        hero && (
+          <Image
+            src={hero}
+            alt={`${product.shortName} en ${city.name} — pintado a mano por Luciptera`}
+            width={720}
+            height={900}
+            widths={[400, 720, 960]}
+            sizes="(max-width: 768px) 100vw, 480px"
+            class="card aspect-[4/5] w-full object-cover"
+            loading="eager"
+          />
+        )
+      }
+    </div>
+    <div class="flex flex-col justify-center">
+      <h1 class="font-head text-3xl font-bold md:text-4xl">
+        {product.shortName} en {city.name}
+      </h1>
+      <p class="mt-3 text-[var(--color-ink-soft)]">{copy.intro}</p>
+      <p class="mt-4 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+      <div class="mt-6">
+        <WhatsAppCTA message={waMsg} label={`Pedir en ${city.name} por WhatsApp`} note={city.deliveryEstimate} />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-base py-4">
+    <div class="prose-co">
+      <p>{copy.valueProp}</p>
+      {
+        city.tier === 1 && city.neighborhoods && (
+          <p class="text-[var(--color-ink-soft)]">
+            Llegamos a barrios como {city.neighborhoods.join(", ")} y todo {city.name}.
+          </p>
+        )
+      }
+      <p>{copy.closer}</p>
+    </div>
+  </section>
+
+  <section class="container-base grid gap-8 py-6 md:grid-cols-2">
+    <PriceTable product={product} />
+    <div class="card p-5">
+      <h2 class="font-head text-xl font-bold">Entrega en {city.name}</h2>
+      <p class="mt-2 text-[15px]">{city.deliveryEstimate}</p>
+      <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+        El valor del envío o domicilio se coordina por WhatsApp según tu dirección.
+      </p>
+    </div>
+  </section>
+
+  <TrustBlock />
+  {testimonial && <Testimonials items={[testimonial]} title="Una experiencia reciente" />}
+  <FaqList faqs={faqs} />
+
+  <RelatedLinks
+    items={[
+      { href: `/${product.slug}/`, label: `Ver todo: ${product.shortName}` },
+      { href: "/envios-a-toda-colombia/", label: "Envíos a toda Colombia" },
+      ...otherCityLinks,
+    ]}
+    title={`${product.shortName} en otras ciudades`}
+  />
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { articles } from "../../data/articles";
+import { breadcrumbList } from "../../lib/schema";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Guías y consejos", href: "/blog/" },
+];
+const jsonLd = [
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+];
+---
+
+<Layout
+  title="Guías y consejos | Luciptera"
+  description="Guías para elegir, encargar y cuidar tu arte personalizado: precios, cómo elegir la foto, tamaños, homenajes a mascotas y más."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Guías y consejos</h1>
+    <p class="mt-2 text-[var(--color-ink-soft)]">
+      Respuestas claras para que tu pedido salga perfecto.
+    </p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      {
+        articles.map((a) => (
+          <a href={`/blog/${a.slug}/`} class="card block p-5 transition-transform hover:-translate-y-1">
+            <h2 class="font-head text-lg font-bold">{a.h1}</h2>
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{a.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

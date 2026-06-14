@@ -1,0 +1,22 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# scratch / extraction workspace (not part of the site)
+tmp/
+
+# env & editor
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/
+
+# netlify
+.netlify/
+
+# local dev tooling
+.claude/

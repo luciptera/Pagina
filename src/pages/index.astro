@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import ProductCard from "../components/ProductCard.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FaqList from "../components/FaqList.astro";
+import Testimonials from "../components/Testimonials.astro";
+import RelatedLinks from "../components/RelatedLinks.astro";
+import { products } from "../data/products";
+import { globalFaqs } from "../data/faqs";
+import { testimonials } from "../data/testimonials";
+import { heroImage, logoImg } from "../data/images";
+import { BUSINESS } from "../consts";
+import { localBusiness, faqPage } from "../lib/schema";
+
+const heroPhoto = heroImage("retratos-de-mascotas");
+const logoUrl = new URL(logoImg.src, Astro.site).href;
+const faqs = globalFaqs();
+
+const title = "Luciptera — Arte personalizado pintado a mano en Medellín";
+const description = BUSINESS.description;
+const waMsg = "Hola Luciptera 🐾 quiero información sobre un arte personalizado";
+
+// funnel: lead with the cheapest entry products
+const entryProducts = ["placas-con-nombre", "llaveros-de-mascotas"];
+
+const jsonLd = [localBusiness(Astro.site!.href, logoUrl), faqPage(faqs)];
+
+const infoLinks = [
+  { href: "/blog/cuanto-cuesta-un-retrato-de-mascota/", label: "¿Cuánto cuesta un retrato de mascota?" },
+  { href: "/blog/como-elegir-la-foto-para-tu-retrato/", label: "Cómo elegir la foto" },
+  { href: "/blog/como-honrar-la-memoria-de-tu-mascota/", label: "Honrar la memoria de tu mascota" },
+  { href: "/blog/que-tamano-de-cuadro-elegir/", label: "Qué tamaño elegir" },
+  { href: "/blog/lienzo-vs-madera/", label: "Lienzo vs. madera" },
+];
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd}>
+  <!-- HERO -->
+  <section class="container-base grid items-center gap-8 py-12 md:grid-cols-2 md:py-16">
+    <div>
+      <p class="wordmark text-5xl md:text-6xl">Luciptera</p>
+      <p class="mt-1 font-head text-sm uppercase tracking-[0.3em] text-[var(--color-gold-deep)]">
+        Arte que ilumina recuerdos
+      </p>
+      <h1 class="mt-5 font-head text-3xl font-bold leading-tight md:text-4xl">
+        Retratos y detalles personalizados, pintados 100% a mano
+      </h1>
+      <p class="mt-4 text-lg text-[var(--color-ink-soft)]">
+        Convertimos tu foto favorita —tu mascota, tu familia, tu pareja— en arte real.
+        Hecho a mano en Medellín, con envíos a toda Colombia.
+      </p>
+      <div class="mt-6">
+        <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Te respondemos personalmente 💛" />
+      </div>
+    </div>
+    <div>
+      {
+        heroPhoto && (
+          <Image
+            src={heroPhoto}
+            alt="Retrato de mascota pintado a mano sobre lienzo — Luciptera"
+            width={760}
+            height={950}
+            widths={[420, 760]}
+            sizes="(max-width: 768px) 100vw, 460px"
+            class="card aspect-[4/5] w-full object-cover"
+            loading="eager"
+          />
+        )
+      }
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="container-base py-8" id="catalogo">
+    <h2 class="font-head text-3xl font-bold">Nuestro catálogo</h2>
+    <p class="mt-1 text-[var(--color-ink-soft)]">Todo pintado a mano. Precios "desde" — el envío se cobra aparte.</p>
+    <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <!-- FUNNEL: empieza con un detalle pequeño -->
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 md:p-8">
+      <h2 class="font-head text-2xl font-bold">¿Primera vez? Empieza con un detalle</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">
+        Una placa con nombre desde $20.000 o un llavero desde $60.000 son la forma perfecta de
+        conocer nuestro trabajo… antes de animarte con un retrato en lienzo.
+      </p>
+      <div class="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-2">
+        {entryProducts.map((s) => {
+          const p = products.find((x) => x.slug === s)!;
+          return <ProductCard product={p} />;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <TrustBlock />
+
+  <Testimonials items={testimonials.slice(0, 6)} />
+
+  <FaqList faqs={faqs} />
+
+  <RelatedLinks items={infoLinks} title="Guías que te pueden servir" />
+</Layout>

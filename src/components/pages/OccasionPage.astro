@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import TrustBlock from "../TrustBlock.astro";
+import FaqList from "../FaqList.astro";
+import ProductCard from "../ProductCard.astro";
+import type { Occasion } from "../../data/occasions";
+import { getProduct, type Product } from "../../data/products";
+import { heroImage } from "../../data/images";
+import { globalFaqs } from "../../data/faqs";
+import { breadcrumbList, serviceSchema, faqPage } from "../../lib/schema";
+
+interface Props {
+  occasion: Occasion;
+}
+const { occasion } = Astro.props;
+
+const relProducts = occasion.relatedProducts
+  .map((s) => getProduct(s))
+  .filter((p): p is Product => Boolean(p));
+const hero = heroImage(occasion.relatedProducts[0]);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const faqs = globalFaqs().slice(0, 5);
+const waMsg = `Hola Luciptera 🎁 quiero info para ${occasion.waContext}`;
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: occasion.h1, href: `/${occasion.slug}/` },
+];
+
+const jsonLd = [
+  serviceSchema(occasion.title, occasion.metaDescription, url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+---
+
+<Layout title={occasion.title} description={occasion.metaDescription} ogImage={hero?.src} jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base py-10">
+    <div class="prose-co">
+      <h1 class="font-head text-3xl font-bold md:text-4xl">{occasion.h1}</h1>
+      <p class="mt-4 text-lg text-[var(--color-ink-soft)]">{occasion.lead}</p>
+      <p class="mt-2 text-sm font-semibold text-[var(--color-gold-deep)]">🗓️ {occasion.dateWindow}</p>
+    </div>
+    <div class="mt-6">
+      <WhatsAppCTA message={waMsg} label="Pedir con tiempo por WhatsApp" note="Encarga con anticipación para asegurar la entrega." />
+    </div>
+  </section>
+
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">Regalos que enamoran</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3">
+      {relProducts.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <TrustBlock />
+  <FaqList faqs={faqs} />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Aparta tu regalo</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">Las fechas especiales se llenan rápido. Escríbenos por WhatsApp hoy.</p>
+      <div class="mt-4 flex justify-center">
+        <WhatsAppCTA message={waMsg} label="Escribir por WhatsApp" />
+      </div>
+    </div>
+  </section>
+</Layout>

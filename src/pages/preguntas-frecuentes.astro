@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import FaqList from "../components/FaqList.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import { faqs as allFaqs } from "../data/faqs";
+import { breadcrumbList, faqPage } from "../lib/schema";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Preguntas frecuentes", href: "/preguntas-frecuentes/" },
+];
+// all FAQs (global + product-scoped) on the hub
+const jsonLd = [
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(allFaqs),
+];
+const waMsg = "Hola Luciptera 🐾 tengo una pregunta";
+---
+
+<Layout
+  title="Preguntas frecuentes | Luciptera"
+  description="Resolvemos tus dudas: precios, tiempos de entrega, envíos a toda Colombia, medios de pago, cómo encargar y qué foto enviar para tu retrato pintado a mano."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Preguntas frecuentes</h1>
+    <p class="mt-2 text-[var(--color-ink-soft)]">
+      ¿No encuentras tu respuesta? Escríbenos por WhatsApp, con gusto te ayudamos.
+    </p>
+  </section>
+  <FaqList faqs={allFaqs} title="Todo lo que necesitas saber" />
+  <section class="container-base py-8">
+    <WhatsAppCTA message={waMsg} label="Preguntar por WhatsApp" />
+  </section>
+</Layout>

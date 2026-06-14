@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import PriceTable from "../PriceTable.astro";
+import TrustBlock from "../TrustBlock.astro";
+import FaqList from "../FaqList.astro";
+import Gallery from "../Gallery.astro";
+import Testimonials from "../Testimonials.astro";
+import RelatedLinks from "../RelatedLinks.astro";
+import type { Product } from "../../data/products";
+import { getProduct } from "../../data/products";
+import { productImages, heroImage } from "../../data/images";
+import { faqsForProduct } from "../../data/faqs";
+import { testimonialsForProduct } from "../../data/testimonials";
+import { cop } from "../../consts";
+import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
+
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const images = productImages(product.slug);
+const hero = heroImage(product.slug);
+const heroUrl = hero ? new URL(hero.src, Astro.site).href : undefined;
+const faqs = faqsForProduct(product.slug);
+const tStimonials = testimonialsForProduct(product.slug);
+
+const related = product.relatedSlugs
+  .map((s) => getProduct(s))
+  .filter((p): p is Product => Boolean(p))
+  .map((p) => ({ href: `/${p.slug}/`, label: p.shortName }));
+
+const title = `${product.name} | Luciptera`;
+const description = `${product.tagline} Desde ${cop(product.fromPrice)}. Pintado a mano en Medellín, envíos a toda Colombia.`;
+
+const waMsg = `Hola Luciptera 🐾 vi la página de "${product.shortName}" y quiero pedir info`;
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Catálogo", href: "/catalogo/" },
+  { name: product.shortName, href: `/${product.slug}/` },
+];
+
+const jsonLd = [
+  productSchema(product, url, heroUrl),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+];
+if (faqs.length) jsonLd.push(faqPage(faqs));
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={hero ? hero.src : undefined}
+  ogType="product"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      {
+        hero && (
+          <Image
+            src={hero}
+            alt={`${product.name}, pintado a mano por Luciptera`}
+            width={720}
+            height={900}
+            widths={[400, 720, 960]}
+            sizes="(max-width: 768px) 100vw, 480px"
+            class="card aspect-[4/5] w-full object-cover"
+            loading="eager"
+          />
+        )
+      }
+    </div>
+    <div class="flex flex-col justify-center">
+      <h1 class="font-head text-3xl font-bold md:text-4xl">{product.h1}</h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">{product.tagline}</p>
+      <p class="mt-4 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+      <p class="text-sm text-[var(--color-ink-soft)]">
+        {product.material === "lienzo" ? "Sobre lienzo" : product.material === "madera" ? "Sobre madera con resina" : "En resina"} ·
+        Pintado 100% a mano · Mínimo {product.prepDays} días
+      </p>
+      <div class="mt-6">
+        <WhatsAppCTA
+          message={waMsg}
+          label="Pedir por WhatsApp"
+          note="Te respondemos personalmente. Envíos a toda Colombia."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-base grid gap-8 py-6 md:grid-cols-2">
+    <PriceTable product={product} />
+    <div>
+      <h2 class="font-head text-2xl font-bold">Ejemplos reales</h2>
+      <p class="mt-1 text-sm text-[var(--color-ink-soft)]">
+        Algunas piezas pintadas a mano por Luciptera.
+      </p>
+      <div class="mt-4">
+        <Gallery images={images.slice(1)} alt={product.name} limit={6} />
+      </div>
+    </div>
+  </section>
+
+  <TrustBlock />
+
+  <Testimonials items={tStimonials} />
+
+  <FaqList faqs={faqs} title={`Preguntas sobre ${product.shortName.toLowerCase()}`} />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">¿Listo para tu {product.shortName.toLowerCase()}?</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">
+        Escríbenos por WhatsApp con tu foto y te ayudamos con todo el proceso.
+      </p>
+      <div class="mt-4 flex justify-center">
+        <WhatsAppCTA message={waMsg} label="Pedir ahora por WhatsApp" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks items={related} />
+</Layout>

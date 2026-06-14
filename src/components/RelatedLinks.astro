@@ -1,0 +1,30 @@
+---
+interface LinkItem {
+  href: string;
+  label: string;
+}
+interface Props {
+  items: LinkItem[];
+  title?: string;
+}
+const { items, title = "Mira también" } = Astro.props;
+---
+{
+  items.length > 0 && (
+    <section class="container-base py-8">
+      <h2 class="font-head text-xl font-bold">{title}</h2>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        {items.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="inline-block rounded-full border border-[var(--color-cream-deep)] bg-white/60 px-4 py-2 text-sm hover:border-[var(--color-gold)] hover:text-[var(--color-gold-deep)]"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

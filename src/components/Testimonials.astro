@@ -1,0 +1,25 @@
+---
+import type { Testimonial } from "../data/testimonials";
+interface Props {
+  items: Testimonial[];
+  title?: string;
+}
+const { items, title = "Lo que dicen nuestros clientes" } = Astro.props;
+---
+{
+  items.length > 0 && (
+    <section class="container-base py-10">
+      <h2 class="font-head text-2xl font-bold">{title}</h2>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((t) => (
+          <figure class="card flex h-full flex-col p-5">
+            <blockquote class="text-[15px] italic">“{t.text}”</blockquote>
+            <figcaption class="mt-3 text-sm font-semibold">
+              {t.name} <span class="font-normal text-[var(--color-ink-soft)]">· {t.city}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}

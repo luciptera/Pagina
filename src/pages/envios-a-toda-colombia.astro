@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import ProductCard from "../components/ProductCard.astro";
+import FaqList from "../components/FaqList.astro";
+import { products, cityMatrixProducts } from "../data/products";
+import { tier1Cities, tier2Cities, cities } from "../data/cities";
+import { meetsContentFloor } from "../data/variations";
+import { globalFaqs } from "../data/faqs";
+import { breadcrumbList, serviceSchema, faqPage } from "../lib/schema";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Envíos a toda Colombia", href: "/envios-a-toda-colombia/" },
+];
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const faqs = globalFaqs().filter((f) =>
+  ["¿Hacen envíos a toda Colombia?", "¿El precio incluye el envío?", "¿Cómo encargo mi pedido?"].includes(f.question),
+);
+const jsonLd = [
+  serviceSchema(
+    "Envíos de arte personalizado a toda Colombia",
+    "Luciptera pinta a mano en Medellín y envía a toda Colombia: retratos, cuadros, llaveros, placas y cases.",
+    url,
+  ),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+const waMsg = "Hola Luciptera 🐾 quiero saber sobre envíos a mi ciudad";
+
+// build available city-matrix links per product
+function cityLinks(productSlug: string) {
+  const p = cityMatrixProducts.find((x) => x.slug === productSlug);
+  if (!p) return [];
+  return cities
+    .filter((c) => meetsContentFloor(p, c))
+    .map((c) => ({ href: `/${p.slug}-${c.slug}/`, label: `${p.shortName} en ${c.name}` }));
+}
+const featured = cityMatrixProducts.slice(0, 3);
+---
+
+<Layout
+  title="Envíos a toda Colombia | Luciptera"
+  description="Pintamos a mano en Medellín y enviamos a toda Colombia: Bogotá, Cali, Barranquilla, Cartagena y más. Domicilio en Medellín y su área metropolitana. Coordinamos todo por WhatsApp."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Envíos a toda Colombia</h1>
+    <p class="mt-3 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Estamos en Medellín y enviamos nuestro arte pintado a mano a todo el país por transportadora.
+      En Medellín y su área metropolitana también hacemos entrega a domicilio. El valor del envío
+      o domicilio se coordina por WhatsApp según tu ciudad.
+    </p>
+    <div class="mt-6">
+      <WhatsAppCTA message={waMsg} label="Consultar envío a mi ciudad" />
+    </div>
+  </section>
+
+  <section class="container-base grid gap-8 py-6 md:grid-cols-2">
+    <div class="card p-6">
+      <h2 class="font-head text-xl font-bold">Medellín y área metropolitana (domicilio)</h2>
+      <p class="mt-2 flex flex-wrap gap-2">
+        {tier1Cities.map((c) => <span class="rounded-full bg-[var(--color-cream-deep)] px-3 py-1 text-sm">{c.name}</span>)}
+      </p>
+    </div>
+    <div class="card p-6">
+      <h2 class="font-head text-xl font-bold">Resto de Colombia (envíos)</h2>
+      <p class="mt-2 flex flex-wrap gap-2">
+        {tier2Cities.map((c) => <span class="rounded-full bg-[var(--color-cream-deep)] px-3 py-1 text-sm">{c.name}</span>)}
+      </p>
+    </div>
+  </section>
+
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">Lo más pedido</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {products.slice(0, 4).map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  {
+    featured.map((p) => (
+      <section class="container-base py-4">
+        <h2 class="font-head text-lg font-bold">{p.shortName} por ciudad</h2>
+        <ul class="mt-2 flex flex-wrap gap-2">
+          {cityLinks(p.slug).slice(0, 12).map((l) => (
+            <li>
+              <a href={l.href} class="inline-block rounded-full border border-[var(--color-cream-deep)] bg-white/60 px-3 py-1.5 text-sm hover:border-[var(--color-gold)]">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <FaqList faqs={faqs} />
+</Layout>

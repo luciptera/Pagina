@@ -1,0 +1,84 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import RelatedLinks from "../../components/RelatedLinks.astro";
+import { articles, articleMap } from "../../data/articles";
+import { getProduct, type Product } from "../../data/products";
+import { heroImage } from "../../data/images";
+import { breadcrumbList, faqPage } from "../../lib/schema";
+
+export const getStaticPaths = (() =>
+  articles.map((a) => ({ params: { slug: a.slug }, props: { slug: a.slug } }))) satisfies GetStaticPaths;
+
+const { slug } = Astro.props as { slug: string };
+const article = articleMap[slug];
+const hero = heroImage(article.heroProduct);
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Guías", href: "/blog/" },
+  { name: article.h1, href: `/blog/${article.slug}/` },
+];
+
+// sections double as FAQ entries (answer-first) → FAQPage schema
+const faqForSchema = article.sections.map((s) => ({
+  question: s.q,
+  answer: s.a.join(" "),
+  scope: "global" as const,
+}));
+
+const jsonLd = [
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqForSchema),
+];
+
+const related = article.relatedProducts
+  .map((s) => getProduct(s))
+  .filter((p): p is Product => Boolean(p))
+  .map((p) => ({ href: `/${p.slug}/`, label: p.shortName }));
+
+const waMsg = `Hola Luciptera 🐾 leí "${article.h1}" y quiero pedir info`;
+---
+
+<Layout title={article.title} description={article.description} ogImage={hero?.src} ogType="article" jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+  <article class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">{article.h1}</h1>
+    <p class="prose-co mt-4 text-lg text-[var(--color-ink-soft)]">{article.intro}</p>
+
+    {
+      hero && (
+        <Image
+          src={hero}
+          alt={`${article.h1} — Luciptera`}
+          width={900}
+          height={560}
+          widths={[480, 900]}
+          sizes="(max-width: 768px) 100vw, 720px"
+          class="card my-6 aspect-[16/10] w-full max-w-2xl object-cover"
+          loading="eager"
+        />
+      )
+    }
+
+    <div class="prose-co">
+      {
+        article.sections.map((s) => (
+          <div>
+            <h2 class="font-head font-bold">{s.q}</h2>
+            {s.a.map((p) => <p>{p}</p>)}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-8">
+      <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" />
+    </div>
+  </article>
+
+  <RelatedLinks items={related} title="Productos relacionados" />
+</Layout>

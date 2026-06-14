@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import FaqList from "../components/FaqList.astro";
+import { globalFaqs } from "../data/faqs";
+import { breadcrumbList, faqPage } from "../lib/schema";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Cómo encargar", href: "/como-encargar/" },
+];
+const faqs = globalFaqs();
+const jsonLd = [
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+const waMsg = "Hola Luciptera 🐾 quiero encargar un arte personalizado";
+---
+
+<Layout
+  title="Cómo encargar tu arte personalizado | Luciptera"
+  description="Encargar es fácil: nos escribes por WhatsApp con tu foto, confirmamos precio y tiempo, haces el abono por Nequi o Bancolombia, lo pintamos a mano y coordinamos el envío a toda Colombia."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Cómo encargar</h1>
+    <p class="mt-2 max-w-2xl text-[var(--color-ink-soft)]">
+      Todo el proceso es por WhatsApp y es muy sencillo. Así pasas de una foto a una obra
+      pintada a mano.
+    </p>
+  </section>
+  <TrustBlock />
+  <section class="container-base py-6">
+    <div class="card max-w-2xl p-6">
+      <h2 class="font-head text-xl font-bold">Medios de pago</h2>
+      <ul class="mt-3 space-y-1 text-[15px]">
+        <li>📲 <strong>Nequi:</strong> 3022651859</li>
+        <li>🏦 <strong>Bancolombia:</strong> Llave @fonseca9180</li>
+        <li class="text-[var(--color-ink-soft)]">Envíanos el comprobante de la transferencia para confirmar tu pedido ✅</li>
+      </ul>
+    </div>
+    <div class="mt-6">
+      <WhatsAppCTA message={waMsg} label="Empezar por WhatsApp" />
+    </div>
+  </section>
+  <FaqList faqs={faqs} />
+</Layout>

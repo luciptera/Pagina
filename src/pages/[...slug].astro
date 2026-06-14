@@ -1,0 +1,65 @@
+---
+import type { GetStaticPaths } from "astro";
+import ProductPage from "../components/pages/ProductPage.astro";
+import AliasPage from "../components/pages/AliasPage.astro";
+import IntentPage from "../components/pages/IntentPage.astro";
+import OccasionPage from "../components/pages/OccasionPage.astro";
+import CityPage from "../components/pages/CityPage.astro";
+
+import { products, cityMatrixProducts } from "../data/products";
+import { aliases } from "../data/aliases";
+import { intents } from "../data/intents";
+import { occasions } from "../data/occasions";
+import { cities } from "../data/cities";
+import { meetsContentFloor } from "../data/variations";
+
+export const getStaticPaths = (() => {
+  const paths: any[] = [];
+
+  // 1) pillar product pages
+  for (const product of products) {
+    paths.push({ params: { slug: product.slug }, props: { type: "product", product } });
+  }
+
+  // 2) vernacular alias pages
+  for (const alias of aliases) {
+    paths.push({ params: { slug: alias.slug }, props: { type: "alias", alias } });
+  }
+
+  // 3) intent / use-case pages
+  for (const intent of intents) {
+    paths.push({ params: { slug: intent.slug }, props: { type: "intent", intent } });
+  }
+
+  // 4) occasion pages
+  for (const occasion of occasions) {
+    paths.push({ params: { slug: occasion.slug }, props: { type: "occasion", occasion } });
+  }
+
+  // 5) focused city × product matrix (quality-gated)
+  for (const product of cityMatrixProducts) {
+    const builtCities = cities.filter((c) => meetsContentFloor(product, c));
+    for (const city of builtCities) {
+      const otherCityLinks = builtCities
+        .filter((c) => c.slug !== city.slug)
+        .slice(0, 6)
+        .map((c) => ({ href: `/${product.slug}-${c.slug}/`, label: c.name }));
+      paths.push({
+        params: { slug: `${product.slug}-${city.slug}` },
+        props: { type: "city", product, city, otherCityLinks },
+      });
+    }
+  }
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+const props = Astro.props as any;
+const { type } = props;
+---
+
+{type === "product" && <ProductPage product={props.product} />}
+{type === "alias" && <AliasPage alias={props.alias} />}
+{type === "intent" && <IntentPage intent={props.intent} />}
+{type === "occasion" && <OccasionPage occasion={props.occasion} />}
+{type === "city" && <CityPage product={props.product} city={props.city} otherCityLinks={props.otherCityLinks} />}

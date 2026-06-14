@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ProductCard from "../components/ProductCard.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import { products } from "../data/products";
+import { breadcrumbList } from "../lib/schema";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Catálogo", href: "/catalogo/" },
+];
+const jsonLd = [
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+];
+const waMsg = "Hola Luciptera 🐾 vi el catálogo y quiero pedir info";
+---
+
+<Layout
+  title="Catálogo de arte personalizado | Luciptera"
+  description="Catálogo completo de Luciptera: retratos de mascotas y personas en lienzo, anime, paisajes, cuadros en madera, llaveros, placas y cases en resina. Pintado a mano, envíos a toda Colombia."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Catálogo</h1>
+    <p class="mt-2 text-[var(--color-ink-soft)]">
+      Todo pintado 100% a mano en Medellín. Los precios son "desde" y no incluyen el envío o domicilio.
+    </p>
+    <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+    <div class="mt-8">
+      <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" />
+    </div>
+  </section>
+</Layout>

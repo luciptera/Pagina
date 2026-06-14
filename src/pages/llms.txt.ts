@@ -20,6 +20,7 @@ export const GET: APIRoute = ({ site }) => {
   lines.push(`- Todo pintado 100% a mano. Sin tienda en línea: los pedidos se hacen por WhatsApp.`);
   lines.push(`- WhatsApp: +${WHATSAPP_NUMBER} (https://wa.me/${WHATSAPP_NUMBER})`);
   lines.push(`- Instagram: ${BUSINESS.instagramUrl}`);
+  lines.push(`- Facebook: ${BUSINESS.facebookUrl}`);
   lines.push(`- Medios de pago: Nequi ${BUSINESS.payments.nequi}, Bancolombia (Llave ${BUSINESS.payments.bancolombiaKey})`);
   lines.push(`- Nota: ${BUSINESS.shippingNote}`);
   lines.push("");

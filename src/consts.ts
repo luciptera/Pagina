@@ -19,7 +19,8 @@ export const BUSINESS = {
   description:
     "Arte personalizado pintado 100% a mano en Medellín: retratos de mascotas y personas en lienzo, cuadros en madera, llaveros, placas y cases en resina. Envíos a toda Colombia.",
   instagram: "luciptera",
-  instagramUrl: "https://instagram.com/luciptera",
+  instagramUrl: "https://www.instagram.com/luciptera/",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61590667984007",
   artHandle: "Fonlu_Arte",
   email: "", // TODO(owner): add if desired
   city: "Medellín",

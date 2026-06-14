@@ -119,7 +119,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Cuánto cuesta un sombrero pintado a mano?",
     answer:
-      "El precio depende del diseño que elijas (desde uno sencillo de una flor hasta uno envolvente con varias). Escríbenos por WhatsApp con el diseño que te gusta y te damos el valor al instante. El sombrero brisa blanco ya va incluido.",
+      "Los sombreros brisa pintados a mano cuestan desde $99.000 e incluyen el sombrero blanco. El precio final depende del diseño que elijas. Escríbenos por WhatsApp con el diseño que te gusta y te damos el valor al instante.",
     scope: "sombreros-brisa",
   },
   {

@@ -52,7 +52,6 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
     brand: { "@type": "Brand", name: BUSINESS.name },
     category: "Arte personalizado",
   };
-  // Custom, made-to-order items are priced by chat — omit price (don't fabricate a number).
   if (!p.priceByWhatsApp && p.sizes.length) {
     base.offers = {
       "@type": "AggregateOffer",
@@ -60,6 +59,22 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
       lowPrice: lowPrice(p),
       highPrice: highPrice(p),
       offerCount: p.sizes.length,
+      availability: "https://schema.org/InStock",
+      url,
+      seller: { "@type": "Organization", name: BUSINESS.name },
+    };
+  } else if (p.fromPrice > 0) {
+    // made-to-order item with a known "desde" price → a single Offer with lowPrice
+    base.offers = {
+      "@type": "Offer",
+      priceCurrency: "COP",
+      price: p.fromPrice,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "COP",
+        price: p.fromPrice,
+        valueAddedTaxIncluded: true,
+      },
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },

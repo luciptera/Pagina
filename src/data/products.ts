@@ -287,7 +287,7 @@ export const products: Product[] = [
     h1: "Sombreros brisa pintados a mano",
     tagline:
       "Sombreros brisa blancos pintados a mano con flores: el accesorio perfecto para la Feria de las Flores y para todo el año.",
-    fromPrice: 0,
+    fromPrice: 99000,
     priceByWhatsApp: true,
     seasonal: "Feria de las Flores",
     sizes: [],

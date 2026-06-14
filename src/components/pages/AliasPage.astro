@@ -82,7 +82,7 @@ const related = [
       <h1 class="font-head text-3xl font-bold md:text-4xl">{alias.h1}</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">{alias.lead}</p>
       <p class="mt-4 text-2xl font-bold">
-        {product.priceByWhatsApp ? "Precio por WhatsApp" : `Desde ${cop(product.fromPrice)}`}
+        {product.fromPrice > 0 ? `Desde ${cop(product.fromPrice)}` : "Precio por WhatsApp"}
       </p>
       <div class="mt-6">
         <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Pintado a mano · Envíos a toda Colombia" />

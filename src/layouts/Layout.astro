@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import { BUSINESS, OG_IMAGE } from "../consts";
+import { BUSINESS, OG_IMAGE, waLink } from "../consts";
 import { logoImg, faviconImg } from "../data/images";
 import StickyWhatsApp from "../components/StickyWhatsApp.astro";
 import JsonLd from "../components/JsonLd.astro";
@@ -37,6 +37,7 @@ const navLinks = [
   { href: "/como-encargar/", label: "Cómo encargar" },
   { href: "/preguntas-frecuentes/", label: "Preguntas" },
 ];
+const waHref = waLink("Hola Luciptera 🐾 quiero información sobre un arte personalizado");
 ---
 
 <!doctype html>
@@ -85,22 +86,56 @@ const navLinks = [
       >Saltar al contenido</a
     >
 
-    <header class="border-b border-[var(--color-cream-deep)] bg-[var(--color-cream)]/85 backdrop-blur sticky top-0 z-30">
-      <div class="container-base flex items-center justify-between gap-4 py-3">
+    <header class="sticky top-0 z-30 border-b border-[var(--color-cream-deep)] bg-[var(--color-cream)]/90 backdrop-blur">
+      <div class="container-base flex items-center justify-between gap-4 py-2.5">
         <a href="/" class="flex items-center" aria-label="Luciptera — inicio">
           <Image
             src={logoImg}
             alt="Luciptera — Arte que ilumina recuerdos"
-            height={48}
-            width={Math.round((logoImg.width / logoImg.height) * 48)}
+            height={52}
+            width={Math.round((logoImg.width / logoImg.height) * 52)}
             loading="eager"
-            class="h-12 w-auto"
+            class="h-12 w-auto md:h-[52px]"
           />
         </a>
-        <nav aria-label="Principal" class="hidden gap-6 text-sm font-semibold md:flex">
+
+        <!-- desktop nav -->
+        <nav aria-label="Principal" class="hidden items-center gap-6 text-sm font-semibold md:flex">
           {navLinks.map((l) => <a href={l.href} class="hover:text-[var(--color-gold-deep)]">{l.label}</a>)}
+          <a href={waHref} target="_blank" rel="noopener" class="btn-whatsapp !px-4 !py-2 text-sm">WhatsApp</a>
         </nav>
+
+        <!-- mobile hamburger -->
+        <button
+          id="navToggle"
+          type="button"
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-cream-deep)]"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <svg id="navIconOpen" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="navIconClose" viewBox="0 0 24 24" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
+
+      <!-- mobile panel -->
+      <nav
+        id="mobileNav"
+        aria-label="Principal (móvil)"
+        class="hidden border-t border-[var(--color-cream-deep)] bg-[var(--color-cream)] md:hidden"
+      >
+        <ul class="container-base flex flex-col py-2 text-base font-semibold">
+          {navLinks.map((l) => (
+            <li>
+              <a href={l.href} class="block py-2.5 hover:text-[var(--color-gold-deep)]">{l.label}</a>
+            </li>
+          ))}
+          <li class="py-2">
+            <a href={waHref} target="_blank" rel="noopener" class="btn-whatsapp w-full justify-center">Escríbenos por WhatsApp</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main id="contenido">
@@ -138,5 +173,22 @@ const navLinks = [
     </footer>
 
     <StickyWhatsApp />
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById("navToggle");
+        var panel = document.getElementById("mobileNav");
+        var iOpen = document.getElementById("navIconOpen");
+        var iClose = document.getElementById("navIconClose");
+        if (!btn || !panel) return;
+        btn.addEventListener("click", function () {
+          var open = panel.classList.toggle("hidden") === false;
+          btn.setAttribute("aria-expanded", String(open));
+          btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+          if (iOpen) iOpen.classList.toggle("hidden", open);
+          if (iClose) iClose.classList.toggle("hidden", !open);
+        });
+      })();
+    </script>
   </body>
 </html>

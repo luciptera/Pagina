@@ -29,7 +29,7 @@ const img = heroImage(product.slug);
   <div class="p-4">
     <h3 class="font-head text-base font-bold leading-snug">{product.shortName}</h3>
     <p class="mt-1 text-sm text-[var(--color-ink-soft)]">
-      {product.priceByWhatsApp ? "Precio por WhatsApp" : `Desde ${cop(product.fromPrice)}`}
+      {product.fromPrice > 0 ? `Desde ${cop(product.fromPrice)}` : "Precio por WhatsApp"}
     </p>
   </div>
 </a>

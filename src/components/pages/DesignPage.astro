@@ -12,6 +12,7 @@ import { hatDesigns, FERIA } from "../../data/feria";
 import { getProduct } from "../../data/products";
 import { designImages, designHero } from "../../data/images";
 import { faqsForProduct } from "../../data/faqs";
+import { cop } from "../../consts";
 import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
 
 interface Props {
@@ -84,9 +85,9 @@ const otherDesigns = hatDesigns
           <span class="rounded-full bg-[var(--color-cream-deep)] px-3 py-1 text-sm">{f}</span>
         ))}
       </p>
-      <p class="mt-4 text-xl font-bold">Precio por WhatsApp</p>
+      <p class="mt-4 text-xl font-bold">Desde {cop(product.fromPrice)}</p>
       <p class="text-sm text-[var(--color-ink-soft)]">
-        Sobre sombrero brisa blanco · Pintado 100% a mano · Mínimo {product.prepDays} días
+        El precio final depende del diseño. Sobre sombrero brisa blanco · Pintado 100% a mano · Mínimo {product.prepDays} días
       </p>
       <div class="mt-5">
         <WhatsAppCTA

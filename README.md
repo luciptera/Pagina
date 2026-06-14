@@ -100,8 +100,11 @@ Línea de **sombreros brisa pintados a mano** + páginas para dominar las búsqu
 - Para cambiar las fechas en años siguientes: edita `FERIA` en `src/data/feria.ts`.
 
 ## TODOs antes de lanzar
-- [ ] Confirmar el número de WhatsApp (`src/consts.ts`)
-- [ ] Definir el dominio final (`astro.config.mjs` → `SITE`)
+- [x] Dominio final: `https://luciptera.art` (`astro.config.mjs`)
+- [x] Logo nuevo (transparente) + favicon en `src/assets/brand/`
+- [x] Sombreros: 5 diseños con fotos reales · precio "Desde $99.000"
+- [ ] Confirmar el número de WhatsApp (`src/consts.ts` → `573022651859`)
 - [ ] Reemplazar testimonios de ejemplo por reales (`src/data/testimonials.ts`)
-- [ ] Revisar la asignación foto → producto y reordenar si se desea
-- [ ] Agregar fotos/mockups de los sombreros en `src/assets/sombreros/` y confirmar precios
+- [ ] **Google Business Profile:** cuando esté verificado, agregar el enlace en
+  `src/consts.ts` (campo nuevo) y enlazarlo en el footer + `LocalBusiness` `sameAs`/`hasMap`.
+- [ ] Fotos de más diseños de sombreros (silleta) en `src/assets/sombreros/<slug>/`

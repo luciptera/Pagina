@@ -10,9 +10,12 @@ const { product } = Astro.props;
   product.priceByWhatsApp ? (
     <div class="card p-5">
       <h2 class="font-head text-xl font-bold">Precio</h2>
+      {product.fromPrice > 0 && (
+        <p class="mt-2 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+      )}
       <p class="mt-2 text-[15px]">
         Cada {product.shortName.toLowerCase()} se pinta a mano sobre pedido, por eso el precio
-        depende del diseño que elijas. Escríbenos por WhatsApp y te damos el valor al instante.
+        final depende del diseño que elijas. Escríbenos por WhatsApp y te damos el valor al instante.
       </p>
       {product.extras.length > 0 && (
         <ul class="mt-4 space-y-1 text-sm">

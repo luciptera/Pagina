@@ -5,11 +5,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# @astrojs/sitemap emits sitemap-index.xml; serve it at the conventional
-# /sitemap.xml too (200 rewrite, so tools that default to /sitemap.xml work).
+# @astrojs/sitemap emits a sitemap index + sitemap-0.xml (the flat list of all
+# URLs). Serve the flat list at the conventional /sitemap.xml so it directly
+# shows every page (the index only lists the sub-sitemap, which looks empty).
 [[redirects]]
   from = "/sitemap.xml"
-  to = "/sitemap-index.xml"
+  to = "/sitemap-0.xml"
   status = 200
 
 # Astro emits clean directory-style URLs with trailing slashes.

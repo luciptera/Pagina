@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# @astrojs/sitemap emits sitemap-index.xml; serve it at the conventional
+# /sitemap.xml too (200 rewrite, so tools that default to /sitemap.xml work).
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 200
+
 # Astro emits clean directory-style URLs with trailing slashes.
 [[headers]]
   for = "/_astro/*"

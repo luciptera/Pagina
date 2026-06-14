@@ -26,7 +26,11 @@ export interface Product {
   prepDays: number;
   /** deposit note, if any */
   abono?: string;
-  material: "lienzo" | "madera" | "resina";
+  material: "lienzo" | "madera" | "resina" | "paja";
+  /** custom items priced by chat instead of a fixed table */
+  priceByWhatsApp?: boolean;
+  /** seasonal campaign label, e.g. "Feria de las Flores" */
+  seasonal?: string;
   /** persona segments this product serves (for internal linking) */
   personaTags: string[];
   /** vernacular phrasings → drive alias landing pages */
@@ -276,6 +280,36 @@ export const products: Product[] = [
     relatedSlugs: ["llaveros-de-mascotas", "placas-con-nombre", "retratos-anime"],
     inCityMatrix: false,
   },
+  {
+    slug: "sombreros-brisa",
+    name: "Sombreros brisa pintados a mano",
+    shortName: "Sombreros brisa pintados",
+    h1: "Sombreros brisa pintados a mano",
+    tagline:
+      "Sombreros brisa blancos pintados a mano con flores: el accesorio perfecto para la Feria de las Flores y para todo el año.",
+    fromPrice: 0,
+    priceByWhatsApp: true,
+    seasonal: "Feria de las Flores",
+    sizes: [],
+    extras: [
+      "Cada sombrero se pinta a mano sobre sombrero brisa blanco",
+      "Eliges el diseño y las flores que más te gusten",
+    ],
+    prepDays: 8,
+    material: "paja",
+    personaTags: ["decoracion", "regalo", "feria"],
+    aliases: [
+      "sombrero-brisa-pintado",
+      "sombrero-aguadeno-pintado-a-mano",
+      "sombrero-blanco-para-la-feria-de-las-flores",
+      "sombrero-con-flores-pintadas",
+      "sombrero-antioqueno-personalizado",
+      "sombrero-pintado-a-mano",
+    ],
+    waContext: "un sombrero brisa pintado para la Feria de las Flores",
+    relatedSlugs: ["paisajes-en-lienzo", "retratos-de-mascotas", "cuadros-en-madera"],
+    inCityMatrix: false,
+  },
 ];
 
 export const productMap: Record<string, Product> = Object.fromEntries(
@@ -288,9 +322,11 @@ export function getProduct(slug: string): Product | undefined {
 
 /** Lowest price across a product's sizes (for AggregateOffer lowPrice). */
 export function lowPrice(p: Product): number {
+  if (!p.sizes.length) return p.fromPrice;
   return Math.min(...p.sizes.map((s) => s.priceCOP));
 }
 export function highPrice(p: Product): number {
+  if (!p.sizes.length) return p.fromPrice;
   return Math.max(...p.sizes.map((s) => s.priceCOP));
 }
 

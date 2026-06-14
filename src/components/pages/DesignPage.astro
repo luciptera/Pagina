@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import TrustBlock from "../TrustBlock.astro";
+import FaqList from "../FaqList.astro";
+import Gallery from "../Gallery.astro";
+import RelatedLinks from "../RelatedLinks.astro";
+import type { HatDesign } from "../../data/feria";
+import { hatDesigns, FERIA } from "../../data/feria";
+import { getProduct } from "../../data/products";
+import { designImages, designHero } from "../../data/images";
+import { faqsForProduct } from "../../data/faqs";
+import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
+
+interface Props {
+  design: HatDesign;
+}
+const { design } = Astro.props;
+const product = getProduct("sombreros-brisa")!;
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const hero = designHero(design.slug);
+const heroUrl = hero ? new URL(hero.src, Astro.site).href : undefined;
+const gallery = designImages(design.slug).slice(1);
+const faqs = faqsForProduct("sombreros-brisa");
+
+const title = `Sombrero "${design.name}" pintado a mano | Luciptera`;
+const description = `${design.description} Pintado a mano sobre sombrero brisa para la Feria de las Flores. Precio por WhatsApp.`;
+const waMsg = `Hola Luciptera 🌸 quiero un sombrero pintado diseño "${design.name}" para la Feria de las Flores`;
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Sombreros Feria de las Flores", href: "/sombreros-para-la-feria-de-las-flores/" },
+  { name: design.name, href: `/${design.slug}/` },
+];
+
+const jsonLd = [
+  productSchema(product, url, heroUrl),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+
+const otherDesigns = hatDesigns
+  .filter((d) => d.slug !== design.slug)
+  .map((d) => ({ href: `/${d.slug}/`, label: d.name }));
+---
+
+<Layout title={title} description={description} ogImage={hero?.src} ogType="product" jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      {
+        hero ? (
+          <Image
+            src={hero}
+            alt={`Sombrero brisa pintado a mano, diseño ${design.name}, con ${design.flowers.slice(0, 2).join(" y ")} — Luciptera`}
+            width={720}
+            height={720}
+            widths={[400, 720]}
+            sizes="(max-width: 768px) 100vw, 480px"
+            class="card aspect-square w-full object-cover"
+            loading="eager"
+          />
+        ) : (
+          <div class="card flex aspect-square w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/40 p-6 text-center">
+            <span class="text-6xl">{design.emoji}</span>
+            <p class="wordmark mt-3 text-3xl">{design.name}</p>
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Diseño de referencia · se pinta a mano</p>
+          </div>
+        )
+      }
+    </div>
+    <div class="flex flex-col justify-center">
+      <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+        Feria de las Flores · Sombrero brisa
+      </p>
+      <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">{design.name}</h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">{design.description}</p>
+      <p class="mt-4 flex flex-wrap gap-2">
+        {design.flowers.map((f) => (
+          <span class="rounded-full bg-[var(--color-cream-deep)] px-3 py-1 text-sm">{f}</span>
+        ))}
+      </p>
+      <p class="mt-4 text-xl font-bold">Precio por WhatsApp</p>
+      <p class="text-sm text-[var(--color-ink-soft)]">
+        Sobre sombrero brisa blanco · Pintado 100% a mano · Mínimo {product.prepDays} días
+      </p>
+      <div class="mt-5">
+        <WhatsAppCTA
+          message={waMsg}
+          label="Pedir este diseño por WhatsApp"
+          note={`Pídelo antes del ${FERIA.orderByLabel} para lucirlo en la feria.`}
+        />
+      </div>
+    </div>
+  </section>
+
+  {
+    gallery.length > 0 && (
+      <section class="container-base py-6">
+        <h2 class="font-head text-2xl font-bold">Más fotos de este diseño</h2>
+        <div class="mt-4">
+          <Gallery images={gallery} alt={`Sombrero ${design.name}`} limit={6} />
+        </div>
+      </section>
+    )
+  }
+
+  <section class="container-base">
+    <p class="rounded-xl bg-white/60 p-4 text-sm text-[var(--color-ink-soft)]">
+      ℹ️ Las imágenes son diseños de referencia. Cada sombrero se pinta a mano sobre pedido, por lo
+      que pueden existir pequeñas variaciones que hacen tu pieza única.
+    </p>
+  </section>
+
+  <TrustBlock />
+  <FaqList faqs={faqs} title="Preguntas sobre los sombreros de la feria" />
+
+  <RelatedLinks
+    items={[
+      { href: "/sombreros-para-la-feria-de-las-flores/", label: "Ver todos los diseños de la feria" },
+      ...otherDesigns,
+    ]}
+    title="Otros diseños"
+  />
+</Layout>

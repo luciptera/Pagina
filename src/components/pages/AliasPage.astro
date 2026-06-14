@@ -58,7 +58,7 @@ const related = [
   <section class="container-base grid gap-8 py-8 md:grid-cols-2">
     <div>
       {
-        hero && (
+        hero ? (
           <Image
             src={hero}
             alt={`${alias.phrase} — pintado a mano por Luciptera`}
@@ -69,13 +69,21 @@ const related = [
             class="card aspect-[4/5] w-full object-cover"
             loading="eager"
           />
+        ) : (
+          <div class="card flex aspect-[4/5] w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/30 p-6 text-center">
+            <span class="text-5xl">🌸</span>
+            <p class="wordmark mt-3 text-3xl">{product.shortName}</p>
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Pintado 100% a mano</p>
+          </div>
         )
       }
     </div>
     <div class="flex flex-col justify-center">
       <h1 class="font-head text-3xl font-bold md:text-4xl">{alias.h1}</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">{alias.lead}</p>
-      <p class="mt-4 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+      <p class="mt-4 text-2xl font-bold">
+        {product.priceByWhatsApp ? "Precio por WhatsApp" : `Desde ${cop(product.fromPrice)}`}
+      </p>
       <div class="mt-6">
         <WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Pintado a mano · Envíos a toda Colombia" />
       </div>

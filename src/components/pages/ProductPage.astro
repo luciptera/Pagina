@@ -35,7 +35,8 @@ const related = product.relatedSlugs
   .map((p) => ({ href: `/${p.slug}/`, label: p.shortName }));
 
 const title = `${product.name} | Luciptera`;
-const description = `${product.tagline} Desde ${cop(product.fromPrice)}. Pintado a mano en Medellín, envíos a toda Colombia.`;
+const pricePhrase = product.priceByWhatsApp ? "Precio por WhatsApp." : `Desde ${cop(product.fromPrice)}.`;
+const description = `${product.tagline} ${pricePhrase} Pintado a mano en Medellín, envíos a toda Colombia.`;
 
 const waMsg = `Hola Luciptera 🐾 vi la página de "${product.shortName}" y quiero pedir info`;
 
@@ -64,7 +65,7 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
   <section class="container-base grid gap-8 py-8 md:grid-cols-2">
     <div>
       {
-        hero && (
+        hero ? (
           <Image
             src={hero}
             alt={`${product.name}, pintado a mano por Luciptera`}
@@ -75,15 +76,27 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
             class="card aspect-[4/5] w-full object-cover"
             loading="eager"
           />
+        ) : (
+          <div class="card flex aspect-[4/5] w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/30 text-center p-6">
+            <span class="text-5xl">🌸</span>
+            <p class="wordmark mt-3 text-3xl">{product.shortName}</p>
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Pintado 100% a mano</p>
+          </div>
         )
       }
     </div>
     <div class="flex flex-col justify-center">
       <h1 class="font-head text-3xl font-bold md:text-4xl">{product.h1}</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">{product.tagline}</p>
-      <p class="mt-4 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+      {
+        product.priceByWhatsApp ? (
+          <p class="mt-4 text-2xl font-bold">Precio por WhatsApp</p>
+        ) : (
+          <p class="mt-4 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
+        )
+      }
       <p class="text-sm text-[var(--color-ink-soft)]">
-        {product.material === "lienzo" ? "Sobre lienzo" : product.material === "madera" ? "Sobre madera con resina" : "En resina"} ·
+        {product.material === "lienzo" ? "Sobre lienzo" : product.material === "madera" ? "Sobre madera con resina" : product.material === "paja" ? "Sobre sombrero brisa blanco" : "En resina"} ·
         Pintado 100% a mano · Mínimo {product.prepDays} días
       </p>
       <div class="mt-6">
@@ -99,13 +112,35 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
   <section class="container-base grid gap-8 py-6 md:grid-cols-2">
     <PriceTable product={product} />
     <div>
-      <h2 class="font-head text-2xl font-bold">Ejemplos reales</h2>
-      <p class="mt-1 text-sm text-[var(--color-ink-soft)]">
-        Algunas piezas pintadas a mano por Luciptera.
-      </p>
-      <div class="mt-4">
-        <Gallery images={images.slice(1)} alt={product.name} limit={6} />
-      </div>
+      {
+        images.length > 1 ? (
+          <>
+            <h2 class="font-head text-2xl font-bold">Ejemplos reales</h2>
+            <p class="mt-1 text-sm text-[var(--color-ink-soft)]">
+              Algunas piezas pintadas a mano por Luciptera.
+            </p>
+            <div class="mt-4">
+              <Gallery images={images.slice(1)} alt={product.name} limit={6} />
+            </div>
+          </>
+        ) : (
+          <div class="card h-full p-6">
+            <h2 class="font-head text-2xl font-bold">Diseños a tu gusto</h2>
+            <p class="mt-2 text-[15px]">
+              Cada sombrero se pinta a mano sobre pedido. Elegimos juntos el diseño y las
+              flores que más te gusten. Escríbenos por WhatsApp y te mostramos opciones.
+            </p>
+            {product.seasonal === "Feria de las Flores" && (
+              <a href="/sombreros-para-la-feria-de-las-flores/" class="mt-4 inline-block underline">
+                Ver diseños para la Feria de las Flores →
+              </a>
+            )}
+            <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
+              Las imágenes que compartimos son diseños de referencia; tu sombrero se pinta a mano para ti.
+            </p>
+          </div>
+        )
+      }
     </div>
   </section>
 

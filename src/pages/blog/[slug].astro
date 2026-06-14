@@ -80,5 +80,8 @@ const waMsg = `Hola Luciptera 🐾 leí "${article.h1}" y quiero pedir info`;
     </div>
   </article>
 
+  {article.extraLinks && article.extraLinks.length > 0 && (
+    <RelatedLinks items={article.extraLinks} title="Te puede interesar" />
+  )}
   <RelatedLinks items={related} title="Productos relacionados" />
 </Layout>

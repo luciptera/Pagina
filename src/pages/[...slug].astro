@@ -5,12 +5,14 @@ import AliasPage from "../components/pages/AliasPage.astro";
 import IntentPage from "../components/pages/IntentPage.astro";
 import OccasionPage from "../components/pages/OccasionPage.astro";
 import CityPage from "../components/pages/CityPage.astro";
+import DesignPage from "../components/pages/DesignPage.astro";
 
 import { products, cityMatrixProducts } from "../data/products";
 import { aliases } from "../data/aliases";
 import { intents } from "../data/intents";
 import { occasions } from "../data/occasions";
 import { cities } from "../data/cities";
+import { hatDesigns } from "../data/feria";
 import { meetsContentFloor } from "../data/variations";
 
 export const getStaticPaths = (() => {
@@ -34,6 +36,11 @@ export const getStaticPaths = (() => {
   // 4) occasion pages
   for (const occasion of occasions) {
     paths.push({ params: { slug: occasion.slug }, props: { type: "occasion", occasion } });
+  }
+
+  // 4b) sombrero design pages (Feria de las Flores)
+  for (const design of hatDesigns) {
+    paths.push({ params: { slug: design.slug }, props: { type: "design", design } });
   }
 
   // 5) focused city × product matrix (quality-gated)
@@ -62,4 +69,5 @@ const { type } = props;
 {type === "alias" && <AliasPage alias={props.alias} />}
 {type === "intent" && <IntentPage intent={props.intent} />}
 {type === "occasion" && <OccasionPage occasion={props.occasion} />}
+{type === "design" && <DesignPage design={props.design} />}
 {type === "city" && <CityPage product={props.product} city={props.city} otherCityLinks={props.otherCityLinks} />}

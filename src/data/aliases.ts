@@ -198,6 +198,36 @@ const ALIAS_COPY: Record<string, { phrase: string; h1: string; lead: string }> =
     h1: "Funda de celular con la foto de tu mascota",
     lead: "Convierte la foto de tu mascota en una funda pintada a mano y sellada en resina. Un accesorio único y personal.",
   },
+  "sombrero-brisa-pintado": {
+    phrase: "sombrero brisa pintado",
+    h1: "Sombrero brisa pintado a mano con flores",
+    lead: "Sombreros brisa blancos pintados a mano con flores antioqueñas. El accesorio ideal para la Feria de las Flores y para lucir todo el año. Precio por WhatsApp.",
+  },
+  "sombrero-aguadeno-pintado-a-mano": {
+    phrase: "sombrero aguadeño pintado a mano",
+    h1: "Sombrero aguadeño pintado a mano",
+    lead: "Pintamos a mano sombreros tipo aguadeño/brisa con diseños florales únicos. Perfectos para la Feria de las Flores en Medellín.",
+  },
+  "sombrero-blanco-para-la-feria-de-las-flores": {
+    phrase: "sombrero blanco para la feria de las flores",
+    h1: "Sombrero blanco pintado para la Feria de las Flores",
+    lead: "El clásico sombrero brisa blanco de la feria, pintado a mano con flores representativas de Antioquia. Pídelo con tiempo para lucirlo en agosto.",
+  },
+  "sombrero-con-flores-pintadas": {
+    phrase: "sombrero con flores pintadas",
+    h1: "Sombrero con flores pintadas a mano",
+    lead: "Sombreros pintados a mano con orquídeas, girasoles, hortensias y más. Cada diseño es único y se pinta para ti.",
+  },
+  "sombrero-antioqueno-personalizado": {
+    phrase: "sombrero antioqueño personalizado",
+    h1: "Sombrero antioqueño personalizado, pintado a mano",
+    lead: "Un sombrero antioqueño pintado a mano con el diseño que elijas: silletas, flores nativas, mariposas. Ideal para la Feria de las Flores.",
+  },
+  "sombrero-pintado-a-mano": {
+    phrase: "sombrero pintado a mano",
+    h1: "Sombreros pintados a mano",
+    lead: "Sombreros brisa blancos convertidos en arte: pintados a mano con flores y diseños únicos. Precio por WhatsApp, envíos a toda Colombia.",
+  },
 };
 
 export function buildAliases(): Alias[] {

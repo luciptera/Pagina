@@ -37,6 +37,30 @@ export function heroImage(slug: string): ImageMetadata | undefined {
   return productImages(slug)[0];
 }
 
+/* --- Sombrero design photos / mockups (added by the owner over time) --- */
+const sombreroModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/sombreros/*/*.{jpg,jpeg,png,webp}",
+  { eager: true },
+);
+const bySombrero: Record<string, ImageMetadata[]> = {};
+for (const [path, mod] of Object.entries(sombreroModules)) {
+  const m = path.match(/sombreros\/([^/]+)\/([^/]+)$/);
+  if (!m) continue;
+  (bySombrero[m[1]] ??= []).push(mod.default);
+}
+
+/** Photos/mockups for a hat design slug (empty until the owner adds files). */
+export function designImages(slug: string): ImageMetadata[] {
+  return bySombrero[slug] ?? [];
+}
+export function designHero(slug: string): ImageMetadata | undefined {
+  return designImages(slug)[0];
+}
+/** Any sombrero imagery at all (to decide whether to show galleries vs placeholders). */
+export function hasSombreroImages(): boolean {
+  return Object.keys(bySombrero).length > 0;
+}
+
 /** Brand assets. */
 export { default as logoImg } from "../assets/brand/logo.png";
 export { default as faviconImg } from "../assets/brand/favicon.png";

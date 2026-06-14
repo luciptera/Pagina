@@ -22,6 +22,8 @@ export interface Article {
   relatedProducts: string[];
   /** product slug to use for the hero image */
   heroProduct: string;
+  /** optional extra internal links (e.g. to the Feria hub / design pages) */
+  extraLinks?: { href: string; label: string }[];
 }
 
 export const articles: Article[] = [
@@ -208,6 +210,154 @@ export const articles: Article[] = [
     ],
     relatedProducts: ["retratos-de-mascotas", "cuadros-en-madera"],
     heroProduct: "cuadros-en-madera",
+  },
+
+  // ---- Feria de las Flores AEO cluster ----
+  {
+    slug: "cuando-es-la-feria-de-las-flores",
+    title: "¿Cuándo es la Feria de las Flores 2026 en Medellín?",
+    h1: "¿Cuándo es la Feria de las Flores 2026?",
+    description:
+      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto. Te contamos las fechas, el Desfile de Silleteros y cómo prepararte.",
+    intro:
+      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto de 2026, durante diez días. Su acto central y más emblemático es el Desfile de Silleteros.",
+    sections: [
+      {
+        q: "¿Qué días es la Feria de las Flores 2026?",
+        a: [
+          "La feria va del 31 de julio al 9 de agosto de 2026, son 10 días de programación.",
+          "Cada año la fecha varía un poco, pero siempre se realiza a comienzos de agosto en Medellín.",
+        ],
+      },
+      {
+        q: "¿Cuál es el evento principal de la feria?",
+        a: [
+          "El evento central es el Desfile de Silleteros, que normalmente se realiza el último día de la feria.",
+          "Los silleteros de Santa Elena cargan enormes arreglos florales (silletas) por las calles de Medellín; es Patrimonio Cultural de la Nación.",
+        ],
+      },
+      {
+        q: "¿Cómo me preparo para la Feria de las Flores?",
+        a: [
+          "Lleva ropa fresca, calzado cómodo, protección solar y un sombrero: el clima de Medellín y el sol del desfile lo piden.",
+          "Un sombrero brisa pintado a mano con flores es el accesorio perfecto para lucir en la feria. Pídelo con tiempo porque se pinta sobre pedido.",
+        ],
+      },
+    ],
+    relatedProducts: ["sombreros-brisa"],
+    heroProduct: "sombreros-brisa",
+    extraLinks: [
+      { href: "/sombreros-para-la-feria-de-las-flores/", label: "Sombreros pintados para la feria" },
+      { href: "/blog/que-llevar-a-la-feria-de-las-flores/", label: "Qué llevar a la feria" },
+    ],
+  },
+  {
+    slug: "que-llevar-a-la-feria-de-las-flores",
+    title: "Qué llevar (y qué ponerse) a la Feria de las Flores",
+    h1: "Qué llevar a la Feria de las Flores",
+    description:
+      "Para la Feria de las Flores lleva ropa fresca, calzado cómodo, protección solar y un sombrero brisa. Guía práctica de qué ponerse para disfrutar la feria de Medellín.",
+    intro:
+      "Para la Feria de las Flores lo ideal es ropa fresca, calzado cómodo, protección solar y un sombrero. El sombrero brisa blanco —mejor aún si va pintado a mano con flores— es el accesorio más representativo.",
+    sections: [
+      {
+        q: "¿Qué ropa me pongo para la feria?",
+        a: [
+          "Ropa fresca y cómoda, en capas ligeras, porque el clima de Medellín cambia entre el sol y la tarde.",
+          "Calzado cómodo es clave: vas a caminar y a estar de pie en desfiles y eventos.",
+        ],
+      },
+      {
+        q: "¿Por qué usar sombrero en la Feria de las Flores?",
+        a: [
+          "El sombrero te protege del sol durante los desfiles al aire libre y, además, es parte del atuendo tradicional paisa.",
+          "Un sombrero brisa pintado a mano con flores te hace lucir único y muy en el espíritu de la feria.",
+        ],
+      },
+      {
+        q: "¿Qué sombrero es el típico de la feria?",
+        a: [
+          "El típico es el sombrero brisa: blanco, de fibra fina, usado tradicionalmente en Antioquia.",
+          "Nosotros lo pintamos a mano con orquídeas, girasoles, hortensias o una silleta para que sea una pieza única.",
+        ],
+      },
+    ],
+    relatedProducts: ["sombreros-brisa"],
+    heroProduct: "sombreros-brisa",
+    extraLinks: [
+      { href: "/sombreros-para-la-feria-de-las-flores/", label: "Ver diseños de sombreros" },
+      { href: "/sombrero-silleta-tradicional/", label: "Sombrero La Silleta Tradicional" },
+    ],
+  },
+  {
+    slug: "flores-tipicas-de-la-feria-de-las-flores",
+    title: "Flores típicas de la Feria de las Flores de Medellín",
+    h1: "Las flores típicas de la Feria de las Flores",
+    description:
+      "Orquídea cattleya, hortensias, girasoles, claveles, crisantemos y pompones son las flores típicas de la Feria de las Flores. Te contamos cuáles son y qué representan.",
+    intro:
+      "Las flores más típicas de la Feria de las Flores son la orquídea cattleya (flor nacional), las hortensias de Santa Elena, los girasoles, los claveles, los crisantemos y los pompones. Son las que llenan las silletas y, en Luciptera, las que pintamos en los sombreros.",
+    sections: [
+      {
+        q: "¿Cuál es la flor nacional de Colombia?",
+        a: [
+          "La flor nacional de Colombia es la orquídea Cattleya trianae, conocida como la 'Flor de Mayo'.",
+          "Por su elegancia y color morado es una de las favoritas para decorar y, en nuestro caso, para el diseño 'La Reina de la Feria'.",
+        ],
+      },
+      {
+        q: "¿Qué flores se usan en las silletas?",
+        a: [
+          "Las silletas se arman con claveles, crisantemos, gerberas, girasoles, hortensias y pompones, entre muchas otras.",
+          "Estas mismas flores inspiran nuestros diseños de sombreros pintados a mano.",
+        ],
+      },
+      {
+        q: "¿De dónde vienen las flores de la feria?",
+        a: [
+          "Muchas provienen del corregimiento de Santa Elena, cuna de los silleteros, donde las fincas cultivan flores desde hace generaciones.",
+          "Las hortensias azules y rosadas de Santa Elena son especialmente emblemáticas.",
+        ],
+      },
+    ],
+    relatedProducts: ["sombreros-brisa"],
+    heroProduct: "sombreros-brisa",
+    extraLinks: [
+      { href: "/sombrero-orquidea-cattleya/", label: "Sombrero La Reina de la Feria (orquídea)" },
+      { href: "/sombrero-hortensias/", label: "Sombrero Hortensias de Santa Elena" },
+      { href: "/sombrero-girasoles/", label: "Sombrero Girasoles" },
+    ],
+  },
+  {
+    slug: "que-es-una-silleta",
+    title: "¿Qué es una silleta y qué significa en la feria?",
+    h1: "¿Qué es una silleta?",
+    description:
+      "Una silleta es la estructura de madera donde los silleteros de Santa Elena cargan arreglos florales en el desfile de la Feria de las Flores. Te contamos su historia y significado.",
+    intro:
+      "Una silleta es una estructura de madera que los silleteros cargan sobre la espalda para transportar grandes arreglos de flores. En la Feria de las Flores, el Desfile de Silleteros es el momento más esperado y representa la tradición campesina de Santa Elena.",
+    sections: [
+      {
+        q: "¿Por qué se llama silleta?",
+        a: [
+          "Se llama silleta porque originalmente era una silla de madera usada para cargar personas y mercancías por las montañas de Santa Elena.",
+          "Con el tiempo se usó para llevar flores al mercado, y de ahí nació la tradición de adornarlas para el desfile.",
+        ],
+      },
+      {
+        q: "¿Qué tipos de silletas existen?",
+        a: [
+          "Hay varios tipos: la tradicional, la monumental, la artística, la comercial y la emblemática, según su tamaño y diseño.",
+          "Nuestro diseño 'La Silleta Tradicional' se inspira en estas obras florales, en versión pintada a mano sobre el sombrero.",
+        ],
+      },
+    ],
+    relatedProducts: ["sombreros-brisa"],
+    heroProduct: "sombreros-brisa",
+    extraLinks: [
+      { href: "/sombrero-silleta-tradicional/", label: "Sombrero La Silleta Tradicional" },
+      { href: "/sombreros-para-la-feria-de-las-flores/", label: "Sombreros para la feria" },
+    ],
   },
 ];
 

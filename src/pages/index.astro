@@ -13,6 +13,7 @@ import { testimonials } from "../data/testimonials";
 import { heroImage, logoImg } from "../data/images";
 import { BUSINESS } from "../consts";
 import { localBusiness, faqPage } from "../lib/schema";
+import { FERIA } from "../data/feria";
 
 const heroPhoto = heroImage("retratos-de-mascotas");
 const logoUrl = new URL(logoImg.src, Astro.site).href;
@@ -71,6 +72,27 @@ const infoLinks = [
         )
       }
     </div>
+  </section>
+
+  <!-- BANNER FERIA DE LAS FLORES (seasonal) -->
+  <section class="container-base py-4">
+    <a
+      href="/sombreros-para-la-feria-de-las-flores/"
+      class="card flex flex-col items-start gap-3 bg-gradient-to-r from-[var(--color-gold)]/20 to-[var(--color-glow)]/20 p-6 transition-transform hover:-translate-y-1 md:flex-row md:items-center md:justify-between"
+    >
+      <div>
+        <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+          🌸 Feria de las Flores · {FERIA.rangeLabel}
+        </p>
+        <h2 class="mt-1 font-head text-2xl font-bold">
+          Sombreros brisa pintados a mano para la feria
+        </h2>
+        <p class="mt-1 text-[var(--color-ink-soft)]">
+          Diseños únicos con flores antioqueñas. Pídelo antes del {FERIA.orderByLabel}.
+        </p>
+      </div>
+      <span class="btn-whatsapp shrink-0">Ver sombreros →</span>
+    </a>
   </section>
 
   <!-- CATÁLOGO -->

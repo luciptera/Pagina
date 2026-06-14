@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { products, lowPrice } from "../data/products";
 import { BUSINESS, WHATSAPP_NUMBER, cop } from "../consts";
 import { articles } from "../data/articles";
+import { FERIA, hatDesigns } from "../data/feria";
 
 export const GET: APIRoute = ({ site }) => {
   const base = site?.href.replace(/\/$/, "") ?? "";
@@ -24,7 +25,18 @@ export const GET: APIRoute = ({ site }) => {
   lines.push("");
   lines.push("## Productos (precios desde, en COP, no incluyen envío)");
   for (const p of products) {
-    lines.push(`- ${p.name}: desde ${cop(lowPrice(p))} — ${base}/${p.slug}/ (mín. ${p.prepDays} días)`);
+    const price = p.priceByWhatsApp ? "precio por WhatsApp" : `desde ${cop(lowPrice(p))}`;
+    lines.push(`- ${p.name}: ${price} — ${base}/${p.slug}/ (mín. ${p.prepDays} días)`);
+  }
+  lines.push("");
+  lines.push("## Feria de las Flores (Medellín)");
+  lines.push(`- Fechas ${FERIA.year}: ${FERIA.rangeLabel}. Acto central: Desfile de Silleteros.`);
+  lines.push(`- Luciptera pinta a mano sombreros brisa blancos con flores antioqueñas para la feria.`);
+  lines.push(`- Precio por WhatsApp (depende del diseño). Pedir antes del ${FERIA.orderByLabel}.`);
+  lines.push(`- Página principal: ${base}/sombreros-para-la-feria-de-las-flores/`);
+  lines.push("- Diseños:");
+  for (const d of hatDesigns) {
+    lines.push(`  - ${d.name} (${d.flowers.slice(0, 3).join(", ")}): ${base}/${d.slug}/`);
   }
   lines.push("");
   lines.push("## Cómo pedir");

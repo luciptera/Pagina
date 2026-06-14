@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FaqList from "../components/FaqList.astro";
+import RelatedLinks from "../components/RelatedLinks.astro";
+import { FERIA, hatDesigns, daysUntilFeria } from "../data/feria";
+import { getProduct } from "../data/products";
+import { designHero } from "../data/images";
+import { faqsForProduct } from "../data/faqs";
+import { productSchema, eventSchema, faqPage, breadcrumbList, serviceSchema } from "../lib/schema";
+
+const product = getProduct("sombreros-brisa")!;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const faqs = faqsForProduct("sombreros-brisa");
+const days = daysUntilFeria(new Date());
+
+const title = "Sombreros pintados a mano para la Feria de las Flores 2026 | Luciptera";
+const description = `Sombreros brisa blancos pintados a mano con flores antioqueñas para la Feria de las Flores (${FERIA.rangeLabel}). Diseños únicos: silleta, orquídea, girasoles. Domicilio en Medellín y envíos a toda Colombia. Precio por WhatsApp.`;
+const waMsg = "Hola Luciptera 🌸 quiero un sombrero pintado para la Feria de las Flores";
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Sombreros Feria de las Flores", href: "/sombreros-para-la-feria-de-las-flores/" },
+];
+
+const jsonLd = [
+  productSchema(product, url),
+  eventSchema({
+    name: "Feria de las Flores de Medellín 2026",
+    startDate: FERIA.startISO,
+    endDate: FERIA.endISO,
+    description:
+      "La Feria de las Flores es el evento cultural más importante de Medellín; su acto central es el Desfile de Silleteros.",
+    url,
+  }),
+  serviceSchema(
+    "Sombreros pintados a mano para la Feria de las Flores",
+    description,
+    url,
+  ),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+
+const infoLinks = [
+  { href: "/blog/cuando-es-la-feria-de-las-flores/", label: "¿Cuándo es la Feria de las Flores 2026?" },
+  { href: "/blog/que-llevar-a-la-feria-de-las-flores/", label: "Qué llevar a la feria" },
+  { href: "/blog/flores-tipicas-de-la-feria-de-las-flores/", label: "Flores típicas de la feria" },
+  { href: "/blog/que-es-una-silleta/", label: "¿Qué es una silleta?" },
+];
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd}>
+  <Breadcrumbs items={crumbs} />
+
+  <!-- HERO -->
+  <section class="container-base py-10">
+    <p class="font-head text-sm uppercase tracking-[0.25em] text-[var(--color-gold-deep)]">
+      Feria de las Flores · {FERIA.rangeLabel}
+    </p>
+    <h1 class="mt-3 font-head text-3xl font-bold leading-tight md:text-5xl">
+      Sombreros pintados a mano para la Feria de las Flores
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      El clásico sombrero brisa blanco, convertido en arte: lo pintamos a mano con las flores
+      más representativas de Antioquia para que brilles en la feria. Domicilio en Medellín y
+      envíos a toda Colombia.
+    </p>
+
+    <div class="mt-6 flex flex-wrap items-center gap-4">
+      <WhatsAppCTA message={waMsg} label="Pedir mi sombrero por WhatsApp" />
+      <p class="rounded-full bg-[var(--color-gold)]/15 px-4 py-2 text-sm font-semibold">
+        ⏳ Faltan <span id="feria-countdown">{days}</span> días para la feria
+      </p>
+    </div>
+
+    <p class="mt-4 inline-block rounded-lg bg-[var(--color-ink)]/5 px-4 py-2 text-sm">
+      📅 Pídelo <strong>antes del {FERIA.orderByLabel}</strong> para alcanzar a pintarlo y que llegue a tiempo.
+    </p>
+  </section>
+
+  <!-- DISEÑOS -->
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold md:text-3xl">Diseños para la feria</h2>
+    <p class="mt-1 text-[var(--color-ink-soft)]">
+      Elige uno de nuestros diseños o pide el tuyo. Cada sombrero se pinta a mano para ti.
+    </p>
+    <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+      {
+        hatDesigns.map((d) => {
+          const hero = designHero(d.slug);
+          return (
+            <a href={`/${d.slug}/`} class="card group block transition-transform hover:-translate-y-1">
+              {hero ? (
+                <Image
+                  src={hero}
+                  alt={`Sombrero ${d.name} — ${d.flowers.slice(0, 2).join(", ")}`}
+                  width={420}
+                  height={420}
+                  widths={[260, 420]}
+                  sizes="(max-width: 640px) 45vw, 280px"
+                  class="aspect-square w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="flex aspect-square w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/40 p-4 text-center">
+                  <span class="text-5xl">{d.emoji}</span>
+                  <p class="wordmark mt-2 text-2xl">{d.name}</p>
+                </div>
+              )}
+              <div class="p-4">
+                <h3 class="font-head text-base font-bold leading-snug">{d.name}</h3>
+                <p class="mt-1 text-sm text-[var(--color-ink-soft)]">{d.short}</p>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+    <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
+      ℹ️ Las imágenes son diseños de referencia; cada sombrero se pinta a mano sobre pedido.
+    </p>
+  </section>
+
+  <!-- POR QUÉ LUCIPTERA / AUTORIDAD CULTURAL -->
+  <section class="container-base py-8">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card p-5">
+        <h3 class="font-head text-lg font-bold">🎨 Arte real, no impresiones</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+          Cada flor se pinta a mano sobre el sombrero brisa. Tu pieza es única.
+        </p>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-head text-lg font-bold">🌼 Flores de nuestra tierra</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+          Orquídea cattleya, hortensias de Santa Elena, girasoles y la silleta tradicional.
+        </p>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-head text-lg font-bold">🚚 A tiempo para la feria</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+          Domicilio en Medellín y envíos a toda Colombia. Pide antes del {FERIA.orderByLabel}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <TrustBlock />
+
+  <FaqList faqs={faqs} title="Preguntas sobre los sombreros de la feria" />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Luce único en la Feria de las Flores</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">
+        Escríbenos por WhatsApp, elige tu diseño y nosotros lo pintamos a mano.
+      </p>
+      <div class="mt-4 flex justify-center">
+        <WhatsAppCTA message={waMsg} label="Pedir ahora por WhatsApp" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks items={infoLinks} title="Sobre la Feria de las Flores" />
+</Layout>
+
+<script is:inline define:vars={{ startISO: FERIA.startISO }}>
+  // live countdown (progressive enhancement over the build-time number)
+  const el = document.getElementById("feria-countdown");
+  if (el) {
+    const start = new Date(startISO + "T00:00:00-05:00").getTime();
+    const days = Math.max(0, Math.ceil((start - Date.now()) / 86400000));
+    el.textContent = String(days);
+  }
+</script>

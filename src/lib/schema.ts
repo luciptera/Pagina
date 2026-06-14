@@ -43,7 +43,7 @@ export function localBusiness(siteUrl: string, logoUrl: string) {
 }
 
 export function productSchema(p: Product, url: string, imageUrl?: string) {
-  return {
+  const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
@@ -51,7 +51,10 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
     ...(imageUrl ? { image: imageUrl } : {}),
     brand: { "@type": "Brand", name: BUSINESS.name },
     category: "Arte personalizado",
-    offers: {
+  };
+  // Custom, made-to-order items are priced by chat — omit price (don't fabricate a number).
+  if (!p.priceByWhatsApp && p.sizes.length) {
+    base.offers = {
       "@type": "AggregateOffer",
       priceCurrency: "COP",
       lowPrice: lowPrice(p),
@@ -60,8 +63,9 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },
-    },
-  };
+    };
+  }
+  return base;
 }
 
 export function faqPage(faqs: Faq[]) {
@@ -86,6 +90,36 @@ export function breadcrumbList(items: { name: string; url: string }[]) {
       name: it.name,
       item: it.url,
     })),
+  };
+}
+
+export function eventSchema(opts: {
+  name: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: opts.name,
+    startDate: opts.startDate,
+    endDate: opts.endDate,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    description: opts.description,
+    url: opts.url,
+    location: {
+      "@type": "Place",
+      name: "Medellín",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Medellín",
+        addressRegion: "Antioquia",
+        addressCountry: "CO",
+      },
+    },
   };
 }
 

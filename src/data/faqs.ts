@@ -96,6 +96,38 @@ export const faqs: Faq[] = [
       "Indícanos la referencia de tu celular y revisamos si tenemos el modelo en stock. Los cases se hacen en resina y se confirma el pedido con un abono del 50% para iniciar el diseño.",
     scope: "cases-personalizados",
   },
+
+  // --- sombreros / Feria de las Flores ---
+  {
+    question: "¿Cuándo es la Feria de las Flores 2026?",
+    answer:
+      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto de 2026. El Desfile de Silleteros es el evento central. Pide tu sombrero pintado con tiempo para lucirlo durante la feria.",
+    scope: "sombreros-brisa",
+  },
+  {
+    question: "¿Hasta cuándo puedo pedir mi sombrero para la feria?",
+    answer:
+      "Recomendamos pedirlo antes del 23 de julio para alcanzar a pintarlo a mano y entregarlo a tiempo (mínimo 8 días de preparación, más el envío). Entre antes lo pidas, mejor: en temporada de feria la demanda es alta.",
+    scope: "sombreros-brisa",
+  },
+  {
+    question: "¿Qué es un sombrero brisa?",
+    answer:
+      "El sombrero brisa es el sombrero blanco de fibra fina que tradicionalmente se usa en la Feria de las Flores y en la cultura paisa. Nosotros pintamos sobre él, a mano, flores y diseños representativos de Antioquia.",
+    scope: "sombreros-brisa",
+  },
+  {
+    question: "¿Cuánto cuesta un sombrero pintado a mano?",
+    answer:
+      "El precio depende del diseño que elijas (desde uno sencillo de una flor hasta uno envolvente con varias). Escríbenos por WhatsApp con el diseño que te gusta y te damos el valor al instante. El sombrero brisa blanco ya va incluido.",
+    scope: "sombreros-brisa",
+  },
+  {
+    question: "¿Puedo elegir mi propio diseño?",
+    answer:
+      "Sí. Puedes elegir uno de nuestros diseños (La Silleta Tradicional, El Jardín de Santa Elena, La Reina de la Feria con orquídea, girasoles…) o proponer el tuyo con las flores y colores que prefieras.",
+    scope: "sombreros-brisa",
+  },
 ];
 
 export function globalFaqs(): Faq[] {

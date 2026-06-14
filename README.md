@@ -86,8 +86,22 @@ Conecta el repo `luciptera/Pagina` en Netlify. La configuración (`netlify.toml`
 - `WHATSAPP_NUMBER` en `src/consts.ts`
 - `SITE` (dominio final) en `astro.config.mjs` — afecta canónicos, sitemap y OG
 
+## Campaña Feria de las Flores 🌸
+Línea de **sombreros brisa pintados a mano** + páginas para dominar las búsquedas de la feria
+(Feria 2026: 31 jul – 9 ago). Todo en `src/data/feria.ts` (fechas + diseños).
+- Página principal: `/sombreros-para-la-feria-de-las-flores/` (con cuenta regresiva).
+- Una página por diseño (orquídea, silleta, jardín de Santa Elena, girasoles, hortensias).
+- Guías AEO en `/blog/` (cuándo es la feria, qué llevar, flores típicas, qué es una silleta).
+- **Precio:** los sombreros se cotizan por WhatsApp (no muestran precio fijo). Si luego defines
+  precios, cambia `priceByWhatsApp` en `src/data/products.ts` y agrega `sizes`.
+- **Fotos:** los diseños muestran un marcador de posición hasta que agregues imágenes en
+  `src/assets/sombreros/<slug-del-diseño>/` (ver el README de esa carpeta). Se presentan como
+  *diseños de referencia* (cada sombrero se pinta a mano).
+- Para cambiar las fechas en años siguientes: edita `FERIA` en `src/data/feria.ts`.
+
 ## TODOs antes de lanzar
 - [ ] Confirmar el número de WhatsApp (`src/consts.ts`)
 - [ ] Definir el dominio final (`astro.config.mjs` → `SITE`)
 - [ ] Reemplazar testimonios de ejemplo por reales (`src/data/testimonials.ts`)
 - [ ] Revisar la asignación foto → producto y reordenar si se desea
+- [ ] Agregar fotos/mockups de los sombreros en `src/assets/sombreros/` y confirmar precios

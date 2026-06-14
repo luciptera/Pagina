@@ -1,4 +1,5 @@
 import type { ImageMetadata } from "astro";
+import { hatDesigns } from "./feria";
 
 /**
  * Map every product slug to its real catalog photos (extracted from the PDF).
@@ -29,6 +30,9 @@ for (const slug of Object.keys(byProduct)) {
 
 /** All real photos for a product slug (empty array if none). */
 export function productImages(slug: string): ImageMetadata[] {
+  // The sombreros pillar has no folder of its own — surface the hat DESIGN photos
+  // so the catalog card, pillar hero/gallery and alias pages all show real hats.
+  if (slug === "sombreros-brisa") return allSombreroDesignImages();
   return byProduct[slug] ?? [];
 }
 
@@ -48,10 +52,20 @@ for (const [path, mod] of Object.entries(sombreroModules)) {
   if (!m) continue;
   (bySombrero[m[1]] ??= []).push(mod.default);
 }
+for (const slug of Object.keys(bySombrero)) {
+  bySombrero[slug].sort((a, b) => numOf(a) - numOf(b));
+}
 
 /** Photos/mockups for a hat design slug (empty until the owner adds files). */
 export function designImages(slug: string): ImageMetadata[] {
   return bySombrero[slug] ?? [];
+}
+
+/** All hat photos, ordered by design (used for the sombreros pillar + card). */
+export function allSombreroDesignImages(): ImageMetadata[] {
+  const out: ImageMetadata[] = [];
+  for (const d of hatDesigns) out.push(...(bySombrero[d.slug] ?? []));
+  return out;
 }
 export function designHero(slug: string): ImageMetadata | undefined {
   return designImages(slug)[0];

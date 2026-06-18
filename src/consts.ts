@@ -21,6 +21,8 @@ export const BUSINESS = {
   instagram: "luciptera",
   instagramUrl: "https://www.instagram.com/luciptera/",
   facebookUrl: "https://www.facebook.com/profile.php?id=61590667984007",
+  // Google Business Profile / knowledge panel. Swap for the Maps "Share" link if preferred.
+  googleUrl: "https://www.google.com/search?kgmid=/g/11z8v93f6v",
   artHandle: "Fonlu_Arte",
   email: "", // TODO(owner): add if desired
   city: "Medellín",

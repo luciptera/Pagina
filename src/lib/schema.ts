@@ -32,7 +32,7 @@ export function localBusiness(siteUrl: string, logoUrl: string) {
       addressRegion: "Antioquia",
       addressCountry: "CO",
     },
-    sameAs: [BUSINESS.instagramUrl, BUSINESS.facebookUrl],
+    sameAs: [BUSINESS.instagramUrl, BUSINESS.facebookUrl, BUSINESS.googleUrl],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",

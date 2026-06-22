@@ -35,6 +35,19 @@ const infoLinks = [
   { href: "/blog/que-tamano-de-cuadro-elegir/", label: "Qué tamaño elegir" },
   { href: "/blog/lienzo-vs-madera/", label: "Lienzo vs. madera" },
 ];
+
+const giftLinks = [
+  { href: "/regalo-para-mama/", label: "Para mamá" },
+  { href: "/regalo-para-papa/", label: "Para papá" },
+  { href: "/regalo-para-mi-novia/", label: "Para mi novia" },
+  { href: "/regalo-para-mi-novio/", label: "Para mi novio" },
+  { href: "/regalo-para-mi-mejor-amiga/", label: "Para mi mejor amiga" },
+  { href: "/regalo-para-mi-esposa/", label: "Para mi esposa" },
+  { href: "/regalo-para-mi-esposo/", label: "Para mi esposo" },
+  { href: "/regalo-para-mi-abuela/", label: "Para la abuela" },
+  { href: "/regalos-personalizados-medellin/", label: "Regalos personalizados Medellín" },
+  { href: "/regalos-personalizados-colombia/", label: "Regalos personalizados Colombia" },
+];
 ---
 
 <Layout title={title} description={description} jsonLd={jsonLd}>
@@ -122,6 +135,8 @@ const infoLinks = [
   </section>
 
   <TrustBlock />
+
+  <RelatedLinks items={giftLinks} title="Ideas de regalo personalizado" />
 
   <Testimonials items={testimonials.slice(0, 6)} />
 

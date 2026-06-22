@@ -256,6 +256,181 @@ export const intents: Intent[] = [
     emotionalAngle: "Original, confiable, nacional.",
     waContext: "un regalo personalizado con envío",
   },
+
+  // ---- More recipient pages ----
+  {
+    slug: "regalo-para-mi-hermana",
+    title: "Regalo para mi hermana personalizado",
+    h1: "Regalos para tu hermana, pintados a mano",
+    metaDescription:
+      "Un regalo único para tu hermana: un llavero o case de su mascota, un retrato o un sombrero pintado a mano. Detalles con cariño. Envíos a toda Colombia.",
+    lead:
+      "Tu hermana conoce todas tus historias, así que regálale algo a su altura: un llavero o un case con su michi, un retrato o un sombrero pintado a mano, hecho especialmente para ella.",
+    intentKeywords: ["regalo para mi hermana", "regalo personalizado para mi hermana", "qué regalar a mi hermana"],
+    relatedProducts: ["llaveros-de-mascotas", "cases-personalizados", "retratos-de-mascotas"],
+    emotionalAngle: "Cercano, cariñoso.",
+    waContext: "un regalo para mi hermana",
+  },
+  {
+    slug: "regalo-para-mi-hermano",
+    title: "Regalo para mi hermano personalizado",
+    h1: "Regalos para tu hermano, pintados a mano",
+    metaDescription:
+      "Sorprende a tu hermano con un detalle único: su estilo anime, un case con su mascota o un retrato, pintado a mano. Original y personal. Envíos a toda Colombia.",
+    lead:
+      "Para ese hermano que lo tiene todo, un detalle hecho a mano gana siempre: su personaje de anime favorito, un case con su perro o un retrato pintado especialmente para él.",
+    intentKeywords: ["regalo para mi hermano", "regalo personalizado para mi hermano", "qué regalar a mi hermano"],
+    relatedProducts: ["retratos-anime", "cases-personalizados", "retratos-de-mascotas"],
+    emotionalAngle: "Divertido, cercano.",
+    waContext: "un regalo para mi hermano",
+  },
+  {
+    slug: "regalo-para-mi-hija",
+    title: "Regalo para mi hija personalizado",
+    h1: "Regalos para tu hija, pintados a mano",
+    metaDescription:
+      "Un regalo lleno de amor para tu hija: su retrato, su mascota o su estilo anime, pintado a mano. Un recuerdo que guardará siempre. Envíos a toda Colombia.",
+    lead:
+      "Demuéstrale a tu hija lo especial que es con un regalo hecho a mano: su retrato, su mascota o su personaje favorito, pintado con todo el cariño para ella.",
+    intentKeywords: ["regalo para mi hija", "regalo personalizado para mi hija", "qué regalar a mi hija"],
+    relatedProducts: ["retratos-de-personas", "llaveros-de-mascotas", "retratos-anime"],
+    emotionalAngle: "Tierno, orgulloso.",
+    waContext: "un regalo para mi hija",
+  },
+  {
+    slug: "regalo-para-mi-hijo",
+    title: "Regalo para mi hijo personalizado",
+    h1: "Regalos para tu hijo, pintados a mano",
+    metaDescription:
+      "Sorprende a tu hijo con un regalo único: su estilo anime, su mascota en un case o un retrato, pintado a mano. Original y personal. Envíos a toda Colombia.",
+    lead:
+      "A tu hijo le va a encantar un regalo pensado solo para él: su personaje de anime, su mascota en un case o un retrato pintado a mano. Un detalle que recordará por años.",
+    intentKeywords: ["regalo para mi hijo", "regalo personalizado para mi hijo", "qué regalar a mi hijo"],
+    relatedProducts: ["retratos-anime", "cases-personalizados", "retratos-de-mascotas"],
+    emotionalAngle: "Orgulloso, cálido.",
+    waContext: "un regalo para mi hijo",
+  },
+  {
+    slug: "regalo-para-un-amigo",
+    title: "Regalo para un amigo o amiga personalizado",
+    h1: "Regalos para un amigo o amiga, pintados a mano",
+    metaDescription:
+      "Un detalle único para un amigo o amiga: un llavero o case de su mascota, o un sombrero pintado a mano. Original y económico. Envíos a toda Colombia.",
+    lead:
+      "Para un buen amigo o amiga, un detalle pintado a mano dice mucho: un llavero o case con su mascota, o un sombrero con su flor favorita. Único, personal y a buen precio.",
+    intentKeywords: ["regalo para un amigo", "regalo para una amiga", "regalo personalizado para amigos"],
+    relatedProducts: ["llaveros-de-mascotas", "cases-personalizados", "sombreros-brisa"],
+    emotionalAngle: "Alegre, cercano.",
+    waContext: "un regalo para un amigo",
+  },
+  {
+    slug: "regalo-para-companero-de-trabajo",
+    title: "Regalo para un compañero de trabajo (amigo secreto)",
+    h1: "Regalos para compañeros de trabajo y amigo secreto",
+    metaDescription:
+      "Ideas para el amigo secreto o un compañero de trabajo: placas, llaveros y cases personalizados desde $20.000. Económicos y originales. Envíos a toda Colombia.",
+    lead:
+      "¿Te tocó amigo secreto o quieres un detalle para un compañero? Las placas, llaveros y cases personalizados desde $20.000 son originales, económicos y siempre sacan una sonrisa.",
+    intentKeywords: ["regalo para compañero de trabajo", "regalo amigo secreto personalizado", "regalo económico amigo secreto"],
+    relatedProducts: ["placas-con-nombre", "llaveros-de-mascotas", "cases-personalizados"],
+    emotionalAngle: "Práctico, simpático.",
+    waContext: "un regalo para un compañero de trabajo / amigo secreto",
+  },
+  {
+    slug: "regalo-para-profesor",
+    title: "Regalo para un profesor o maestra personalizado",
+    h1: "Regalos para profesores y maestras, pintados a mano",
+    metaDescription:
+      "Agradece a ese profe especial con un detalle único: un retrato, un llavero o un paisaje pintado a mano. Original y con significado. Envíos a toda Colombia.",
+    lead:
+      "Un buen maestro deja huella, y un detalle hecho a mano lo agradece como se debe: un retrato, un llavero o un paisaje pintado a mano para ese profe que tanto enseñó.",
+    intentKeywords: ["regalo para profesor", "regalo para maestra personalizado", "regalo día del maestro"],
+    relatedProducts: ["retratos-de-personas", "llaveros-de-mascotas", "paisajes-en-lienzo"],
+    emotionalAngle: "Agradecido, respetuoso.",
+    waContext: "un regalo para un profesor o maestra",
+  },
+
+  // ---- Budget / price-led ----
+  {
+    slug: "regalos-personalizados-economicos",
+    title: "Regalos personalizados económicos desde $20.000",
+    h1: "Regalos personalizados económicos (desde $20.000)",
+    metaDescription:
+      "Regalos personalizados y económicos pintados a mano: placas desde $20.000, llaveros desde $60.000 y cases. Originales y a buen precio. Envíos a toda Colombia.",
+    lead:
+      "No necesitas gastar mucho para regalar algo único. Nuestras placas con nombre desde $20.000 y los llaveros desde $60.000 son detalles pintados a mano, originales y muy bien recibidos.",
+    intentKeywords: ["regalos personalizados económicos", "regalos personalizados baratos", "regalos personalizados desde 20000"],
+    relatedProducts: ["placas-con-nombre", "llaveros-de-mascotas", "cases-personalizados"],
+    emotionalAngle: "Accesible, práctico.",
+    waContext: "un regalo personalizado económico",
+  },
+
+  // ---- Medellín hyperlocal (domicilio) ----
+  {
+    slug: "regalos-a-domicilio-medellin",
+    title: "Regalos personalizados a domicilio en Medellín",
+    h1: "Regalos personalizados a domicilio en Medellín",
+    metaDescription:
+      "Pide tu regalo personalizado pintado a mano y te lo llevamos a domicilio en Medellín y el área metropolitana: retratos, llaveros, placas, cuadros y sombreros. Coordina por WhatsApp.",
+    lead:
+      "¿Necesitas un regalo en Medellín sin complicarte? Lo pintamos a mano y te lo llevamos a domicilio en la ciudad y el área metropolitana. Coordinamos día y lugar de entrega por WhatsApp.",
+    intentKeywords: ["regalos a domicilio Medellín", "regalos personalizados a domicilio Medellín", "detalles a domicilio Medellín"],
+    relatedProducts: ["retratos-de-mascotas", "llaveros-de-mascotas", "placas-con-nombre", "sombreros-brisa"],
+    emotionalAngle: "Conveniente, local, rápido.",
+    waContext: "un regalo personalizado a domicilio en Medellín",
+  },
+  {
+    slug: "regalos-personalizados-el-poblado",
+    title: "Regalos personalizados en El Poblado, Medellín",
+    h1: "Regalos personalizados en El Poblado",
+    metaDescription:
+      "Regalos personalizados pintados a mano con entrega a domicilio en El Poblado, Medellín: retratos de mascotas, sombreros, llaveros y más. Pídelo por WhatsApp.",
+    lead:
+      "Si estás en El Poblado, te llevamos tu regalo personalizado a domicilio. Pintamos a mano retratos, sombreros, llaveros y placas desde tu foto o tu idea, listos para sorprender.",
+    intentKeywords: ["regalos personalizados El Poblado", "regalos a domicilio El Poblado", "detalles personalizados El Poblado"],
+    relatedProducts: ["retratos-de-mascotas", "sombreros-brisa", "retratos-de-personas"],
+    emotionalAngle: "Local, cercano.",
+    waContext: "un regalo personalizado en El Poblado",
+  },
+  {
+    slug: "regalos-personalizados-laureles",
+    title: "Regalos personalizados en Laureles, Medellín",
+    h1: "Regalos personalizados en Laureles",
+    metaDescription:
+      "Regalos personalizados pintados a mano con domicilio en Laureles, Medellín: retratos de mascotas, llaveros, sombreros y más. Coordina por WhatsApp.",
+    lead:
+      "En Laureles te entregamos a domicilio el regalo perfecto, pintado a mano: el retrato de tu mascota, un llavero, una placa o un sombrero con flores. Único y hecho para ti.",
+    intentKeywords: ["regalos personalizados Laureles", "regalos a domicilio Laureles", "detalles personalizados Laureles"],
+    relatedProducts: ["retratos-de-mascotas", "llaveros-de-mascotas", "sombreros-brisa"],
+    emotionalAngle: "Local, cercano.",
+    waContext: "un regalo personalizado en Laureles",
+  },
+  {
+    slug: "regalos-personalizados-envigado",
+    title: "Regalos personalizados en Envigado",
+    h1: "Regalos personalizados en Envigado",
+    metaDescription:
+      "Regalos personalizados pintados a mano con domicilio en Envigado: retratos de mascotas, placas, llaveros y más. Originales y hechos a mano. Pídelo por WhatsApp.",
+    lead:
+      "¿Buscas un regalo personalizado en Envigado? Lo pintamos a mano y te lo llevamos a domicilio: retratos de mascotas, placas con nombre, llaveros y más, hechos especialmente para ti.",
+    intentKeywords: ["regalos personalizados Envigado", "regalos a domicilio Envigado", "detalles personalizados Envigado"],
+    relatedProducts: ["retratos-de-mascotas", "placas-con-nombre", "llaveros-de-mascotas"],
+    emotionalAngle: "Local, cercano.",
+    waContext: "un regalo personalizado en Envigado",
+  },
+  {
+    slug: "regalos-personalizados-sabaneta",
+    title: "Regalos personalizados en Sabaneta",
+    h1: "Regalos personalizados en Sabaneta",
+    metaDescription:
+      "Regalos personalizados pintados a mano con domicilio en Sabaneta: retratos de mascotas, llaveros, cuadros en madera y más. Pídelo por WhatsApp.",
+    lead:
+      "En Sabaneta te entregamos a domicilio un regalo con alma: el retrato de tu mascota, un llavero o un cuadro en madera, pintado a mano y pensado para esa persona especial.",
+    intentKeywords: ["regalos personalizados Sabaneta", "regalos a domicilio Sabaneta", "detalles personalizados Sabaneta"],
+    relatedProducts: ["retratos-de-mascotas", "llaveros-de-mascotas", "cuadros-en-madera"],
+    emotionalAngle: "Local, cercano.",
+    waContext: "un regalo personalizado en Sabaneta",
+  },
 ];
 
 export const intentMap: Record<string, Intent> = Object.fromEntries(

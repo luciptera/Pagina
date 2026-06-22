@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ProductCard from "../components/ProductCard.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FaqList from "../components/FaqList.astro";
+import RelatedLinks from "../components/RelatedLinks.astro";
+import { products } from "../data/products";
+import { intents } from "../data/intents";
+import { occasions } from "../data/occasions";
+import { globalFaqs } from "../data/faqs";
+import { breadcrumbList, serviceSchema, faqPage } from "../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const faqs = globalFaqs().slice(0, 5);
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Regalos personalizados", href: "/regalos-personalizados/" },
+];
+const jsonLd = [
+  serviceSchema(
+    "Regalos personalizados pintados a mano",
+    "Regalos personalizados y pintados a mano en Medellín con envíos a toda Colombia: retratos, llaveros, placas, cuadros, cases y sombreros.",
+    url,
+  ),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+const waMsg = "Hola Luciptera 🎁 quiero un regalo personalizado";
+
+// link groups built from the data
+const recipientLinks = intents
+  .filter((i) => i.slug.startsWith("regalo-para"))
+  .map((i) => ({ href: `/${i.slug}/`, label: i.h1.replace(/^Regalos? para /i, "Para ").replace(/, pintados a mano$/i, "") }));
+
+const occasionLinks = occasions.map((o) => ({ href: `/${o.slug}/`, label: o.title.replace(/ personalizado.*$/i, "").replace(/^Regalo /i, "") }));
+
+const localLinks = intents
+  .filter((i) => i.slug.includes("personalizados-") || i.slug.includes("domicilio"))
+  .map((i) => ({ href: `/${i.slug}/`, label: i.h1 }));
+---
+
+<Layout
+  title="Regalos personalizados pintados a mano | Luciptera"
+  description="Regalos personalizados y originales pintados a mano: retratos de mascotas y personas, llaveros, placas, cuadros, cases y sombreros. Domicilio en Medellín y envíos a toda Colombia. Desde $20.000."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Regalos personalizados pintados a mano</h1>
+    <p class="mt-3 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Un regalo hecho a mano siempre se siente distinto. Convertimos tu foto o tu idea en un detalle
+      único —desde una placa de $20.000 hasta un retrato en lienzo— con domicilio en Medellín y
+      envíos a toda Colombia.
+    </p>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" /></div>
+  </section>
+
+  <!-- Por producto -->
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">Regalos por producto</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <RelatedLinks items={recipientLinks} title="Regalos por destinatario" />
+  <RelatedLinks items={occasionLinks} title="Regalos por ocasión" />
+  <RelatedLinks items={localLinks} title="Regalos personalizados por zona" />
+
+  <!-- Por presupuesto -->
+  <section class="container-base py-6">
+    <div class="card bg-[var(--color-gold)]/10 p-6">
+      <h2 class="font-head text-2xl font-bold">¿Presupuesto ajustado?</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">
+        Tenemos detalles únicos desde $20.000. Mira nuestros
+        <a class="underline" href="/regalos-personalizados-economicos/">regalos personalizados económicos</a>.
+      </p>
+    </div>
+  </section>
+
+  <TrustBlock />
+  <FaqList faqs={faqs} />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Cuéntanos para quién es</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">Te ayudamos a elegir el regalo perfecto y lo pintamos a mano.</p>
+      <div class="mt-4 flex justify-center"><WhatsAppCTA message={waMsg} label="Escribir por WhatsApp" /></div>
+    </div>
+  </section>
+</Layout>

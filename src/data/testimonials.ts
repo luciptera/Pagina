@@ -68,6 +68,34 @@ export const testimonials: Testimonial[] = [
     source: "Google",
     productSlug: "retratos-de-personas",
   },
+  {
+    name: "Ty Carson",
+    text: "Le encargué a Luciptera un homenaje de mi mascota Buddy y quedé sin palabras. Captó su esencia de una forma que no me esperaba.",
+    rating: 5,
+    source: "Google",
+    productSlug: "retratos-de-mascotas",
+  },
+  {
+    name: "Andrea Ubarnes",
+    text: "El mejor emprendimiento que he podido conocer. Sus productos ayudan a plasmar el amor que le tenemos a nuestras mascotas; en mi caso quedé enamorada de sus llaveros personalizados 🥰",
+    rating: 5,
+    source: "Google",
+    productSlug: "llaveros-de-mascotas",
+  },
+  {
+    name: "Gissell Fonseca",
+    text: "Excelente calidad, cada artículo o prenda es única e irrepetible. La mejor opción cuando se quiere dar un buen detalle 🥰✨🎨",
+    rating: 5,
+    source: "Google",
+    productSlug: "placas-con-nombre",
+  },
+  {
+    name: "Ximena Guzmán",
+    text: "Muy lindos. Trabajo hecho a mano que sin duda vale la pena adquirir 🤗",
+    rating: 5,
+    source: "Google",
+    productSlug: "paisajes-en-lienzo",
+  },
 ];
 
 /** Up to `n` reviews for a product: its own first, then others to fill. */

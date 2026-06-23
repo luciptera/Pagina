@@ -359,6 +359,44 @@ export const articles: Article[] = [
       { href: "/sombreros-para-la-feria-de-las-flores/", label: "Sombreros para la feria" },
     ],
   },
+  {
+    slug: "como-cuidar-la-ropa-pintada-a-mano",
+    title: "Cómo cuidar tu ropa pintada a mano",
+    h1: "Cómo cuidar tu ropa y chaqueta pintada a mano",
+    description:
+      "Para que tu chaqueta o prenda pintada a mano dure años: lávala a mano con agua fría, no la restriegues sobre el diseño y sécala a la sombra. Te damos todos los consejos.",
+    intro:
+      "Para cuidar una prenda pintada a mano, lávala a mano con agua fría y jabón suave, sin restregar sobre el diseño, y déjala secar a la sombra. Con ese cuidado, la pintura dura años sin agrietarse.",
+    sections: [
+      {
+        q: "¿Cómo se lava una chaqueta pintada a mano?",
+        a: [
+          "Lávala a mano con agua fría y un jabón suave, frotando con cuidado solo las zonas sin pintura.",
+          "Evita la lavadora, el blanqueador y el agua caliente: pueden afectar los colores y el detalle del diseño.",
+        ],
+      },
+      {
+        q: "¿La pintura se cuartea o se despega?",
+        a: [
+          "No, si se cuida bien. Usamos pintura especial para tela que queda flexible y resistente al uso.",
+          "Para que dure aún más, evita doblar o restregar fuerte sobre el diseño y no la planches directamente encima.",
+        ],
+      },
+      {
+        q: "¿Cómo la seco y la guardo?",
+        a: [
+          "Sécala a la sombra, extendida o colgada; nunca al sol directo por mucho tiempo para que los colores no se desgasten.",
+          "Guárdala sin doblar sobre el diseño cuando sea posible.",
+        ],
+      },
+    ],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "sombreros-brisa"],
+    heroProduct: "chaquetas-pintadas-a-mano",
+    extraLinks: [
+      { href: "/chaquetas-pintadas-a-mano/", label: "Chaquetas de jean pintadas a mano" },
+      { href: "/chaqueta-pintada-con-mi-mascota/", label: "Chaqueta pintada con tu mascota" },
+    ],
+  },
 ];
 
 export const articleMap: Record<string, Article> = Object.fromEntries(

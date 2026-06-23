@@ -11,7 +11,7 @@ const img = heroImage(product.slug);
 ---
 <a href={`/${product.slug}/`} class="card group block transition-transform hover:-translate-y-1">
   {
-    img && (
+    img ? (
       <div class="aspect-[4/5] overflow-hidden bg-[var(--color-cream-deep)]">
         <Image
           src={img}
@@ -23,6 +23,12 @@ const img = heroImage(product.slug);
           class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
+      </div>
+    ) : (
+      <div class="flex aspect-[4/5] flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/40 p-4 text-center">
+        <span class="text-4xl">🎨</span>
+        <p class="wordmark mt-2 text-xl">{product.shortName}</p>
+        <p class="mt-1 text-xs text-[var(--color-ink-soft)]">Pintado a mano</p>
       </div>
     )
   }

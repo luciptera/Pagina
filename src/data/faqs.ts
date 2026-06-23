@@ -128,6 +128,20 @@ export const faqs: Faq[] = [
       "Sí. Puedes elegir uno de nuestros diseños (La Silleta Tradicional, El Jardín de Santa Elena, La Reina de la Feria con orquídea, girasoles…) o proponer el tuyo con las flores y colores que prefieras.",
     scope: "sombreros-brisa",
   },
+
+  // --- chaquetas / ropa pintada ---
+  {
+    question: "¿Pintan sobre mi propia chaqueta o me venden una?",
+    answer:
+      "Como prefieras: podemos pintar sobre tu chaqueta de jean o conseguirte una nueva. Cuéntanos por WhatsApp qué tienes en mente y coordinamos los detalles.",
+    scope: "chaquetas-pintadas-a-mano",
+  },
+  {
+    question: "¿La pintura de la chaqueta se daña al lavarla?",
+    answer:
+      "No, si la cuidas bien. Usamos pintura especial para tela que queda flexible y resistente. Recomendamos lavarla a mano con agua fría y secarla a la sombra para que dure años.",
+    scope: "chaquetas-pintadas-a-mano",
+  },
 ];
 
 export function globalFaqs(): Faq[] {

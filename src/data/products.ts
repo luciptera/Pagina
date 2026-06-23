@@ -26,7 +26,7 @@ export interface Product {
   prepDays: number;
   /** deposit note, if any */
   abono?: string;
-  material: "lienzo" | "madera" | "resina" | "paja";
+  material: "lienzo" | "madera" | "resina" | "paja" | "tela";
   /** custom items priced by chat instead of a fixed table */
   priceByWhatsApp?: boolean;
   /** seasonal campaign label, e.g. "Feria de las Flores" */
@@ -308,6 +308,35 @@ export const products: Product[] = [
     ],
     waContext: "un sombrero brisa pintado para la Feria de las Flores",
     relatedSlugs: ["paisajes-en-lienzo", "retratos-de-mascotas", "cuadros-en-madera"],
+    inCityMatrix: false,
+  },
+  {
+    slug: "chaquetas-pintadas-a-mano",
+    name: "Chaquetas de jean pintadas a mano",
+    shortName: "Chaquetas pintadas",
+    h1: "Chaquetas de jean pintadas a mano y personalizadas",
+    tagline:
+      "Tu chaqueta de jean convertida en una obra única: la pintamos a mano con tu mascota, un retrato o el diseño que quieras.",
+    fromPrice: 0,
+    priceByWhatsApp: true,
+    sizes: [],
+    extras: [
+      "Pintamos sobre tu chaqueta o conseguimos una nueva, como prefieras",
+      "Diseño a tu gusto: mascota, retrato, flores, lo que imagines",
+    ],
+    prepDays: 10,
+    material: "tela",
+    personaTags: ["moda", "regalo", "dueños-de-mascotas", "decoracion"],
+    aliases: [
+      "chaqueta-de-jean-pintada-a-mano",
+      "chaqueta-personalizada-pintada",
+      "ropa-pintada-a-mano",
+      "ropa-personalizada-pintada",
+      "chaqueta-pintada-con-mi-mascota",
+      "jean-pintado-a-mano",
+    ],
+    waContext: "una chaqueta de jean pintada a mano",
+    relatedSlugs: ["cases-personalizados", "sombreros-brisa", "retratos-de-personas"],
     inCityMatrix: false,
   },
 ];

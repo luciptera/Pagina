@@ -228,6 +228,36 @@ const ALIAS_COPY: Record<string, { phrase: string; h1: string; lead: string }> =
     h1: "Sombreros pintados a mano",
     lead: "Sombreros brisa blancos convertidos en arte: pintados a mano con flores y diseños únicos. Precio por WhatsApp, envíos a toda Colombia.",
   },
+  "chaqueta-de-jean-pintada-a-mano": {
+    phrase: "chaqueta de jean pintada a mano",
+    h1: "Chaqueta de jean pintada a mano",
+    lead: "Convierte tu chaqueta de jean en una pieza única: la pintamos a mano con tu mascota, un retrato o el diseño que quieras. Arte que puedes llevar puesto.",
+  },
+  "chaqueta-personalizada-pintada": {
+    phrase: "chaqueta personalizada pintada",
+    h1: "Chaqueta personalizada pintada a mano",
+    lead: "Una chaqueta personalizada y pintada a mano, hecha 100% a tu gusto. Tú eliges el diseño y nosotros lo hacemos realidad. Precio por WhatsApp.",
+  },
+  "ropa-pintada-a-mano": {
+    phrase: "ropa pintada a mano",
+    h1: "Ropa pintada a mano y personalizada",
+    lead: "Prendas pintadas a mano que nadie más tiene: chaquetas de jean y más, con el diseño que imagines. Arte personalizado para vestir.",
+  },
+  "ropa-personalizada-pintada": {
+    phrase: "ropa personalizada pintada",
+    h1: "Ropa personalizada pintada a mano",
+    lead: "Ropa personalizada y pintada a mano: convierte una prenda sencilla en una obra única con tu mascota, un retrato o tu diseño favorito.",
+  },
+  "chaqueta-pintada-con-mi-mascota": {
+    phrase: "chaqueta pintada con mi mascota",
+    h1: "Chaqueta pintada a mano con tu mascota",
+    lead: "Lleva a tu peludo puesto: pintamos a mano la cara de tu mascota en tu chaqueta de jean. Un detalle único que enamora a cualquier amante de los animales.",
+  },
+  "jean-pintado-a-mano": {
+    phrase: "jean pintado a mano",
+    h1: "Jean (chaqueta) pintado a mano",
+    lead: "Tu prenda de jean pintada a mano con el diseño que quieras: mascotas, retratos, flores. Una pieza original y 100% tuya. Precio por WhatsApp.",
+  },
 };
 
 export function buildAliases(): Alias[] {

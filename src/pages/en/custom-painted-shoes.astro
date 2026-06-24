@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const waMsg = "Hi Luciptera 👟 I'd like a pair of custom hand-painted shoes";
+const crumbs = [{ name: "Home", href: "/en/" }, { name: "Custom painted shoes", href: Astro.url.pathname }];
+
+const faqs = [
+  { question: "Why are custom painted shoes more expensive?", answer: "They're our most detailed, labor-intensive work — each pair takes several days of careful hand-painting on a difficult, curved surface. That craftsmanship is reflected in the price.", scope: "global" as const },
+  { question: "Can you paint on my own sneakers?", answer: "Yes — paint on your pair or we source a new one. We use durable, flexible paint suitable for shoes. We ship worldwide; pricing is confirmed on WhatsApp based on the design.", scope: "global" as const },
+];
+
+const jsonLd = [
+  serviceSchema("Custom hand-painted shoes and sneakers", "Premium hand-painted custom sneakers — our most detailed work, painted by hand in Medellín, Colombia. Worldwide shipping.", url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+---
+
+<Layout
+  title="Custom Hand-Painted Shoes & Sneakers | Luciptera"
+  description="Premium custom hand-painted shoes and sneakers — our most exclusive, detailed work, painted by hand in Medellín. Your design, one of a kind. Worldwide shipping. Order on WhatsApp."
+  lang="en"
+  altHref={new URL("/tenis-pintados-a-mano/", Astro.site).href}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      <div class="card flex aspect-[4/5] w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/40 p-6 text-center">
+        <span class="text-5xl">👟</span>
+        <p class="wordmark mt-3 text-3xl">Custom painted shoes</p>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Photos coming soon · hand-painted to order</p>
+      </div>
+    </div>
+    <div class="flex flex-col justify-center">
+      <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">Our most exclusive piece</p>
+      <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">Custom hand-painted shoes</h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">A pair unlike any other in the world. We hand-paint sneakers with your design — a portrait, your pet, art, lettering — with a level of detail that takes several days of work. Premium craftsmanship, priced accordingly.</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Hand-painted to order · ~15 days · Worldwide shipping</p>
+      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Request a quote on WhatsApp" note="Pricing depends on the design — message us for a quote." /></div>
+    </div>
+  </section>
+
+  <section class="container-base py-8">
+    <h2 class="font-head text-2xl font-bold">FAQ</h2>
+    <div class="mt-4 space-y-4">
+      {faqs.map((f) => (<div><h3 class="font-head font-bold">{f.question}</h3><p class="mt-1 text-[var(--color-ink-soft)]">{f.answer}</p></div>))}
+    </div>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Request a quote on WhatsApp" /></div>
+    <p class="mt-4 text-sm text-[var(--color-ink-soft)]"><a class="underline" href="/tenis-pintados-a-mano/">Ver en español</a></p>
+  </section>
+</Layout>

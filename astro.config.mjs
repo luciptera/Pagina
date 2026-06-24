@@ -13,9 +13,10 @@ export default defineConfig({
   trailingSlash: "always",
   build: { format: "directory" },
   integrations: [
-    sitemap({
-      i18n: { defaultLocale: "es", locales: { es: "es-CO" } },
-    }),
+    // No i18n option: the site is mostly Spanish with a small English cluster
+    // (partial translation), so per-page hreflang in <head> handles language
+    // rather than a uniform sitemap-level locale map.
+    sitemap(),
   ],
   vite: {
     plugins: [tailwindcss()],

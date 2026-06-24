@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import { productImages, heroImage } from "../../data/images";
+import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const hero = heroImage("chaquetas-pintadas-a-mano");
+const gallery = [...productImages("chaquetas-pintadas-a-mano").slice(1), ...productImages("jeans-pintados-a-mano")].slice(0, 4);
+const waMsg = "Hi Luciptera 🎨 I'd like a hand-painted denim jacket / custom clothing";
+const crumbs = [{ name: "Home", href: "/en/" }, { name: "Hand-painted denim jackets", href: Astro.url.pathname }];
+
+const faqs = [
+  { question: "What can you paint on a jacket?", answer: "Anything you imagine — your pet, a portrait, flowers, animals, lettering. We paint on your jacket or source a new one. Each piece is unique and made to order.", scope: "global" as const },
+  { question: "Does the paint last?", answer: "Yes. We use flexible fabric paint that resists wear. Hand-wash cold and dry in the shade and it lasts for years. We ship worldwide.", scope: "global" as const },
+];
+
+const jsonLd = [
+  serviceSchema("Hand-painted denim jackets and custom clothing", "Wearable art: denim jackets, jeans and clothing hand-painted with your design, made in Medellín, Colombia. Worldwide shipping.", url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+---
+
+<Layout
+  title="Hand-Painted Denim Jackets & Custom Clothing | Luciptera"
+  description="One-of-a-kind hand-painted denim jackets, jeans and custom clothing — your pet, a portrait or any design, painted by hand in Medellín. Worldwide shipping. Order on WhatsApp."
+  lang="en"
+  altHref={new URL("/ropa-pintada-a-mano/", Astro.site).href}
+  ogImage={hero?.src}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      {hero && <Image src={hero} alt="Hand-painted denim jacket by Luciptera, Medellín" width={720} height={900} widths={[400,720]} sizes="(max-width:768px) 100vw, 480px" class="card aspect-[4/5] w-full object-cover" loading="eager" />}
+    </div>
+    <div class="flex flex-col justify-center">
+      <h1 class="font-head text-3xl font-bold md:text-4xl">Hand-painted denim jackets & custom clothing</h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">Wearable art you can't buy anywhere else. We hand-paint denim jackets, jeans and more with your pet, a portrait, flowers or any design you dream up — each one truly unique.</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">100% hand-painted · Made in Medellín · Worldwide shipping</p>
+      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note="Tell us your idea and we'll make it real." /></div>
+    </div>
+  </section>
+
+  {gallery.length > 0 && (
+    <section class="container-base py-6">
+      <h2 class="font-head text-2xl font-bold">Real pieces</h2>
+      <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {gallery.map((img, i) => (
+          <Image src={img} alt={`Hand-painted clothing example ${i + 1}`} width={420} height={525} widths={[260,420]} sizes="(max-width:640px) 45vw, 280px" class="card aspect-[4/5] w-full object-cover" loading="lazy" />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="container-base py-8">
+    <h2 class="font-head text-2xl font-bold">FAQ</h2>
+    <div class="mt-4 space-y-4">
+      {faqs.map((f) => (<div><h3 class="font-head font-bold">{f.question}</h3><p class="mt-1 text-[var(--color-ink-soft)]">{f.answer}</p></div>))}
+    </div>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" /></div>
+    <p class="mt-4 text-sm text-[var(--color-ink-soft)]"><a class="underline" href="/ropa-pintada-a-mano/">Ver en español</a></p>
+  </section>
+</Layout>

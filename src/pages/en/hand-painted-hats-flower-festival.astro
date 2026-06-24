@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import { designHero, designImages } from "../../data/images";
+import { hatDesigns, FERIA } from "../../data/feria";
+import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const hero = designHero("sombrero-orquidea-cattleya");
+const gallery = hatDesigns.map((d) => designHero(d.slug)).filter(Boolean).slice(0, 4) as any[];
+const waMsg = "Hi Luciptera 🌸 I'd like a hand-painted hat for the Flower Festival";
+const crumbs = [{ name: "Home", href: "/en/" }, { name: "Hand-painted hats", href: Astro.url.pathname }];
+
+const faqs = [
+  { question: "When is the Medellín Flower Festival 2026?", answer: `The Feria de las Flores runs July 31 – August 9, 2026. Order your hat before late July so it's ready in time — each one is hand-painted to order.`, scope: "global" as const },
+  { question: "Can tourists buy and pick up in Medellín?", answer: "Yes. We deliver in Medellín so you can wear it during your trip, and we also ship worldwide if you'd like it sent home.", scope: "global" as const },
+];
+
+const jsonLd = [
+  serviceSchema("Hand-painted brisa hats for the Medellín Flower Festival", "White brisa hats hand-painted with Colombian flowers (orchids, sunflowers and more), perfect for the Feria de las Flores in Medellín.", url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+---
+
+<Layout
+  title="Hand-Painted Hats for the Medellín Flower Festival | Luciptera"
+  description="White brisa hats hand-painted with Colombian flowers — the perfect accessory for the Medellín Flower Festival (Feria de las Flores). Pickup in Medellín + worldwide shipping. Order on WhatsApp."
+  lang="en"
+  altHref={new URL("/sombreros-para-la-feria-de-las-flores/", Astro.site).href}
+  ogImage={hero?.src}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base grid gap-8 py-8 md:grid-cols-2">
+    <div>
+      {hero && <Image src={hero} alt="Hand-painted brisa hat with orchids for the Medellín Flower Festival" width={720} height={720} widths={[400,720]} sizes="(max-width:768px) 100vw, 480px" class="card aspect-square w-full object-cover" loading="eager" />}
+    </div>
+    <div class="flex flex-col justify-center">
+      <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">Feria de las Flores · {FERIA.startLabel}–{FERIA.endLabel}</p>
+      <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">Hand-painted hats for the Flower Festival</h1>
+      <p class="mt-3 text-lg text-[var(--color-ink-soft)]">The iconic white "brisa" hat, hand-painted with Colombia's most beautiful flowers — orchids, sunflowers, carnations and more. The perfect way to stand out at the Medellín Flower Festival.</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Hand-painted to order · Pickup in Medellín + worldwide shipping</p>
+      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note={`Order before late July to wear it at the festival.`} /></div>
+    </div>
+  </section>
+
+  {gallery.length > 0 && (
+    <section class="container-base py-6">
+      <h2 class="font-head text-2xl font-bold">Designs</h2>
+      <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {gallery.map((img, i) => (
+          <Image src={img} alt={`Hand-painted hat design ${i + 1}`} width={420} height={420} widths={[260,420]} sizes="(max-width:640px) 45vw, 280px" class="card aspect-square w-full object-cover" loading="lazy" />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="container-base py-8">
+    <h2 class="font-head text-2xl font-bold">FAQ</h2>
+    <div class="mt-4 space-y-4">
+      {faqs.map((f) => (<div><h3 class="font-head font-bold">{f.question}</h3><p class="mt-1 text-[var(--color-ink-soft)]">{f.answer}</p></div>))}
+    </div>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" /></div>
+    <p class="mt-4 text-sm text-[var(--color-ink-soft)]"><a class="underline" href="/sombreros-para-la-feria-de-las-flores/">Ver en español</a></p>
+  </section>
+</Layout>

@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import { heroImage, designHero } from "../../data/images";
+import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const hero = designHero("sombrero-girasoles");
+const waMsg = "Hi Luciptera 🎁 I'm looking for a unique Medellín souvenir / gift";
+const crumbs = [{ name: "Home", href: "/en/" }, { name: "Medellín souvenirs & gifts", href: Astro.url.pathname }];
+
+const items = [
+  { title: "Painted brisa hats", href: "/en/hand-painted-hats-flower-festival/", img: designHero("sombrero-orquidea-cattleya") },
+  { title: "Pet portraits", href: "/en/custom-pet-portraits-medellin/", img: heroImage("retratos-de-mascotas") },
+  { title: "Painted denim jackets", href: "/en/hand-painted-denim-jackets/", img: heroImage("chaquetas-pintadas-a-mano") },
+  { title: "Resin keychains & tags", href: "/en/", img: heroImage("llaveros-de-mascotas") },
+];
+
+const faqs = [
+  { question: "What makes a good Medellín souvenir?", answer: "Something local, handmade and one-of-a-kind. Our pieces are hand-painted in Medellín — a painted brisa hat, a resin keychain or a custom portrait makes a meaningful keepsake, not a mass-produced trinket.", scope: "global" as const },
+  { question: "I'm visiting Medellín — can I get it during my trip?", answer: "Yes. Smaller items (keychains, name tags) are quick; tell us your dates on WhatsApp and we'll make it work. We deliver in Medellín and ship worldwide if you'd rather receive it at home.", scope: "global" as const },
+];
+
+const jsonLd = [
+  serviceSchema("Unique hand-painted Medellín souvenirs and gifts", "Locally hand-painted souvenirs and gifts in Medellín: painted hats, pet portraits, keychains and custom clothing. Local pickup and worldwide shipping.", url),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+---
+
+<Layout
+  title="Unique Medellín Souvenirs & Hand-Painted Gifts | Luciptera"
+  description="Looking for a unique Medellín souvenir or gift? Locally hand-painted hats, pet portraits, keychains and custom clothing — not mass-produced. Pickup in Medellín + worldwide shipping. Order on WhatsApp."
+  lang="en"
+  altHref={new URL("/regalos-personalizados/", Astro.site).href}
+  ogImage={hero?.src}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Unique Medellín souvenirs & hand-painted gifts</h1>
+    <p class="mt-3 max-w-2xl text-lg text-[var(--color-ink-soft)]">Skip the mass-produced trinkets. Take home (or send) something truly local and one-of-a-kind: hand-painted hats, pet portraits, resin keychains and custom clothing, all made by hand here in Medellín.</p>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note="Local delivery in Medellín + worldwide shipping." /></div>
+  </section>
+
+  <section class="container-base py-4">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {items.map((it) => (
+        <a href={it.href} class="card group block transition-transform hover:-translate-y-1">
+          {it.img && <Image src={it.img} alt={it.title} width={420} height={420} widths={[260,420]} sizes="(max-width:640px) 45vw, 280px" class="aspect-square w-full object-cover" loading="lazy" />}
+          <div class="p-3"><h2 class="font-head text-sm font-bold">{it.title}</h2></div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-base py-8">
+    <h2 class="font-head text-2xl font-bold">FAQ</h2>
+    <div class="mt-4 space-y-4">
+      {faqs.map((f) => (<div><h3 class="font-head font-bold">{f.question}</h3><p class="mt-1 text-[var(--color-ink-soft)]">{f.answer}</p></div>))}
+    </div>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" /></div>
+    <p class="mt-4 text-sm text-[var(--color-ink-soft)]"><a class="underline" href="/regalos-personalizados/">Ver en español</a></p>
+  </section>
+</Layout>

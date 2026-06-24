@@ -1,0 +1,150 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
+import { heroImage, designHero } from "../../data/images";
+import { BUSINESS, waLink } from "../../consts";
+import { localBusiness, breadcrumbList } from "../../lib/schema";
+import { logoImg } from "../../data/images";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const logoUrl = new URL(logoImg.src, Astro.site).href;
+const waMsg = "Hi Luciptera 🐾 I'd like info about a custom hand-painted piece";
+
+const crumbs = [{ name: "Home", href: "/en/" }];
+const jsonLd = [
+  localBusiness(Astro.site!.href, logoUrl),
+  breadcrumbList([{ name: "Luciptera — English", url }]),
+];
+
+const cards = [
+  {
+    href: "/en/custom-pet-portraits-medellin/",
+    title: "Custom pet portraits",
+    desc: "Your dog or cat hand-painted on canvas from your photo.",
+    img: heroImage("retratos-de-mascotas"),
+  },
+  {
+    href: "/en/hand-painted-hats-flower-festival/",
+    title: "Hand-painted hats",
+    desc: "Brisa hats painted with flowers — perfect for the Flower Festival.",
+    img: designHero("sombrero-orquidea-cattleya"),
+  },
+  {
+    href: "/en/hand-painted-denim-jackets/",
+    title: "Hand-painted denim jackets",
+    desc: "Wearable art: jackets, jeans and more, painted by hand.",
+    img: heroImage("chaquetas-pintadas-a-mano"),
+  },
+  {
+    href: "/en/medellin-souvenirs-and-gifts/",
+    title: "Medellín souvenirs & gifts",
+    desc: "Unique, locally hand-painted gifts you won't find anywhere else.",
+    img: heroImage("retratos-de-personas"),
+  },
+  {
+    href: "/en/custom-painted-shoes/",
+    title: "Custom painted shoes",
+    desc: "Our most exclusive piece — sneakers painted entirely by hand.",
+    img: undefined,
+  },
+];
+---
+
+<Layout
+  title="Luciptera — Hand-Painted Custom Art in Medellín, Colombia"
+  description="Hand-painted custom art in Medellín: pet & people portraits, flower-festival hats, painted denim jackets and unique gifts. Local pickup/delivery in Medellín and worldwide shipping. Order on WhatsApp."
+  lang="en"
+  altHref={new URL("/", Astro.site).href}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base grid items-center gap-8 py-12 md:grid-cols-2">
+    <div>
+      <p class="wordmark text-5xl md:text-6xl">Luciptera</p>
+      <p class="mt-1 font-head text-sm uppercase tracking-[0.3em] text-[var(--color-gold-deep)]">
+        Art that lights up memories
+      </p>
+      <h1 class="mt-5 font-head text-3xl font-bold leading-tight md:text-4xl">
+        Hand-painted custom art, made in Medellín
+      </h1>
+      <p class="mt-4 text-lg text-[var(--color-ink-soft)]">
+        We turn your favorite photo —your pet, your family, your idea— into real, one-of-a-kind
+        painted art. 100% hand-painted in Medellín, Colombia. Local delivery in Medellín and
+        worldwide shipping.
+      </p>
+      <div class="mt-6">
+        <WhatsAppCTA message={waMsg} label="Order on WhatsApp" note="We reply personally — in English too 💛" />
+      </div>
+      <p class="mt-3 text-sm">
+        <a href={`https://wa.me/573022651859`} class="underline">WhatsApp +57 302 265 1859</a> ·
+        <a href={BUSINESS.instagramUrl} class="underline">@luciptera</a>
+      </p>
+    </div>
+    <div>
+      {heroImage("retratos-de-mascotas") && (
+        <Image
+          src={heroImage("retratos-de-mascotas")!}
+          alt="Hand-painted pet portrait by Luciptera in Medellín"
+          width={760}
+          height={950}
+          widths={[420, 760]}
+          sizes="(max-width: 768px) 100vw, 460px"
+          class="card aspect-[4/5] w-full object-cover"
+          loading="eager"
+        />
+      )}
+    </div>
+  </section>
+
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">What we paint</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3">
+      {cards.map((c) => (
+        <a href={c.href} class="card group block transition-transform hover:-translate-y-1">
+          {c.img ? (
+            <Image src={c.img} alt={c.title} width={420} height={420} widths={[260, 420]} sizes="(max-width:640px) 45vw, 280px" class="aspect-square w-full object-cover" loading="lazy" />
+          ) : (
+            <div class="flex aspect-square w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--color-cream-deep)] to-[var(--color-glow)]/40 p-4 text-center">
+              <span class="text-4xl">🎨</span>
+              <p class="wordmark mt-2 text-xl">{c.title}</p>
+            </div>
+          )}
+          <div class="p-4">
+            <h3 class="font-head text-base font-bold leading-snug">{c.title}</h3>
+            <p class="mt-1 text-sm text-[var(--color-ink-soft)]">{c.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6">
+      <h2 class="font-head text-2xl font-bold">How it works</h2>
+      <ol class="mt-3 grid gap-2 text-[15px] md:grid-cols-2">
+        <li>1. Message us on WhatsApp with your photo or idea.</li>
+        <li>2. We confirm the price, size and timeline.</li>
+        <li>3. You pay a deposit (we accept international payment for shipping abroad).</li>
+        <li>4. We hand-paint it and ship worldwide — or deliver in Medellín.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="container-base py-6">
+    <p class="text-sm text-[var(--color-ink-soft)]">
+      ★★★★★ Loved by customers on <a class="underline" href={BUSINESS.googleUrl}>Google</a>.
+      Prefer Spanish? <a class="underline" href="/">Ver el sitio en español</a>.
+    </p>
+  </section>
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Let's make something unique</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">Tell us your idea on WhatsApp and we'll bring it to life.</p>
+      <div class="mt-4 flex justify-center"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" /></div>
+    </div>
+  </section>
+</Layout>

@@ -255,8 +255,48 @@ const ALIAS_COPY: Record<string, { phrase: string; h1: string; lead: string }> =
   },
   "jean-pintado-a-mano": {
     phrase: "jean pintado a mano",
-    h1: "Jean (chaqueta) pintado a mano",
-    lead: "Tu prenda de jean pintada a mano con el diseño que quieras: mascotas, retratos, flores. Una pieza original y 100% tuya. Precio por WhatsApp.",
+    h1: "Jeans pintados a mano",
+    lead: "Tus jeans pintados a mano con el diseño que quieras: flores, calaveras, lettering o tu mascota. Una pieza original e irrepetible. Precio por WhatsApp.",
+  },
+  "pantalon-pintado-a-mano": {
+    phrase: "pantalón pintado a mano",
+    h1: "Pantalones pintados a mano",
+    lead: "Convierte un pantalón sencillo en una obra única: lo pintamos a mano con tu diseño favorito. Del estilo más floral al más rockero.",
+  },
+  "jeans-personalizados-pintados": {
+    phrase: "jeans personalizados pintados",
+    h1: "Jeans personalizados pintados a mano",
+    lead: "Jeans personalizados y pintados a mano, hechos 100% a tu gusto. Tú eliges el diseño y nosotros lo plasmamos. Precio por WhatsApp.",
+  },
+  "tenis-personalizados-pintados": {
+    phrase: "tenis personalizados pintados",
+    h1: "Tenis personalizados pintados a mano",
+    lead: "Unos tenis únicos en el mundo, pintados a mano con tu diseño, tu mascota o tu estilo. Imposibles de repetir. Precio por WhatsApp.",
+  },
+  "zapatillas-pintadas-a-mano": {
+    phrase: "zapatillas pintadas a mano",
+    h1: "Zapatillas pintadas a mano",
+    lead: "Zapatillas pintadas a mano con el diseño que imagines. Arte que puedes llevar puesto, hecho especialmente para ti.",
+  },
+  "zapatos-pintados-a-mano": {
+    phrase: "zapatos pintados a mano",
+    h1: "Zapatos pintados a mano",
+    lead: "Zapatos y tenis pintados a mano, personalizados con tu diseño favorito. Una pieza original y 100% tuya.",
+  },
+  "camiseta-pintada-a-mano": {
+    phrase: "camiseta pintada a mano",
+    h1: "Camisetas pintadas a mano",
+    lead: "Camisetas pintadas a mano con tu diseño, tu mascota o tu ilustración favorita. Únicas e irrepetibles. Precio por WhatsApp.",
+  },
+  "buso-pintado-a-mano": {
+    phrase: "buso pintado a mano",
+    h1: "Busos (hoodies) pintados a mano",
+    lead: "Tu buso o hoodie pintado a mano con el diseño que quieras. Una prenda abrigada y completamente original.",
+  },
+  "gorra-pintada-a-mano": {
+    phrase: "gorra pintada a mano",
+    h1: "Gorras pintadas a mano",
+    lead: "Gorras pintadas a mano y personalizadas con tu estilo. Un accesorio único para completar tu look.",
   },
 };
 

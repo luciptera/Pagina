@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ProductCard from "../components/ProductCard.astro";
+import WhatsAppCTA from "../components/WhatsAppCTA.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FaqList from "../components/FaqList.astro";
+import RelatedLinks from "../components/RelatedLinks.astro";
+import { products } from "../data/products";
+import { globalFaqs, faqs as allFaqs } from "../data/faqs";
+import { breadcrumbList, serviceSchema, faqPage } from "../lib/schema";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+// every hand-painted garment product
+const garments = products.filter((p) => p.material === "tela");
+const faqs = [
+  ...allFaqs.filter((f) => f.scope === "chaquetas-pintadas-a-mano"),
+  ...globalFaqs().slice(0, 3),
+];
+
+const crumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Ropa pintada a mano", href: "/ropa-pintada-a-mano/" },
+];
+const jsonLd = [
+  serviceSchema(
+    "Ropa pintada a mano y personalizada",
+    "Ropa y prendas pintadas a mano en Medellín: chaquetas de jean, jeans, tenis, camisetas, busos y gorras. Diseño personalizado, envíos a toda Colombia.",
+    url,
+  ),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(faqs),
+];
+const waMsg = "Hola Luciptera 🎨 quiero una prenda pintada a mano";
+---
+
+<Layout
+  title="Ropa pintada a mano y personalizada | Luciptera"
+  description="Ropa pintada a mano en Medellín: chaquetas de jean, jeans, tenis, camisetas, busos y gorras personalizados con el diseño que quieras. Arte para vestir. Envíos a toda Colombia."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base py-8">
+    <h1 class="font-head text-3xl font-bold md:text-4xl">Ropa pintada a mano</h1>
+    <p class="mt-3 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Convertimos prendas sencillas en piezas únicas e irrepetibles. Pintamos a mano —sobre tu prenda
+      o una nueva— chaquetas de jean, jeans, tenis, camisetas, busos y gorras con el diseño que
+      imagines: tu mascota, flores, retratos, lettering o tu estilo favorito.
+    </p>
+    <div class="mt-6"><WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Cuéntanos tu idea y la hacemos realidad." /></div>
+  </section>
+
+  <section class="container-base py-6">
+    <h2 class="font-head text-2xl font-bold">Prendas que pintamos</h2>
+    <div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {garments.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <TrustBlock />
+  <FaqList faqs={faqs} title="Preguntas sobre ropa pintada a mano" />
+
+  <RelatedLinks
+    items={[
+      { href: "/blog/como-cuidar-la-ropa-pintada-a-mano/", label: "Cómo cuidar tu ropa pintada a mano" },
+      { href: "/chaqueta-pintada-con-mi-mascota/", label: "Chaqueta pintada con tu mascota" },
+      { href: "/regalos-personalizados/", label: "Más regalos personalizados" },
+    ]}
+    title="Te puede interesar"
+  />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">Diseña tu prenda única</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">Escríbenos por WhatsApp con tu idea y la pintamos a mano para ti.</p>
+      <div class="mt-4 flex justify-center"><WhatsAppCTA message={waMsg} label="Escribir por WhatsApp" /></div>
+    </div>
+  </section>
+</Layout>

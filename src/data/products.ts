@@ -366,7 +366,7 @@ export const products: Product[] = [
     h1: "Tenis y zapatillas pintados a mano",
     tagline:
       "Nuestra pieza más exclusiva: unos tenis únicos en el mundo, pintados a mano con un nivel de detalle que toma varios días de trabajo.",
-    fromPrice: 0,
+    fromPrice: 250000,
     priceByWhatsApp: true,
     sizes: [],
     extras: [

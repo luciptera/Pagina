@@ -431,6 +431,60 @@ export const intents: Intent[] = [
     emotionalAngle: "Local, cercano.",
     waContext: "un regalo personalizado en Sabaneta",
   },
+
+  // ---- Location pages for the clothing + sombrero lines ----
+  {
+    slug: "ropa-pintada-a-mano-medellin",
+    title: "Ropa pintada a mano en Medellín",
+    h1: "Ropa pintada a mano en Medellín",
+    metaDescription:
+      "Ropa pintada a mano en Medellín con entrega a domicilio: chaquetas de jean, jeans, tenis, camisetas, busos y gorras personalizados con tu diseño. Pídelo por WhatsApp.",
+    lead:
+      "¿Buscas ropa pintada a mano en Medellín? Convertimos tus prendas en piezas únicas —chaquetas de jean, jeans, tenis, camisetas y más— pintadas a mano con el diseño que quieras, con entrega a domicilio en la ciudad y el área metropolitana.",
+    intentKeywords: ["ropa pintada a mano Medellín", "ropa personalizada Medellín", "chaquetas pintadas Medellín"],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "tenis-pintados-a-mano", "camisetas-pintadas-a-mano"],
+    emotionalAngle: "Local, moderno, único.",
+    waContext: "ropa pintada a mano en Medellín",
+  },
+  {
+    slug: "chaquetas-pintadas-a-mano-medellin",
+    title: "Chaquetas de jean pintadas a mano en Medellín",
+    h1: "Chaquetas de jean pintadas a mano en Medellín",
+    metaDescription:
+      "Chaquetas de jean pintadas a mano en Medellín, personalizadas con tu mascota, flores o el diseño que quieras. Entrega a domicilio. Pídela por WhatsApp.",
+    lead:
+      "Tu chaqueta de jean convertida en arte, aquí en Medellín. La pintamos a mano con tu mascota, un retrato, flores o el diseño que imagines, y te la entregamos a domicilio en la ciudad y el área metropolitana.",
+    intentKeywords: ["chaquetas pintadas a mano Medellín", "chaqueta personalizada Medellín", "chaqueta de jean pintada Medellín"],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "camisetas-pintadas-a-mano"],
+    emotionalAngle: "Local, moda, único.",
+    waContext: "una chaqueta de jean pintada a mano en Medellín",
+  },
+  {
+    slug: "sombreros-pintados-a-mano-medellin",
+    title: "Sombreros pintados a mano en Medellín",
+    h1: "Sombreros pintados a mano en Medellín",
+    metaDescription:
+      "Sombreros brisa pintados a mano en Medellín con flores y diseños únicos, perfectos para la Feria de las Flores. Entrega a domicilio. Pídelo por WhatsApp.",
+    lead:
+      "Sombreros brisa pintados a mano en Medellín: el accesorio ideal para la Feria de las Flores y para todo el año. Los pintamos con orquídeas, girasoles y más, con entrega a domicilio en la ciudad y el área metropolitana.",
+    intentKeywords: ["sombreros pintados a mano Medellín", "sombreros feria de las flores Medellín", "sombrero brisa pintado Medellín"],
+    relatedProducts: ["sombreros-brisa", "chaquetas-pintadas-a-mano", "retratos-de-mascotas"],
+    emotionalAngle: "Local, tradicional, festivo.",
+    waContext: "un sombrero pintado a mano en Medellín",
+  },
+  {
+    slug: "ropa-pintada-a-mano-bogota",
+    title: "Ropa pintada a mano con envíos a Bogotá",
+    h1: "Ropa pintada a mano, con envíos a Bogotá",
+    metaDescription:
+      "Ropa pintada a mano y personalizada con envíos a Bogotá: chaquetas de jean, jeans, tenis y camisetas con tu diseño. Pintamos en Medellín y te enviamos. Pídelo por WhatsApp.",
+    lead:
+      "¿Estás en Bogotá y quieres una prenda pintada a mano? La pintamos en Medellín y te la enviamos: chaquetas de jean, jeans, tenis, camisetas y más, personalizados con el diseño que imagines.",
+    intentKeywords: ["ropa pintada a mano Bogotá", "chaquetas pintadas a mano Bogotá", "ropa personalizada Bogotá"],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "tenis-pintados-a-mano", "camisetas-pintadas-a-mano"],
+    emotionalAngle: "Nacional, moderno, único.",
+    waContext: "ropa pintada a mano con envío a Bogotá",
+  },
 ];
 
 export const intentMap: Record<string, Intent> = Object.fromEntries(

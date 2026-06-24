@@ -365,15 +365,16 @@ export const products: Product[] = [
     shortName: "Tenis pintados",
     h1: "Tenis y zapatillas pintados a mano",
     tagline:
-      "Unos tenis únicos en el mundo: los pintamos a mano con tu diseño, tu mascota o tu estilo favorito.",
+      "Nuestra pieza más exclusiva: unos tenis únicos en el mundo, pintados a mano con un nivel de detalle que toma varios días de trabajo.",
     fromPrice: 0,
     priceByWhatsApp: true,
     sizes: [],
     extras: [
+      "Es nuestro trabajo más detallado y exigente: por eso tiene un valor especial",
       "Pintamos sobre tus tenis o conseguimos un par nuevo",
       "Diseño 100% personalizado, hecho a mano",
     ],
-    prepDays: 10,
+    prepDays: 15,
     material: "tela",
     personaTags: ["moda", "regalo"],
     aliases: ["tenis-personalizados-pintados", "zapatillas-pintadas-a-mano", "zapatos-pintados-a-mano"],

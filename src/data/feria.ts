@@ -99,6 +99,50 @@ export const hatDesigns: HatDesign[] = [
     fromConcept: true,
   },
   {
+    slug: "sombrero-hibisco",
+    name: "Hibisco",
+    emoji: "🌺",
+    short: "Un hibisco (cayena) rojo intenso, vibrante y tropical.",
+    flowers: ["Hibisco / cayena roja", "flores silvestres", "hojas verdes"],
+    description:
+      "Un hibisco —la cayena roja tan nuestra— pintado a mano en rojo intenso, acompañado de hojas y pequeñas flores silvestres en el ala. Vibrante, tropical y muy colombiano.",
+    keywords: ["sombrero hibisco pintado", "sombrero cayena pintado", "sombrero flor roja"],
+    fromConcept: true,
+  },
+  {
+    slug: "sombrero-tulipanes",
+    name: "Tulipanes",
+    emoji: "🌷",
+    short: "Tres tulipanes de colores, delicados y elegantes.",
+    flowers: ["Tulipanes (rosado, amarillo y morado)", "hojas verdes"],
+    description:
+      "Tres tulipanes —rosado, amarillo y morado— pintados a mano con sus hojas, delicados y elegantes. Un diseño primaveral que combina con todo.",
+    keywords: ["sombrero tulipanes pintado", "sombrero con tulipanes"],
+    fromConcept: true,
+  },
+  {
+    slug: "sombrero-hortensias",
+    name: "Hortensias",
+    emoji: "💠",
+    short: "Hortensias azules de Santa Elena, las flores de las silletas.",
+    flowers: ["Hortensias azules", "hojas verdes"],
+    description:
+      "Hortensias azules pintadas a mano, las flores emblemáticas de las fincas silleteras de Santa Elena. Un diseño fresco y muy antioqueño.",
+    keywords: ["sombrero hortensias pintado", "sombrero flores azules"],
+    fromConcept: true,
+  },
+  {
+    slug: "sombrero-jardin-floral",
+    name: "Jardín Floral",
+    emoji: "💐",
+    short: "Diseño envolvente con peonía, flores naranjas y silvestres.",
+    flowers: ["Peonía roja", "flores naranjas", "flores silvestres", "hojas verdes"],
+    description:
+      "Un jardín que envuelve todo el sombrero: una peonía roja como protagonista, rodeada de flores naranjas y silvestres que se extienden por el ala. Nuestro diseño más cargado y vistoso.",
+    keywords: ["sombrero jardín floral pintado", "sombrero envolvente de flores", "sombrero peonía pintado"],
+    fromConcept: true,
+  },
+  {
     slug: "sombrero-silleta-tradicional",
     name: "La Silleta Tradicional",
     emoji: "💐",

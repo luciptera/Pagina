@@ -91,6 +91,7 @@ export const products: Product[] = [
       { label: "30 × 30 cm", priceCOP: 300000 },
       { label: "30 × 41 cm", priceCOP: 400000 },
       { label: "40 × 60 cm", priceCOP: 650000 },
+      { label: "50 × 70 cm", priceCOP: 800000 },
     ],
     extras: ["Persona extra en el mismo lienzo: +$80.000"],
     prepDays: 15,

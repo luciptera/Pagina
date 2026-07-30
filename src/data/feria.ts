@@ -55,17 +55,6 @@ export const hatDesigns: HatDesign[] = [
     fromConcept: true,
   },
   {
-    slug: "sombrero-girasoles",
-    name: "Girasol",
-    emoji: "🌻",
-    short: "El girasol como protagonista, alegre y luminoso.",
-    flowers: ["Girasol", "hojas verdes"],
-    description:
-      "Un girasol grande y luminoso pintado a mano como protagonista del sombrero, con hojas verdes sobre la cinta negra. Un diseño alegre y muy fotogénico para la feria.",
-    keywords: ["sombrero girasol pintado", "sombrero con girasoles"],
-    fromConcept: true,
-  },
-  {
     slug: "sombrero-clavel",
     name: "Clavel",
     emoji: "🌹",
@@ -74,28 +63,6 @@ export const hatDesigns: HatDesign[] = [
     description:
       "Claveles rojos pintados a mano, una de las flores más representativas de las silletas antioqueñas. Un diseño clásico, vivo y elegante sobre el sombrero brisa.",
     keywords: ["sombrero clavel pintado", "sombrero flores rojas", "sombrero claveles"],
-    fromConcept: true,
-  },
-  {
-    slug: "sombrero-crisantemo",
-    name: "Crisantemo",
-    emoji: "🌼",
-    short: "Crisantemos amarillos, color y tradición silletera.",
-    flowers: ["Crisantemos amarillos", "botones", "hojas verdes"],
-    description:
-      "Crisantemos amarillos pintados a mano, flores típicas de las fincas silleteras de Santa Elena. Un diseño cálido y lleno de color para lucir en la feria.",
-    keywords: ["sombrero crisantemo pintado", "sombrero flores amarillas"],
-    fromConcept: true,
-  },
-  {
-    slug: "sombrero-flores-moradas",
-    name: "Flores Moradas",
-    emoji: "💜",
-    short: "Un ramo de flores moradas, delicado y femenino.",
-    flowers: ["Flores moradas", "lilas", "hojas verdes"],
-    description:
-      "Un delicado ramo de flores moradas pintado a mano sobre el sombrero brisa. Un diseño femenino y elegante que combina con todo.",
-    keywords: ["sombrero flores moradas pintado", "sombrero flores lilas"],
     fromConcept: true,
   },
   {

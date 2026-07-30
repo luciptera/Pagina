@@ -324,8 +324,8 @@ export const articles: Article[] = [
     heroProduct: "sombreros-brisa",
     extraLinks: [
       { href: "/sombrero-orquidea-cattleya/", label: "Sombrero La Reina de la Feria (orquídea)" },
-      { href: "/sombrero-crisantemo/", label: "Sombrero Crisantemo" },
-      { href: "/sombrero-girasoles/", label: "Sombrero Girasol" },
+      { href: "/sombrero-hibisco/", label: "Sombrero Hibisco" },
+      { href: "/sombrero-tulipanes/", label: "Sombrero Tulipanes" },
     ],
   },
   {

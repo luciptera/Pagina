@@ -6,7 +6,7 @@ import WhatsAppCTA from "../components/WhatsAppCTA.astro";
 import TrustBlock from "../components/TrustBlock.astro";
 import FaqList from "../components/FaqList.astro";
 import RelatedLinks from "../components/RelatedLinks.astro";
-import { FERIA, hatDesigns, daysUntilFeria } from "../data/feria";
+import { FERIA, hatDesigns } from "../data/feria";
 import { getProduct } from "../data/products";
 import { designHero } from "../data/images";
 import { faqsForProduct } from "../data/faqs";
@@ -15,7 +15,6 @@ import { productSchema, eventSchema, faqPage, breadcrumbList, serviceSchema } fr
 const product = getProduct("sombreros-brisa")!;
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const faqs = faqsForProduct("sombreros-brisa");
-const days = daysUntilFeria(new Date());
 
 const title = "Sombreros pintados a mano para la Feria de las Flores 2026 | Luciptera";
 const description = `Sombreros brisa blancos pintados a mano con flores antioqueñas para la Feria de las Flores (${FERIA.rangeLabel}). Diseños únicos: silleta, orquídea, girasoles. Domicilio en Medellín y envíos a toda Colombia. Precio por WhatsApp.`;
@@ -77,12 +76,13 @@ const infoLinks = [
     <div class="mt-6 flex flex-wrap items-center gap-4">
       <WhatsAppCTA message={waMsg} label="Pedir mi sombrero por WhatsApp" />
       <p class="rounded-full bg-[var(--color-gold)]/15 px-4 py-2 text-sm font-semibold">
-        ⏳ Faltan <span id="feria-countdown">{days}</span> días para la feria
+        🌸 <span id="feria-countdown-wrap">¡La feria es {FERIA.rangeLabel}!</span>
       </p>
     </div>
 
-    <p class="mt-4 inline-block rounded-lg bg-[var(--color-ink)]/5 px-4 py-2 text-sm">
-      📅 Pídelo <strong>antes del {FERIA.orderByLabel}</strong> para alcanzar a pintarlo y que llegue a tiempo.
+    <p class="mt-4 inline-block rounded-lg bg-[var(--color-gold)]/15 px-4 py-2 text-sm font-semibold">
+      ✅ Tenemos sombreros <strong>ya pintados, listos para entrega inmediata</strong> en Medellín.
+      Escríbenos y te mostramos los disponibles hoy mismo.
     </p>
   </section>
 
@@ -145,9 +145,9 @@ const infoLinks = [
         </p>
       </div>
       <div class="card p-5">
-        <h3 class="font-head text-lg font-bold">🚚 A tiempo para la feria</h3>
+        <h3 class="font-head text-lg font-bold">⚡ Entrega inmediata en la feria</h3>
         <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
-          Domicilio en Medellín y envíos a toda Colombia. Pide antes del {FERIA.orderByLabel}.
+          Sombreros ya pintados, disponibles hoy con domicilio en Medellín. ¿Un diseño a tu gusto? También lo pintamos (mín. 8 días).
         </p>
       </div>
     </div>
@@ -172,12 +172,18 @@ const infoLinks = [
   <RelatedLinks items={infoLinks} title="Sobre la Feria de las Flores" />
 </Layout>
 
-<script is:inline define:vars={{ startISO: FERIA.startISO }}>
-  // live countdown (progressive enhancement over the build-time number)
-  const el = document.getElementById("feria-countdown");
+<script is:inline define:vars={{ startISO: FERIA.startISO, endISO: FERIA.endISO }}>
+  // live status: countdown before the feria, "ya estamos" during it
+  const el = document.getElementById("feria-countdown-wrap");
   if (el) {
+    const now = Date.now();
     const start = new Date(startISO + "T00:00:00-05:00").getTime();
-    const days = Math.max(0, Math.ceil((start - Date.now()) / 86400000));
-    el.textContent = String(days);
+    const end = new Date(endISO + "T23:59:59-05:00").getTime();
+    if (now < start) {
+      const days = Math.ceil((start - now) / 86400000);
+      el.textContent = days === 1 ? "¡La feria empieza MAÑANA!" : `Faltan ${days} días para la feria`;
+    } else if (now <= end) {
+      el.textContent = "¡Ya estamos en Feria de las Flores! 🎉";
+    }
   }
 </script>

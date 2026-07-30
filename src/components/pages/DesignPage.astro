@@ -8,7 +8,7 @@ import FaqList from "../FaqList.astro";
 import Gallery from "../Gallery.astro";
 import RelatedLinks from "../RelatedLinks.astro";
 import type { HatDesign } from "../../data/feria";
-import { hatDesigns, FERIA } from "../../data/feria";
+import { hatDesigns } from "../../data/feria";
 import { getProduct } from "../../data/products";
 import { designImages, designHero } from "../../data/images";
 import { faqsForProduct } from "../../data/faqs";
@@ -93,7 +93,7 @@ const otherDesigns = hatDesigns
         <WhatsAppCTA
           message={waMsg}
           label="Pedir este diseño por WhatsApp"
-          note={`Pídelo antes del ${FERIA.orderByLabel} para lucirlo en la feria.`}
+          note="Pregunta por los sombreros listos: entrega inmediata en Medellín durante la feria."
         />
       </div>
     </div>

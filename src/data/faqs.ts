@@ -105,9 +105,9 @@ export const faqs: Faq[] = [
     scope: "sombreros-brisa",
   },
   {
-    question: "¿Hasta cuándo puedo pedir mi sombrero para la feria?",
+    question: "¿Puedo comprar un sombrero durante la feria, o ya es tarde?",
     answer:
-      "Recomendamos pedirlo antes del 23 de julio para alcanzar a pintarlo a mano y entregarlo a tiempo (mínimo 8 días de preparación, más el envío). Entre antes lo pidas, mejor: en temporada de feria la demanda es alta.",
+      "¡No es tarde! Tenemos sombreros ya pintados, listos para entrega inmediata a domicilio en Medellín durante la feria. Escríbenos por WhatsApp y te mostramos los diseños disponibles hoy. Si prefieres un diseño personalizado, ese sí toma mínimo 8 días.",
     scope: "sombreros-brisa",
   },
   {

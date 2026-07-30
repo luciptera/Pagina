@@ -293,8 +293,9 @@ export const products: Product[] = [
     seasonal: "Feria de las Flores",
     sizes: [],
     extras: [
+      "⚡ Hay sombreros ya pintados con entrega inmediata en Medellín — pregunta por los disponibles",
       "Cada sombrero se pinta a mano sobre sombrero brisa blanco",
-      "Eliges el diseño y las flores que más te gusten",
+      "Eliges el diseño y las flores que más te gusten (personalizado: mín. 8 días)",
     ],
     prepDays: 8,
     material: "paja",

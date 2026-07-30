@@ -14,7 +14,7 @@ const waMsg = "Hi Luciptera 🌸 I'd like a hand-painted hat for the Flower Fest
 const crumbs = [{ name: "Home", href: "/en/" }, { name: "Hand-painted hats", href: Astro.url.pathname }];
 
 const faqs = [
-  { question: "When is the Medellín Flower Festival 2026?", answer: `The Feria de las Flores runs July 31 – August 9, 2026. Order your hat before late July so it's ready in time — each one is hand-painted to order.`, scope: "global" as const },
+  { question: "When is the Medellín Flower Festival 2026?", answer: `The Feria de las Flores runs July 31 – August 9, 2026. We have hats already painted and ready for same-day delivery in Medellín during the festival — message us on WhatsApp to see what's available today.`, scope: "global" as const },
   { question: "Can tourists buy and pick up in Medellín?", answer: "Yes. We deliver in Medellín so you can wear it during your trip, and we also ship worldwide if you'd like it sent home.", scope: "global" as const },
 ];
 
@@ -43,7 +43,7 @@ const jsonLd = [
       <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">Hand-painted hats for the Flower Festival</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">The iconic white "brisa" hat, hand-painted with Colombia's most beautiful flowers — orchids, sunflowers, carnations and more. The perfect way to stand out at the Medellín Flower Festival.</p>
       <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Hand-painted to order · Pickup in Medellín + worldwide shipping</p>
-      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note={`Order before late July to wear it at the festival.`} /></div>
+      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note="Ready-made hats available NOW — same-day delivery in Medellín during the festival." /></div>
     </div>
   </section>
 

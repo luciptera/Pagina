@@ -55,6 +55,17 @@ export const hatDesigns: HatDesign[] = [
     fromConcept: true,
   },
   {
+    slug: "sombrero-girasoles",
+    name: "Girasol",
+    emoji: "🌻",
+    short: "Girasoles luminosos que envuelven copa y ala.",
+    flowers: ["Girasoles", "hojas verdes"],
+    description:
+      "Girasoles grandes y luminosos pintados a mano, recorriendo la copa y el ala del sombrero. Un diseño alegre, radiante y muy fotogénico para la feria.",
+    keywords: ["sombrero girasol pintado", "sombrero con girasoles"],
+    fromConcept: true,
+  },
+  {
     slug: "sombrero-clavel",
     name: "Clavel",
     emoji: "🌹",

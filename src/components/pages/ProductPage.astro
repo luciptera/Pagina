@@ -130,8 +130,12 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
           <div class="card h-full p-6">
             <h2 class="font-head text-2xl font-bold">Diseños a tu gusto</h2>
             <p class="mt-2 text-[15px]">
-              Cada sombrero se pinta a mano sobre pedido. Elegimos juntos el diseño y las
-              flores que más te gusten. Escríbenos por WhatsApp y te mostramos opciones.
+              {product.material === "paja"
+                ? "Cada sombrero se pinta a mano sobre pedido. Elegimos juntos el diseño y las flores que más te gusten."
+                : product.material === "tela"
+                  ? "Cada prenda se pinta a mano sobre pedido: tu mascota, flores, lettering o el diseño que imagines. Pintamos sobre tu prenda o conseguimos una nueva."
+                  : `Cada pieza se pinta a mano sobre pedido, con el diseño que más te guste.`}
+              {" "}Escríbenos por WhatsApp y te mostramos opciones.
             </p>
             {product.seasonal === "Feria de las Flores" && (
               <a href="/sombreros-para-la-feria-de-las-flores/" class="mt-4 inline-block underline">
@@ -139,7 +143,7 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
               </a>
             )}
             <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
-              Las imágenes que compartimos son diseños de referencia; tu sombrero se pinta a mano para ti.
+              Las imágenes que compartimos son diseños de referencia; tu pieza se pinta a mano para ti.
             </p>
           </div>
         )

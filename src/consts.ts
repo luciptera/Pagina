@@ -14,13 +14,17 @@ export const BUSINESS = {
   name: "Luciptera",
   legalName: "Luciptera — Arte personalizado",
   owner: "Martha Lucía Fonseca",
-  tagline: "Arte que ilumina recuerdos",
+  tagline: "Donde el arte se vuelve parte de ti.",
+  /** English adaptation of the tagline */
+  taglineEn: "Where art becomes part of you.",
   /** short description used across meta + JSON-LD */
   description:
     "Arte personalizado pintado 100% a mano en Medellín: retratos de mascotas y personas en lienzo, cuadros en madera, llaveros, placas y cases en resina. Envíos a toda Colombia.",
   instagram: "luciptera",
   instagramUrl: "https://www.instagram.com/luciptera/",
   facebookUrl: "https://www.facebook.com/profile.php?id=61590667984007",
+  tiktok: "luciptera",
+  tiktokUrl: "https://www.tiktok.com/@luciptera",
   // Google Business Profile / knowledge panel. Swap for the Maps "Share" link if preferred.
   googleUrl: "https://www.google.com/search?kgmid=/g/11z8v93f6v",
   artHandle: "Fonlu_Arte",

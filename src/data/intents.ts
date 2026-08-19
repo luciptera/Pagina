@@ -438,11 +438,11 @@ export const intents: Intent[] = [
     title: "Ropa pintada a mano en Medellín",
     h1: "Ropa pintada a mano en Medellín",
     metaDescription:
-      "Ropa pintada a mano en Medellín con entrega a domicilio: chaquetas de jean, jeans, tenis, camisetas, busos y gorras personalizados con tu diseño. Pídelo por WhatsApp.",
+      "Ropa pintada a mano en Medellín con entrega a domicilio: chaquetas de jean, jeans, camisetas, busos y gorras personalizados con tu diseño. Pídelo por WhatsApp.",
     lead:
-      "¿Buscas ropa pintada a mano en Medellín? Convertimos tus prendas en piezas únicas —chaquetas de jean, jeans, tenis, camisetas y más— pintadas a mano con el diseño que quieras, con entrega a domicilio en la ciudad y el área metropolitana.",
+      "¿Buscas ropa pintada a mano en Medellín? Convertimos tus prendas en piezas únicas —chaquetas de jean, jeans, camisetas y más— pintadas a mano con el diseño que quieras, con entrega a domicilio en la ciudad y el área metropolitana.",
     intentKeywords: ["ropa pintada a mano Medellín", "ropa personalizada Medellín", "chaquetas pintadas Medellín"],
-    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "tenis-pintados-a-mano", "camisetas-pintadas-a-mano"],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "camisetas-pintadas-a-mano"],
     emotionalAngle: "Local, moderno, único.",
     waContext: "ropa pintada a mano en Medellín",
   },
@@ -477,11 +477,11 @@ export const intents: Intent[] = [
     title: "Ropa pintada a mano con envíos a Bogotá",
     h1: "Ropa pintada a mano, con envíos a Bogotá",
     metaDescription:
-      "Ropa pintada a mano y personalizada con envíos a Bogotá: chaquetas de jean, jeans, tenis y camisetas con tu diseño. Pintamos en Medellín y te enviamos. Pídelo por WhatsApp.",
+      "Ropa pintada a mano y personalizada con envíos a Bogotá: chaquetas de jean, jeans y camisetas con tu diseño. Pintamos en Medellín y te enviamos. Pídelo por WhatsApp.",
     lead:
-      "¿Estás en Bogotá y quieres una prenda pintada a mano? La pintamos en Medellín y te la enviamos: chaquetas de jean, jeans, tenis, camisetas y más, personalizados con el diseño que imagines.",
+      "¿Estás en Bogotá y quieres una prenda pintada a mano? La pintamos en Medellín y te la enviamos: chaquetas de jean, jeans, camisetas y más, personalizados con el diseño que imagines.",
     intentKeywords: ["ropa pintada a mano Bogotá", "chaquetas pintadas a mano Bogotá", "ropa personalizada Bogotá"],
-    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "tenis-pintados-a-mano", "camisetas-pintadas-a-mano"],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "camisetas-pintadas-a-mano"],
     emotionalAngle: "Nacional, moderno, único.",
     waContext: "ropa pintada a mano con envío a Bogotá",
   },

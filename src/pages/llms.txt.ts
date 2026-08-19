@@ -21,6 +21,7 @@ export const GET: APIRoute = ({ site }) => {
   lines.push(`- WhatsApp: +${WHATSAPP_NUMBER} (https://wa.me/${WHATSAPP_NUMBER})`);
   lines.push(`- Instagram: ${BUSINESS.instagramUrl}`);
   lines.push(`- Facebook: ${BUSINESS.facebookUrl}`);
+  lines.push(`- TikTok: ${BUSINESS.tiktokUrl}`);
   lines.push(`- Medios de pago: Nequi ${BUSINESS.payments.nequi}, Bancolombia (Llave ${BUSINESS.payments.bancolombiaKey})`);
   lines.push(`- Nota: ${BUSINESS.shippingNote}`);
   lines.push("");
@@ -31,7 +32,7 @@ export const GET: APIRoute = ({ site }) => {
   }
   lines.push("");
   lines.push("## Feria de las Flores (Medellín)");
-  lines.push(`- Fechas ${FERIA.year}: ${FERIA.rangeLabel}. Acto central: Desfile de Silleteros.`);
+  lines.push(`- La Feria de las Flores se celebra cada año en Medellín ${FERIA.typicalWindow}. Fechas oficiales de ${FERIA.year}: aún sin anunciar.`);
   lines.push(`- Luciptera pinta a mano sombreros brisa blancos con flores antioqueñas para la feria.`);
   lines.push(`- Sombreros desde $99.000. Hay sombreros ya pintados con entrega inmediata en Medellín durante la feria.`);
   lines.push(`- Página principal: ${base}/sombreros-para-la-feria-de-las-flores/`);

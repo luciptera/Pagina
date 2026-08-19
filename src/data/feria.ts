@@ -1,6 +1,6 @@
 /* ===========================================================================
    Feria de las Flores — Medellín's biggest cultural event and our top seasonal
-   search opportunity. Dates are official (Feria 2026: 31 jul – 9 ago).
+   search opportunity. Official dates are announced yearly by the Alcaldía de Medellín.
    The painted "sombreros brisa" line is the hero product for this campaign.
 
    TODO(owner): drop real photos / mockup files into
@@ -8,17 +8,23 @@
 =========================================================================== */
 
 export const FERIA = {
-  year: 2026,
-  /** ISO dates for schema + countdown */
-  startISO: "2026-07-31",
-  endISO: "2026-08-09",
-  startLabel: "31 de julio",
-  endLabel: "9 de agosto",
-  rangeLabel: "del 31 de julio al 9 de agosto de 2026",
-  /** last recommended order date so a hand-painted hat arrives in time */
-  orderByISO: "2026-07-23",
-  orderByLabel: "23 de julio",
-  edition: "Feria de las Flores 2026",
+  year: 2027,
+  edition: "Feria de las Flores 2027",
+  /**
+   * The official 2027 dates have NOT been announced yet. Never print exact
+   * dates as fact — the feria is traditionally held between late July and the
+   * second week of August. Fill startISO/endISO + set datesConfirmed when the
+   * Alcaldía de Medellín publishes them, and the Event schema turns back on.
+   */
+  datesConfirmed: false,
+  startISO: "",
+  endISO: "",
+  rangeLabel: "a comienzos de agosto de 2027",
+  monthLabel: "agosto de 2027",
+  typicalWindow: "entre finales de julio y la segunda semana de agosto",
+  /** hats painted for the last feria, available for immediate delivery */
+  hasReadyStock: true,
+  readyStockLabel: "Sombreros ya pintados · entrega inmediata",
 } as const;
 
 export interface HatDesign {

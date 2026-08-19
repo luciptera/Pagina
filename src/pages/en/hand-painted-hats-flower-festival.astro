@@ -14,7 +14,7 @@ const waMsg = "Hi Luciptera 🌸 I'd like a hand-painted hat for the Flower Fest
 const crumbs = [{ name: "Home", href: "/en/" }, { name: "Hand-painted hats", href: Astro.url.pathname }];
 
 const faqs = [
-  { question: "When is the Medellín Flower Festival 2026?", answer: `The Feria de las Flores runs July 31 – August 9, 2026. We have hats already painted and ready for same-day delivery in Medellín during the festival — message us on WhatsApp to see what's available today.`, scope: "global" as const },
+  { question: "When is the Medellín Flower Festival?", answer: `Medellín's Flower Festival is held every year between late July and the second week of August; the official 2027 dates haven't been announced yet. We currently have hats already painted and ready for same-day delivery in Medellín — message us on WhatsApp to see what's available.`, scope: "global" as const },
   { question: "Can tourists buy and pick up in Medellín?", answer: "Yes. We deliver in Medellín so you can wear it during your trip, and we also ship worldwide if you'd like it sent home.", scope: "global" as const },
 ];
 
@@ -39,7 +39,7 @@ const jsonLd = [
       {hero && <Image src={hero} alt="Hand-painted brisa hat with orchids for the Medellín Flower Festival" width={720} height={720} widths={[400,720]} sizes="(max-width:768px) 100vw, 480px" class="card aspect-square w-full object-cover" loading="eager" />}
     </div>
     <div class="flex flex-col justify-center">
-      <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">Feria de las Flores · {FERIA.startLabel}–{FERIA.endLabel}</p>
+      <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">Feria de las Flores · Medellín</p>
       <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">Hand-painted hats for the Flower Festival</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">The iconic white "brisa" hat, hand-painted with Colombia's most beautiful flowers — orchids, sunflowers, carnations and more. The perfect way to stand out at the Medellín Flower Festival.</p>
       <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Hand-painted to order · Pickup in Medellín + worldwide shipping</p>

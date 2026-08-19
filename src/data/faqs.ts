@@ -19,13 +19,13 @@ export const faqs: Faq[] = [
   {
     question: "¿Cuánto cuesta un retrato de mascota?",
     answer:
-      "Un retrato de mascota en lienzo cuesta desde $170.000 (tamaño 20×25 cm) y va hasta $650.000 (40×60 cm). Cada mascota adicional en el mismo lienzo tiene un costo extra de $70.000. Los precios no incluyen envío.",
+      "Un retrato de mascota en lienzo cuesta desde $170.000 (tamaño 20×25 cm) y va hasta $700.000 (50×70 cm). Cada mascota adicional en el mismo lienzo tiene un costo extra de $90.000. Los precios no incluyen envío.",
     scope: "global",
   },
   {
     question: "¿Cuánto se demora un trabajo pintado a mano?",
     answer:
-      "Los retratos en lienzo (mascotas, personas, anime y paisajes) tienen un tiempo mínimo de preparación de 15 días. Los llaveros y placas en resina toman mínimo 8 días. Te recomendamos encargar con anticipación, sobre todo en fechas especiales.",
+      "Los retratos en lienzo (mascotas, personas, anime y paisajes) tienen un tiempo mínimo de preparación de 15 días. Los llaveros y cuadros en madera toman mínimo 10 días, y las placas mínimo 8 días. Te recomendamos encargar con anticipación, sobre todo en fechas especiales.",
     scope: "global",
   },
   {
@@ -57,7 +57,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Puedo poner más de una mascota en el mismo cuadro?",
     answer:
-      "Sí. Puedes agregar mascotas extra al mismo lienzo; cada mascota adicional tiene un costo de $70.000. Mándanos las fotos por WhatsApp y te confirmamos el precio final.",
+      "Sí. Puedes agregar mascotas extra al mismo lienzo; cada mascota adicional tiene un costo de $90.000. Mándanos las fotos por WhatsApp y te confirmamos el precio final.",
     scope: "retratos-de-mascotas",
   },
   {
@@ -69,7 +69,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Cuántas personas puede llevar el retrato?",
     answer:
-      "Las que quieras. El precio base es por una persona y cada persona adicional en el mismo lienzo cuesta $80.000. Ideal para retratos de pareja o de familia.",
+      "Las que quieras. El precio base es por una persona y cada persona adicional en el mismo lienzo cuesta $100.000. Ideal para retratos de pareja o de familia.",
     scope: "retratos-de-personas",
   },
   {
@@ -81,7 +81,7 @@ export const faqs: Faq[] = [
   {
     question: "¿El llavero es resistente?",
     answer:
-      "Sí. Los llaveros se pintan 100% a mano y se encapsulan en resina, lo que los hace resistentes para el uso diario. El tiempo de preparación es mínimo de 8 días.",
+      "Sí. Los llaveros se pintan 100% a mano y se encapsulan en resina, lo que los hace resistentes para el uso diario. El tiempo de preparación es mínimo de 10 días.",
     scope: "llaveros-de-mascotas",
   },
   {
@@ -99,9 +99,9 @@ export const faqs: Faq[] = [
 
   // --- sombreros / Feria de las Flores ---
   {
-    question: "¿Cuándo es la Feria de las Flores 2026?",
+    question: "¿Cuándo es la Feria de las Flores?",
     answer:
-      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto de 2026. El Desfile de Silleteros es el evento central. Pide tu sombrero pintado con tiempo para lucirlo durante la feria.",
+      "La Feria de las Flores se celebra cada año en Medellín, normalmente entre finales de julio y la segunda semana de agosto; su acto central es el Desfile de Silleteros. Las fechas oficiales de 2027 aún no se anuncian. Mientras tanto tenemos sombreros ya pintados listos para entrega inmediata.",
     scope: "sombreros-brisa",
   },
   {

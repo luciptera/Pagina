@@ -32,21 +32,21 @@ export const articles: Article[] = [
     title: "¿Cuánto cuesta un retrato de mascota en Colombia?",
     h1: "¿Cuánto cuesta un retrato de mascota en Colombia?",
     description:
-      "Un retrato de mascota en lienzo cuesta desde $170.000 y hasta $650.000 según el tamaño. Te explicamos los precios, qué incluye y de qué depende el valor final.",
+      "Un retrato de mascota en lienzo cuesta desde $170.000 y hasta $700.000 según el tamaño. Te explicamos los precios, qué incluye y de qué depende el valor final.",
     intro:
-      "En Luciptera, un retrato de mascota en lienzo cuesta desde $170.000 (20×25 cm) y llega hasta $650.000 (40×60 cm). El precio depende del tamaño y de cuántas mascotas quieras incluir. Los valores no incluyen el envío.",
+      "En Luciptera, un retrato de mascota en lienzo cuesta desde $170.000 (20×25 cm) y llega hasta $700.000 (50×70 cm). El precio depende del tamaño y de cuántas mascotas quieras incluir. Los valores no incluyen el envío.",
     sections: [
       {
         q: "¿Cuál es el precio de un retrato de mascota según el tamaño?",
         a: [
-          "Los precios por tamaño son: 20×25 cm $170.000, 23×30 cm $250.000, 30×30 cm $300.000, 30×41 cm $380.000 y 40×60 cm $650.000.",
+          "Los precios por tamaño son: 20×25 cm $170.000, 23×30 cm $250.000, 30×30 cm $300.000, 30×41 cm $380.000, 40×60 cm $550.000 y 50×70 cm $700.000.",
           "Todos se pintan 100% a mano sobre lienzo. Entre más grande el formato, más detalle y presencia tendrá tu cuadro.",
         ],
       },
       {
         q: "¿Cuánto cuesta agregar otra mascota al cuadro?",
         a: [
-          "Cada mascota adicional en el mismo lienzo cuesta $70.000.",
+          "Cada mascota adicional en el mismo lienzo cuesta $90.000.",
           "Es ideal si quieres a tus dos peludos juntos o a toda la familia animal en una sola obra.",
         ],
       },
@@ -163,7 +163,7 @@ export const articles: Article[] = [
         q: "¿Qué tamaño elijo para varias mascotas o personas?",
         a: [
           "Para dos o más, recomendamos 30×41 cm o 40×60 cm para que cada uno tenga su espacio y detalle.",
-          "Recuerda que cada mascota extra cuesta $70.000 y cada persona extra $80.000.",
+          "Recuerda que cada mascota extra cuesta $90.000 y cada persona extra $100.000.",
         ],
       },
       {
@@ -215,18 +215,18 @@ export const articles: Article[] = [
   // ---- Feria de las Flores AEO cluster ----
   {
     slug: "cuando-es-la-feria-de-las-flores",
-    title: "¿Cuándo es la Feria de las Flores 2026 en Medellín?",
-    h1: "¿Cuándo es la Feria de las Flores 2026?",
+    title: "¿Cuándo es la Feria de las Flores 2027 en Medellín?",
+    h1: "¿Cuándo es la Feria de las Flores 2027?",
     description:
-      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto. Te contamos las fechas, el Desfile de Silleteros y cómo prepararte.",
+      "La Feria de las Flores de Medellín se celebra cada año entre finales de julio y la segunda semana de agosto. Te contamos lo que se sabe de 2027, el Desfile de Silleteros y cómo prepararte.",
     intro:
-      "La Feria de las Flores de Medellín 2026 se celebra del 31 de julio al 9 de agosto de 2026, durante diez días. Su acto central y más emblemático es el Desfile de Silleteros.",
+      "La Feria de las Flores de Medellín se celebra cada año entre finales de julio y la segunda semana de agosto, durante unos diez días. Las fechas oficiales de 2027 aún no han sido anunciadas por la Alcaldía de Medellín. Su acto central y más emblemático es el Desfile de Silleteros.",
     sections: [
       {
-        q: "¿Qué días es la Feria de las Flores 2026?",
+        q: "¿Qué días es la Feria de las Flores 2027?",
         a: [
-          "La feria va del 31 de julio al 9 de agosto de 2026, son 10 días de programación.",
-          "Cada año la fecha varía un poco, pero siempre se realiza a comienzos de agosto en Medellín.",
+          "Las fechas oficiales de 2027 todavía no se han publicado. Como referencia, en 2026 la feria fue del 31 de julio al 9 de agosto.",
+          "Cada año la fecha varía un poco, pero siempre se realiza entre finales de julio y comienzos de agosto en Medellín. Cuando se anuncien las fechas oficiales, las actualizamos aquí.",
         ],
       },
       {
@@ -240,7 +240,7 @@ export const articles: Article[] = [
         q: "¿Cómo me preparo para la Feria de las Flores?",
         a: [
           "Lleva ropa fresca, calzado cómodo, protección solar y un sombrero: el clima de Medellín y el sol del desfile lo piden.",
-          "Un sombrero brisa pintado a mano con flores es el accesorio perfecto para lucir en la feria. Pídelo con tiempo porque se pinta sobre pedido.",
+          "Un sombrero brisa pintado a mano con flores es el accesorio perfecto para lucir en la feria. Tenemos algunos ya pintados listos para entrega inmediata, y también los pintamos a tu gusto sobre pedido.",
         ],
       },
     ],

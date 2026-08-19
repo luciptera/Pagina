@@ -25,7 +25,7 @@ const crumbs = [
 const jsonLd = [
   serviceSchema(
     "Ropa pintada a mano y personalizada",
-    "Ropa y prendas pintadas a mano en Medellín: chaquetas de jean, jeans, tenis, camisetas, busos y gorras. Diseño personalizado, envíos a toda Colombia.",
+    "Ropa y prendas pintadas a mano en Medellín: chaquetas de jean, jeans, camisetas, busos y gorras. Diseño personalizado, envíos a toda Colombia.",
     url,
   ),
   breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
@@ -36,7 +36,7 @@ const waMsg = "Hola Luciptera 🎨 quiero una prenda pintada a mano";
 
 <Layout
   title="Ropa pintada a mano y personalizada | Luciptera"
-  description="Ropa pintada a mano en Medellín: chaquetas de jean, jeans, tenis, camisetas, busos y gorras personalizados con el diseño que quieras. Arte para vestir. Envíos a toda Colombia."
+  description="Ropa pintada a mano en Medellín: chaquetas de jean, jeans, camisetas, busos y gorras personalizados con el diseño que quieras. Arte para vestir. Envíos a toda Colombia."
   jsonLd={jsonLd}
 >
   <Breadcrumbs items={crumbs} />
@@ -45,7 +45,7 @@ const waMsg = "Hola Luciptera 🎨 quiero una prenda pintada a mano";
     <h1 class="font-head text-3xl font-bold md:text-4xl">Ropa pintada a mano</h1>
     <p class="mt-3 max-w-2xl text-lg text-[var(--color-ink-soft)]">
       Convertimos prendas sencillas en piezas únicas e irrepetibles. Pintamos a mano —sobre tu prenda
-      o una nueva— chaquetas de jean, jeans, tenis, camisetas, busos y gorras con el diseño que
+      o una nueva— chaquetas de jean, jeans, camisetas, busos y gorras con el diseño que
       imagines: tu mascota, flores, retratos, lettering o tu estilo favorito.
     </p>
     <div class="mt-6"><WhatsAppCTA message={waMsg} label="Pedir por WhatsApp" note="Cuéntanos tu idea y la hacemos realidad." /></div>

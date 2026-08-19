@@ -268,21 +268,6 @@ const ALIAS_COPY: Record<string, { phrase: string; h1: string; lead: string }> =
     h1: "Jeans personalizados pintados a mano",
     lead: "Jeans personalizados y pintados a mano, hechos 100% a tu gusto. Tú eliges el diseño y nosotros lo plasmamos. Precio por WhatsApp.",
   },
-  "tenis-personalizados-pintados": {
-    phrase: "tenis personalizados pintados",
-    h1: "Tenis personalizados pintados a mano",
-    lead: "Unos tenis únicos en el mundo, pintados a mano con tu diseño, tu mascota o tu estilo. Imposibles de repetir. Precio por WhatsApp.",
-  },
-  "zapatillas-pintadas-a-mano": {
-    phrase: "zapatillas pintadas a mano",
-    h1: "Zapatillas pintadas a mano",
-    lead: "Zapatillas pintadas a mano con el diseño que imagines. Arte que puedes llevar puesto, hecho especialmente para ti.",
-  },
-  "zapatos-pintados-a-mano": {
-    phrase: "zapatos pintados a mano",
-    h1: "Zapatos pintados a mano",
-    lead: "Zapatos y tenis pintados a mano, personalizados con tu diseño favorito. Una pieza original y 100% tuya.",
-  },
   "camiseta-pintada-a-mano": {
     phrase: "camiseta pintada a mano",
     h1: "Camisetas pintadas a mano",

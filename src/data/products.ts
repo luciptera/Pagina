@@ -57,9 +57,13 @@ export const products: Product[] = [
       { label: "23 × 30 cm", priceCOP: 250000 },
       { label: "30 × 30 cm", priceCOP: 300000 },
       { label: "30 × 41 cm", priceCOP: 380000 },
-      { label: "40 × 60 cm", priceCOP: 650000 },
+      { label: "40 × 60 cm", priceCOP: 550000 },
+      { label: "50 × 70 cm", priceCOP: 700000 },
     ],
-    extras: ["Mascota extra en el mismo lienzo: +$70.000"],
+    extras: [
+      "Los precios son por 1 mascota",
+      "Mascota extra en el mismo lienzo: +$90.000",
+    ],
     prepDays: 15,
     material: "lienzo",
     personaTags: ["dueños-de-mascotas", "memorial", "regalo", "decoracion"],
@@ -87,13 +91,16 @@ export const products: Product[] = [
     fromPrice: 200000,
     sizes: [
       { label: "20 × 25 cm", priceCOP: 200000 },
-      { label: "23 × 30 cm", priceCOP: 260000 },
-      { label: "30 × 30 cm", priceCOP: 300000 },
-      { label: "30 × 41 cm", priceCOP: 400000 },
-      { label: "40 × 60 cm", priceCOP: 650000 },
+      { label: "23 × 30 cm", priceCOP: 270000 },
+      { label: "30 × 30 cm", priceCOP: 310000 },
+      { label: "30 × 41 cm", priceCOP: 410000 },
+      { label: "40 × 60 cm", priceCOP: 600000 },
       { label: "50 × 70 cm", priceCOP: 800000 },
     ],
-    extras: ["Persona extra en el mismo lienzo: +$80.000"],
+    extras: [
+      "Los precios son por 1 rostro",
+      "Persona extra en el mismo lienzo: +$100.000",
+    ],
     prepDays: 15,
     material: "lienzo",
     personaTags: ["parejas-familias", "regalo", "decoracion", "memorial"],
@@ -172,13 +179,12 @@ export const products: Product[] = [
     tagline:
       "Tu mascota pintada a mano sobre madera, con brillante acabado resinado. Tú eliges el color.",
     fromPrice: 100000,
-    sizes: [
-      { label: "15 × 15 cm", priceCOP: 100000 },
-      { label: "20 × 20 cm", priceCOP: 150000 },
-      { label: "Círculo 20 × 20 cm", priceCOP: 150000 },
+    sizes: [{ label: "15 × 15 cm (cuadrado o circular)", priceCOP: 100000 }],
+    extras: [
+      "Por el tamaño de la pieza, solo es posible 1 mascota por cuadro",
+      "Fondo unicolor — tú eliges el color",
     ],
-    extras: ["Mascota extra: +$50.000", "Eliges el color y la decoración que desees"],
-    prepDays: 15,
+    prepDays: 10,
     material: "madera",
     personaTags: ["dueños-de-mascotas", "decoracion", "regalo", "memorial"],
     aliases: [
@@ -207,7 +213,7 @@ export const products: Product[] = [
     extras: [
       "Mascota extra: +$40.000 (en llaveros con 2 mascotas, una por cada lado)",
     ],
-    prepDays: 8,
+    prepDays: 10,
     material: "resina",
     personaTags: ["dueños-de-mascotas", "regalo", "memorial"],
     aliases: [
@@ -260,8 +266,8 @@ export const products: Product[] = [
       "Tu mascota o tu diseño favorito pintado a mano dentro del case de tu celular, en resina.",
     fromPrice: 100000,
     sizes: [
-      { label: "Case con mascota", priceCOP: 100000 },
-      { label: "Case básico (flores, paisajes, objetos)", priceCOP: 100000 },
+      { label: "Case con mascota", priceCOP: 110000 },
+      { label: "Case básico (flores, paisajes, objetos)", priceCOP: 120000 },
     ],
     extras: [
       "Indícanos la referencia de tu celular (revisamos si tenemos el modelo en stock)",
@@ -358,30 +364,7 @@ export const products: Product[] = [
     personaTags: ["moda", "regalo"],
     aliases: ["jean-pintado-a-mano", "pantalon-pintado-a-mano", "jeans-personalizados-pintados"],
     waContext: "unos jeans / un pantalón pintado a mano",
-    relatedSlugs: ["chaquetas-pintadas-a-mano", "tenis-pintados-a-mano", "camisetas-pintadas-a-mano"],
-    inCityMatrix: false,
-  },
-  {
-    slug: "tenis-pintados-a-mano",
-    name: "Tenis y zapatillas pintados a mano",
-    shortName: "Tenis pintados",
-    h1: "Tenis y zapatillas pintados a mano",
-    tagline:
-      "Nuestra pieza más exclusiva: unos tenis únicos en el mundo, pintados a mano con un nivel de detalle que toma varios días de trabajo.",
-    fromPrice: 250000,
-    priceByWhatsApp: true,
-    sizes: [],
-    extras: [
-      "Es nuestro trabajo más detallado y exigente: por eso tiene un valor especial",
-      "Pintamos sobre tus tenis o conseguimos un par nuevo",
-      "Diseño 100% personalizado, hecho a mano",
-    ],
-    prepDays: 15,
-    material: "tela",
-    personaTags: ["moda", "regalo"],
-    aliases: ["tenis-personalizados-pintados", "zapatillas-pintadas-a-mano", "zapatos-pintados-a-mano"],
-    waContext: "unos tenis pintados a mano",
-    relatedSlugs: ["jeans-pintados-a-mano", "chaquetas-pintadas-a-mano", "camisetas-pintadas-a-mano"],
+    relatedSlugs: ["chaquetas-pintadas-a-mano", "camisetas-pintadas-a-mano"],
     inCityMatrix: false,
   },
   {
@@ -403,7 +386,7 @@ export const products: Product[] = [
     personaTags: ["moda", "regalo", "dueños-de-mascotas"],
     aliases: ["camiseta-pintada-a-mano", "buso-pintado-a-mano", "gorra-pintada-a-mano"],
     waContext: "una camiseta / buso / gorra pintada a mano",
-    relatedSlugs: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano", "tenis-pintados-a-mano"],
+    relatedSlugs: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano"],
     inCityMatrix: false,
   },
 ];

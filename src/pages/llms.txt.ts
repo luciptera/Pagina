@@ -34,7 +34,7 @@ export const GET: APIRoute = ({ site }) => {
   lines.push("## Feria de las Flores (Medellín)");
   lines.push(`- La Feria de las Flores se celebra cada año en Medellín ${FERIA.typicalWindow}. Fechas oficiales de ${FERIA.year}: aún sin anunciar.`);
   lines.push(`- Luciptera pinta a mano sombreros brisa blancos con flores antioqueñas para la feria.`);
-  lines.push(`- Sombreros desde $99.000. Hay sombreros ya pintados con entrega inmediata en Medellín durante la feria.`);
+  lines.push(`- Sombreros: los ya pintados (entrega inmediata en Medellín) cuestan $80.000; personalizados desde $100.000 (mín. 8 días).`);
   lines.push(`- Página principal: ${base}/sombreros-para-la-feria-de-las-flores/`);
   lines.push("- Diseños:");
   for (const d of hatDesigns) {

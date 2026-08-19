@@ -8,7 +8,7 @@ import FaqList from "../FaqList.astro";
 import Gallery from "../Gallery.astro";
 import RelatedLinks from "../RelatedLinks.astro";
 import type { HatDesign } from "../../data/feria";
-import { hatDesigns } from "../../data/feria";
+import { hatDesigns, HAT_PRICES } from "../../data/feria";
 import { getProduct } from "../../data/products";
 import { designImages, designHero } from "../../data/images";
 import { faqsForProduct } from "../../data/faqs";
@@ -85,9 +85,18 @@ const otherDesigns = hatDesigns
           <span class="rounded-full bg-[var(--color-cream-deep)] px-3 py-1 text-sm">{f}</span>
         ))}
       </p>
-      <p class="mt-4 text-xl font-bold">Desde {cop(product.fromPrice)}</p>
-      <p class="text-sm text-[var(--color-ink-soft)]">
-        El precio final depende del diseño. Sobre sombrero brisa blanco · Pintado 100% a mano · Mínimo {product.prepDays} días
+      <div class="mt-4 grid gap-2 sm:grid-cols-2">
+        <div class="rounded-lg bg-[var(--color-gold)]/12 p-3">
+          <p class="text-lg font-bold">{cop(HAT_PRICES.ready)}</p>
+          <p class="text-sm text-[var(--color-ink-soft)]">Si está disponible ya pintado · entrega inmediata</p>
+        </div>
+        <div class="rounded-lg bg-white/70 p-3">
+          <p class="text-lg font-bold">Desde {cop(HAT_PRICES.customFrom)}</p>
+          <p class="text-sm text-[var(--color-ink-soft)]">Pintado a tu gusto · mín. {product.prepDays} días</p>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+        Sobre sombrero brisa blanco · Pintado 100% a mano. Pregúntanos si este diseño está disponible hoy.
       </p>
       <div class="mt-5">
         <WhatsAppCTA

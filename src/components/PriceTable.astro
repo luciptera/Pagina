@@ -14,8 +14,9 @@ const { product } = Astro.props;
         <p class="mt-2 text-2xl font-bold">Desde {cop(product.fromPrice)}</p>
       )}
       <p class="mt-2 text-[15px]">
-        Cada {product.shortName.toLowerCase()} se pinta a mano sobre pedido, por eso el precio
-        final depende del diseño que elijas. Escríbenos por WhatsApp y te damos el valor al instante.
+        {product.material === "paja"
+          ? "Los sombreros que ya están pintados se llevan por $80.000 con entrega inmediata. Si lo quieres personalizado con tu diseño, cuesta desde $100.000. Escríbenos por WhatsApp y te confirmamos."
+          : `Cada ${product.shortName.toLowerCase()} se pinta a mano sobre pedido, por eso el precio final depende del diseño que elijas. Escríbenos por WhatsApp y te damos el valor al instante.`}
       </p>
       {product.extras.length > 0 && (
         <ul class="mt-4 space-y-1 text-sm">

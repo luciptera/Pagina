@@ -6,8 +6,9 @@ import WhatsAppCTA from "../components/WhatsAppCTA.astro";
 import TrustBlock from "../components/TrustBlock.astro";
 import FaqList from "../components/FaqList.astro";
 import RelatedLinks from "../components/RelatedLinks.astro";
-import { FERIA, hatDesigns } from "../data/feria";
+import { FERIA, hatDesigns, HAT_PRICES } from "../data/feria";
 import { getProduct } from "../data/products";
+import { cop } from "../consts";
 import { designHero, designImages } from "../data/images";
 import { faqsForProduct } from "../data/faqs";
 import { productSchema, faqPage, breadcrumbList, serviceSchema } from "../lib/schema";
@@ -22,7 +23,7 @@ const allHatPhotos = hatDesigns.flatMap((d) =>
 );
 
 const title = "Sombreros para la Feria de las Flores pintados a mano | Luciptera";
-const description = `Sombreros brisa blancos pintados a mano con flores antioqueñas para la Feria de las Flores de Medellín. Tenemos sombreros ya pintados listos para entrega inmediata. Domicilio en Medellín y envíos a toda Colombia. Desde $99.000.`;
+const description = `Sombreros brisa blancos pintados a mano con flores antioqueñas para la Feria de las Flores de Medellín. Sombreros ya pintados listos para entrega inmediata por $80.000, o personalizados desde $100.000. Domicilio en Medellín y envíos a toda Colombia.`;
 const waMsg = "Hola Luciptera 🌸 quiero un sombrero pintado para la Feria de las Flores";
 
 const crumbs = [
@@ -70,16 +71,24 @@ const infoLinks = [
       </p>
 
       <div class="mt-5 rounded-xl border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/15 p-4">
-        <p class="font-head font-bold">⚡ Sombreros disponibles HOY</p>
+        <p class="font-head font-bold">⚡ Sombreros disponibles HOY — {cop(HAT_PRICES.ready)}</p>
         <p class="mt-1 text-[15px]">
-          Nos quedaron sombreros <strong>ya pintados de la feria</strong>, listos para llevar —
-          sin esperar los días de pintura. Escríbenos y te mostramos cuáles están disponibles.
+          Nos quedaron sombreros <strong>ya pintados de la feria</strong>, listos para llevar
+          por <strong>{cop(HAT_PRICES.ready)}</strong> — sin esperar los días de pintura.
+          Escríbenos y te mostramos cuáles están disponibles.
         </p>
       </div>
 
-      <p class="mt-4 text-xl font-bold">
-        Desde $99.000 <span class="text-sm font-normal text-[var(--color-ink-soft)]">· el precio final depende del diseño</span>
-      </p>
+      <div class="mt-4 grid gap-2 sm:grid-cols-2">
+        <div class="rounded-lg bg-white/70 p-3">
+          <p class="text-lg font-bold">{cop(HAT_PRICES.ready)}</p>
+          <p class="text-sm text-[var(--color-ink-soft)]">Ya pintados · entrega inmediata</p>
+        </div>
+        <div class="rounded-lg bg-white/70 p-3">
+          <p class="text-lg font-bold">Desde {cop(HAT_PRICES.customFrom)}</p>
+          <p class="text-sm text-[var(--color-ink-soft)]">Diseño personalizado · mín. 8 días</p>
+        </div>
+      </div>
       <div class="mt-5">
         <WhatsAppCTA message="Hola Luciptera 🌸 quiero ver los sombreros que tienes disponibles ya pintados" label="Ver sombreros disponibles" note="Te mandamos fotos de los que hay listos hoy." />
       </div>

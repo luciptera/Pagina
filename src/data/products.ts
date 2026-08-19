@@ -294,14 +294,14 @@ export const products: Product[] = [
     h1: "Sombreros brisa pintados a mano",
     tagline:
       "Sombreros brisa blancos pintados a mano con flores: el accesorio perfecto para la Feria de las Flores y para todo el año.",
-    fromPrice: 99000,
+    fromPrice: 80000,
     priceByWhatsApp: true,
     seasonal: "Feria de las Flores",
     sizes: [],
     extras: [
-      "⚡ Hay sombreros ya pintados con entrega inmediata en Medellín — pregunta por los disponibles",
-      "Cada sombrero se pinta a mano sobre sombrero brisa blanco",
-      "Eliges el diseño y las flores que más te gusten (personalizado: mín. 8 días)",
+      "⚡ Sombreros ya pintados (entrega inmediata en Medellín): $80.000",
+      "🎨 Sombrero personalizado con el diseño que elijas: desde $100.000 (mín. 8 días)",
+      "Siempre pintado a mano sobre sombrero brisa blanco",
     ],
     prepDays: 8,
     material: "paja",

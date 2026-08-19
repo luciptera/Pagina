@@ -107,7 +107,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Puedo comprar un sombrero durante la feria, o ya es tarde?",
     answer:
-      "¡No es tarde! Tenemos sombreros ya pintados, listos para entrega inmediata a domicilio en Medellín durante la feria. Escríbenos por WhatsApp y te mostramos los diseños disponibles hoy. Si prefieres un diseño personalizado, ese sí toma mínimo 8 días.",
+      "¡No es tarde! Tenemos sombreros ya pintados, listos para entrega inmediata a domicilio en Medellín durante la feria. Escríbenos por WhatsApp y te mostramos los diseños disponibles hoy. Los disponibles cuestan $80.000; si prefieres un diseño personalizado, cuesta desde $100.000 y toma mínimo 8 días.",
     scope: "sombreros-brisa",
   },
   {
@@ -119,7 +119,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Cuánto cuesta un sombrero pintado a mano?",
     answer:
-      "Los sombreros brisa pintados a mano cuestan desde $99.000 e incluyen el sombrero blanco. El precio final depende del diseño que elijas. Escríbenos por WhatsApp con el diseño que te gusta y te damos el valor al instante.",
+      "Tenemos dos opciones: los sombreros que ya están pintados y disponibles para entrega inmediata cuestan $80.000, y un sombrero personalizado con el diseño que elijas cuesta desde $100.000 (mínimo 8 días). En ambos casos el sombrero brisa blanco va incluido. Escríbenos por WhatsApp y te confirmamos.",
     scope: "sombreros-brisa",
   },
   {

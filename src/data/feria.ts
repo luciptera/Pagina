@@ -27,6 +27,16 @@ export const FERIA = {
   readyStockLabel: "Sombreros ya pintados · entrega inmediata",
 } as const;
 
+/**
+ * Hat pricing (COP).
+ *  ready      → already-painted hats in stock, immediate delivery
+ *  customFrom → a hat painted to order with the design you choose
+ */
+export const HAT_PRICES = {
+  ready: 80000,
+  customFrom: 100000,
+} as const;
+
 export interface HatDesign {
   slug: string;
   /** collection name */

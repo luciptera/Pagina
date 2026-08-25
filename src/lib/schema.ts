@@ -43,6 +43,25 @@ export function localBusiness(siteUrl: string, logoUrl: string) {
 }
 
 export function productSchema(p: Product, url: string, imageUrl?: string) {
+  // A Product without a price is invalid for Google Merchant Center ("falta el
+  // precio del producto") and blocks the whole account's items from showing.
+  // Made-to-order pieces we quote by chat are published as a Service instead,
+  // so Google never tries to ingest them as shopping products.
+  const hasPrice = (!p.priceByWhatsApp && p.sizes.length > 0) || p.fromPrice > 0;
+  if (!hasPrice) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: p.name,
+      description: p.tagline,
+      ...(imageUrl ? { image: imageUrl } : {}),
+      serviceType: "Arte personalizado pintado a mano",
+      provider: { "@type": "LocalBusiness", name: BUSINESS.name, telephone: phone },
+      areaServed: { "@type": "Country", name: "Colombia" },
+      url,
+    };
+  }
+
   const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",

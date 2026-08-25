@@ -14,6 +14,7 @@ import { faqsForProduct } from "../data/faqs";
 import { productSchema, faqPage, breadcrumbList, serviceSchema } from "../lib/schema";
 
 const product = getProduct("sombreros-brisa")!;
+const hubHero = hatDesigns.map((d) => designHero(d.slug)).find(Boolean);
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const faqs = faqsForProduct("sombreros-brisa");
 
@@ -34,7 +35,7 @@ const crumbs = [
 // NOTE: no Event schema while the official 2027 dates are unannounced —
 // we don't publish dates we can't verify. Re-add it via FERIA.datesConfirmed.
 const jsonLd = [
-  productSchema(product, url),
+  productSchema(product, url, hubHero ? new URL(hubHero.src, Astro.site).href : undefined),
   serviceSchema(
     "Sombreros pintados a mano para la Feria de las Flores",
     description,

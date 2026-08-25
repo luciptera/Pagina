@@ -133,7 +133,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Pintan sobre mi propia chaqueta o me venden una?",
     answer:
-      "Como prefieras: podemos pintar sobre tu chaqueta de jean o conseguirte una nueva. Cuéntanos por WhatsApp qué tienes en mente y coordinamos los detalles.",
+      "Como prefieras. Pintando sobre tu propia chaqueta el precio arranca en $250.000 y sube según la complejidad del diseño. Si no tienes la prenda, también podemos conseguirla y se cotiza aparte. Cuéntanos por WhatsApp qué tienes en mente.",
     scope: "chaquetas-pintadas-a-mano",
   },
   {

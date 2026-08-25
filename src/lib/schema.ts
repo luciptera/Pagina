@@ -48,7 +48,8 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
   // Made-to-order pieces we quote by chat are published as a Service instead,
   // so Google never tries to ingest them as shopping products.
   const hasPrice = (!p.priceByWhatsApp && p.sizes.length > 0) || p.fromPrice > 0;
-  if (!hasPrice) {
+  // Merchant Center requires price AND image; without either it's a Service.
+  if (!hasPrice || !imageUrl) {
     return {
       "@context": "https://schema.org",
       "@type": "Service",

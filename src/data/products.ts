@@ -325,12 +325,13 @@ export const products: Product[] = [
     h1: "Chaquetas de jean pintadas a mano y personalizadas",
     tagline:
       "Tu chaqueta de jean convertida en una obra única: la pintamos a mano con tu mascota, un retrato o el diseño que quieras.",
-    fromPrice: 0,
+    fromPrice: 250000,
     priceByWhatsApp: true,
     sizes: [],
     extras: [
-      "Pintamos sobre tu chaqueta o conseguimos una nueva, como prefieras",
-      "Diseño a tu gusto: mascota, retrato, flores, lo que imagines",
+      "Desde $250.000 pintando sobre tu propia chaqueta",
+      "El precio sube según la complejidad del diseño",
+      "¿No tienes la prenda? También podemos conseguirla (se cotiza aparte)",
     ],
     prepDays: 10,
     material: "tela",
@@ -352,11 +353,12 @@ export const products: Product[] = [
     h1: "Jeans y pantalones pintados a mano",
     tagline:
       "Tus jeans o pantalones convertidos en arte: los pintamos a mano con el diseño que quieras, del más floral al más rockero.",
-    fromPrice: 0,
+    fromPrice: 250000,
     priceByWhatsApp: true,
     sizes: [],
     extras: [
-      "Pintamos sobre tu prenda o conseguimos una nueva",
+      "Desde $250.000 pintando sobre tu propia prenda",
+      "El precio sube según la complejidad del diseño",
       "Cualquier estilo: flores, calaveras, lettering, lo que imagines",
     ],
     prepDays: 10,
@@ -374,12 +376,13 @@ export const products: Product[] = [
     h1: "Camisetas, busos y gorras pintados a mano",
     tagline:
       "Prendas únicas pintadas a mano: camisetas, busos y gorras con el diseño que quieras, imposibles de repetir.",
-    fromPrice: 0,
+    fromPrice: 250000,
     priceByWhatsApp: true,
     sizes: [],
     extras: [
-      "Camisetas, busos (hoodies) y gorras, sobre tu prenda o una nueva",
-      "Tu diseño: mascota, retrato, frases, ilustración",
+      "Desde $250.000 pintando sobre tu propia prenda",
+      "El precio sube según la complejidad del diseño",
+      "Camisetas, busos (hoodies) y gorras. Tu diseño: mascota, retrato, frases, ilustración",
     ],
     prepDays: 10,
     material: "tela",

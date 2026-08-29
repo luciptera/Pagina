@@ -59,3 +59,17 @@ export function waLink(message: string): string {
 export function cop(value: number): string {
   return "$" + value.toLocaleString("es-CO");
 }
+
+/**
+ * Meta descriptions: Google truncates past ~160 chars. Clamp on a word
+ * boundary (no mid-word cuts) so every page ships a clean, complete-reading
+ * description. Short ones are padded by the caller with real context.
+ */
+export function metaDesc(text: string, max = 158): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const stop = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf(" · "));
+  if (stop >= max * 0.85) return cut.slice(0, stop + 1).trim();
+  return cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:.\-–—]$/, "").trim() + "…";
+}

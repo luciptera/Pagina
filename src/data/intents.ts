@@ -20,7 +20,7 @@ export interface Intent {
 export const intents: Intent[] = [
   {
     slug: "retrato-memorial-de-mascota",
-    title: "Retrato memorial de mascota — homenaje pintado a mano",
+    title: "Retrato memorial de mascota",
     h1: "Un retrato para honrar la memoria de tu mascota",
     metaDescription:
       "Homenaje pintado a mano para esa mascota que partió. Convertimos tu foto favorita en un retrato en lienzo, madera o un llavero para llevarlo siempre contigo.",
@@ -39,7 +39,7 @@ export const intents: Intent[] = [
   },
   {
     slug: "regalo-para-amantes-de-los-perros",
-    title: "Regalo para amantes de los perros — personalizado y único",
+    title: "Regalos para amantes de los perros",
     h1: "El regalo perfecto para quien ama a su perro",
     metaDescription:
       "¿Buscas un regalo único para alguien que ama a su perro? Retratos, cuadros en madera, llaveros y placas pintados a mano con la foto de su mascota. Envíos a toda Colombia.",
@@ -56,7 +56,7 @@ export const intents: Intent[] = [
   },
   {
     slug: "regalo-para-amantes-de-los-gatos",
-    title: "Regalo para amantes de los gatos — personalizado y único",
+    title: "Regalos para amantes de los gatos",
     h1: "El regalo ideal para quien ama a su gato",
     metaDescription:
       "Regalos únicos para amantes de los gatos: retratos en lienzo, cuadros en madera, llaveros y placas pintados a mano con la foto de su michi. Envíos a toda Colombia.",
@@ -73,7 +73,7 @@ export const intents: Intent[] = [
   },
   {
     slug: "cuadro-de-pareja",
-    title: "Cuadro de pareja personalizado — retrato pintado a mano",
+    title: "Cuadro de pareja pintado a mano",
     h1: "Un cuadro de pareja pintado a mano",
     metaDescription:
       "Retrato de pareja pintado a mano desde tu foto, sobre lienzo. Un regalo romántico y único para aniversario, San Valentín o solo porque sí. Envíos a toda Colombia.",
@@ -90,7 +90,7 @@ export const intents: Intent[] = [
   },
   {
     slug: "regalo-de-aniversario-personalizado",
-    title: "Regalo de aniversario personalizado y pintado a mano",
+    title: "Regalo de aniversario personalizado",
     h1: "Regalo de aniversario personalizado",
     metaDescription:
       "Sorprende en tu aniversario con un retrato pintado a mano desde su foto: pareja, familia o mascota. Un regalo único hecho con tiempo y cariño. Envíos a toda Colombia.",
@@ -232,7 +232,7 @@ export const intents: Intent[] = [
   // ---- Local commercial money pages ----
   {
     slug: "regalos-personalizados-medellin",
-    title: "Regalos personalizados en Medellín, pintados a mano",
+    title: "Regalos personalizados en Medellín",
     h1: "Regalos personalizados en Medellín",
     metaDescription:
       "Regalos personalizados y pintados a mano en Medellín: retratos de mascotas y personas, llaveros, placas, cuadros y sombreros. Entrega a domicilio. Pídelo por WhatsApp.",
@@ -325,7 +325,7 @@ export const intents: Intent[] = [
   },
   {
     slug: "regalo-para-companero-de-trabajo",
-    title: "Regalo para un compañero de trabajo (amigo secreto)",
+    title: "Regalo para compañero de trabajo",
     h1: "Regalos para compañeros de trabajo y amigo secreto",
     metaDescription:
       "Ideas para el amigo secreto o un compañero de trabajo: placas, llaveros y cases personalizados desde $20.000. Económicos y originales. Envíos a toda Colombia.",

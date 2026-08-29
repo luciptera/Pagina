@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import { BUSINESS, OG_IMAGE, waLink } from "../consts";
+import { BUSINESS, OG_IMAGE, waLink, metaDesc } from "../consts";
 import { logoImg, faviconImg } from "../data/images";
 import StickyWhatsApp from "../components/StickyWhatsApp.astro";
 import JsonLd from "../components/JsonLd.astro";
@@ -23,7 +23,7 @@ interface Props {
 
 const {
   title,
-  description,
+  description: rawDescription,
   ogImage = OG_IMAGE,
   ogType = "website",
   noindex = false,
@@ -32,6 +32,8 @@ const {
   altHref,
 } = Astro.props;
 
+// Single choke point: no page can ship an over-length meta description.
+const description = metaDesc(rawDescription);
 const isEn = lang === "en";
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;

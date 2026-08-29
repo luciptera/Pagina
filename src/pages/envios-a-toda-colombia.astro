@@ -37,7 +37,7 @@ function cityLinks(productSlug: string) {
     .filter((c) => meetsContentFloor(p, c))
     .map((c) => ({ href: `/${p.slug}-${c.slug}/`, label: `${p.shortName} en ${c.name}` }));
 }
-const featured = cityMatrixProducts.slice(0, 3);
+const featured = cityMatrixProducts;
 ---
 
 <Layout
@@ -85,7 +85,7 @@ const featured = cityMatrixProducts.slice(0, 3);
       <section class="container-base py-4">
         <h2 class="font-head text-lg font-bold">{p.shortName} por ciudad</h2>
         <ul class="mt-2 flex flex-wrap gap-2">
-          {cityLinks(p.slug).slice(0, 12).map((l) => (
+          {cityLinks(p.slug).map((l) => (
             <li>
               <a href={l.href} class="inline-block rounded-full border border-[var(--color-cream-deep)] bg-white/60 px-3 py-1.5 text-sm hover:border-[var(--color-gold)]">
                 {l.label}

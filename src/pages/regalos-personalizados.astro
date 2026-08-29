@@ -70,6 +70,12 @@ const localLinks = intents
   <RelatedLinks items={recipientLinks} title="Regalos por destinatario" />
   <RelatedLinks items={occasionLinks} title="Regalos por ocasión" />
   <RelatedLinks items={localLinks} title="Regalos personalizados por zona" />
+  <RelatedLinks
+    items={intents
+      .filter((i) => !i.slug.startsWith("regalo-para") && !i.slug.includes("personalizados-") && !i.slug.includes("domicilio"))
+      .map((i) => ({ href: `/${i.slug}/`, label: i.h1 }))}
+    title="Más ideas personalizadas"
+  />
 
   <!-- Por presupuesto -->
   <section class="container-base py-6">

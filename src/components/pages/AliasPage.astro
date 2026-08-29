@@ -10,11 +10,11 @@ import Gallery from "../Gallery.astro";
 import Testimonials from "../Testimonials.astro";
 import RelatedLinks from "../RelatedLinks.astro";
 import type { Alias } from "../../data/aliases";
-import { aliasProduct } from "../../data/aliases";
+import { aliasProduct, aliases as allAliases } from "../../data/aliases";
 import { productImages, heroImage } from "../../data/images";
 import { faqsForProduct } from "../../data/faqs";
 import { testimonialsForProduct } from "../../data/testimonials";
-import { cop } from "../../consts";
+import { cop, metaDesc } from "../../consts";
 import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
 
 interface Props {
@@ -31,7 +31,7 @@ const faqs = faqsForProduct(product.slug);
 const tStimonials = testimonialsForProduct(product.slug);
 
 const title = `${alias.phrase.charAt(0).toUpperCase() + alias.phrase.slice(1)} | Luciptera`;
-const description = `${alias.lead.slice(0, 150)}`;
+const description = metaDesc(`${alias.lead} Pintado 100% a mano en Medellín, con domicilio local y envíos a toda Colombia.`);
 const waMsg = `Hola Luciptera 🐾 vi la página de "${alias.phrase}" y quiero pedir info`;
 
 const crumbs = [
@@ -45,6 +45,10 @@ const jsonLd = [
   breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
 ];
 if (faqs.length) jsonLd.push(faqPage(faqs));
+
+const siblingAliases = allAliases
+  .filter((a) => a.productSlug === product.slug && a.slug !== alias.slug)
+  .map((a) => ({ href: `/${a.slug}/`, label: a.phrase }));
 
 const related = [
   { href: `/${product.slug}/`, label: `Ver todo: ${product.shortName}` },
@@ -116,5 +120,8 @@ const related = [
     </div>
   </section>
 
+  {siblingAliases.length > 0 && (
+    <RelatedLinks items={siblingAliases} title="Otras formas de buscarlo" />
+  )}
   <RelatedLinks items={related} />
 </Layout>

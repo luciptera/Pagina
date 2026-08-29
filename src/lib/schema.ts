@@ -10,6 +10,13 @@ import type { Faq } from "../data/faqs";
 
 const phone = "+" + WHATSAPP_NUMBER;
 
+/** Google wants a price freshness horizon on Offers; 1 year out from build. */
+function priceValidUntil(): string {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
 export function localBusiness(siteUrl: string, logoUrl: string) {
   return {
     "@context": "https://schema.org",
@@ -79,6 +86,7 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
       lowPrice: lowPrice(p),
       highPrice: highPrice(p),
       offerCount: p.sizes.length,
+      priceValidUntil: priceValidUntil(),
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },
@@ -95,6 +103,7 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
         price: p.fromPrice,
         valueAddedTaxIncluded: true,
       },
+      priceValidUntil: priceValidUntil(),
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },

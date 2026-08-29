@@ -11,7 +11,7 @@
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap-0.xml"
-  status = 200
+  status = 301
 
 # Astro emits clean directory-style URLs with trailing slashes.
 [[headers]]

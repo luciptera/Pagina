@@ -12,6 +12,9 @@ import RelatedLinks from "../RelatedLinks.astro";
 import type { Product } from "../../data/products";
 import { getProduct } from "../../data/products";
 import { productImages, heroImage } from "../../data/images";
+import { aliases } from "../../data/aliases";
+import { cities } from "../../data/cities";
+import { meetsContentFloor } from "../../data/variations";
 import { faqsForProduct } from "../../data/faqs";
 import { testimonialsForProduct } from "../../data/testimonials";
 import { cop } from "../../consts";
@@ -28,6 +31,17 @@ const hero = heroImage(product.slug);
 const heroUrl = hero ? new URL(hero.src, Astro.site).href : undefined;
 const faqs = faqsForProduct(product.slug);
 const tStimonials = testimonialsForProduct(product.slug);
+
+// Internal-link hubs: every alias and city page for this product needs an
+// inbound link, otherwise they are orphaned (no crawl path, no ranking).
+const productAliases = aliases
+  .filter((a) => a.productSlug === product.slug)
+  .map((a) => ({ href: `/${a.slug}/`, label: a.phrase }));
+const productCities = product.inCityMatrix
+  ? cities
+      .filter((c) => meetsContentFloor(product, c))
+      .map((c) => ({ href: `/${product.slug}-${c.slug}/`, label: `${product.shortName} en ${c.name}` }))
+  : [];
 
 const related = product.relatedSlugs
   .map((s) => getProduct(s))
@@ -168,6 +182,13 @@ if (faqs.length) jsonLd.push(faqPage(faqs));
       </div>
     </div>
   </section>
+
+  {productAliases.length > 0 && (
+    <RelatedLinks items={productAliases} title="Búsquedas relacionadas" />
+  )}
+  {productCities.length > 0 && (
+    <RelatedLinks items={productCities} title={`${product.shortName} por ciudad`} />
+  )}
 
   <RelatedLinks items={related} />
 </Layout>

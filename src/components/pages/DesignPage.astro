@@ -12,7 +12,7 @@ import { hatDesigns, HAT_PRICES } from "../../data/feria";
 import { getProduct } from "../../data/products";
 import { designImages, designHero } from "../../data/images";
 import { faqsForProduct } from "../../data/faqs";
-import { cop } from "../../consts";
+import { cop, metaDesc } from "../../consts";
 import { productSchema, faqPage, breadcrumbList } from "../../lib/schema";
 
 interface Props {
@@ -28,7 +28,7 @@ const gallery = designImages(design.slug).slice(1);
 const faqs = faqsForProduct("sombreros-brisa");
 
 const title = `Sombrero "${design.name}" pintado a mano | Luciptera`;
-const description = `${design.description} Pintado a mano sobre sombrero brisa para la Feria de las Flores. Precio por WhatsApp.`;
+const description = metaDesc(`${design.description} Sombrero brisa pintado a mano para la Feria de las Flores. Desde $80.000.`);
 const waMsg = `Hola Luciptera 🌸 quiero un sombrero pintado diseño "${design.name}" para la Feria de las Flores`;
 
 const crumbs = [

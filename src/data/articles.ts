@@ -29,7 +29,7 @@ export interface Article {
 export const articles: Article[] = [
   {
     slug: "cuanto-cuesta-un-retrato-de-mascota",
-    title: "¿Cuánto cuesta un retrato de mascota en Colombia?",
+    title: "¿Cuánto cuesta un retrato de mascota?",
     h1: "¿Cuánto cuesta un retrato de mascota en Colombia?",
     description:
       "Un retrato de mascota en lienzo cuesta desde $170.000 y hasta $700.000 según el tamaño. Te explicamos los precios, qué incluye y de qué depende el valor final.",
@@ -215,7 +215,7 @@ export const articles: Article[] = [
   // ---- Feria de las Flores AEO cluster ----
   {
     slug: "cuando-es-la-feria-de-las-flores",
-    title: "¿Cuándo es la Feria de las Flores 2027 en Medellín?",
+    title: "¿Cuándo es la Feria de las Flores 2027?",
     h1: "¿Cuándo es la Feria de las Flores 2027?",
     description:
       "La Feria de las Flores de Medellín se celebra cada año entre finales de julio y la segunda semana de agosto. Te contamos lo que se sabe de 2027, el Desfile de Silleteros y cómo prepararte.",
@@ -253,7 +253,7 @@ export const articles: Article[] = [
   },
   {
     slug: "que-llevar-a-la-feria-de-las-flores",
-    title: "Qué llevar (y qué ponerse) a la Feria de las Flores",
+    title: "Qué llevar a la Feria de las Flores",
     h1: "Qué llevar a la Feria de las Flores",
     description:
       "Para la Feria de las Flores lleva ropa fresca, calzado cómodo, protección solar y un sombrero brisa. Guía práctica de qué ponerse para disfrutar la feria de Medellín.",
@@ -291,7 +291,7 @@ export const articles: Article[] = [
   },
   {
     slug: "flores-tipicas-de-la-feria-de-las-flores",
-    title: "Flores típicas de la Feria de las Flores de Medellín",
+    title: "Flores típicas de la Feria de las Flores",
     h1: "Las flores típicas de la Feria de las Flores",
     description:
       "Orquídea cattleya, hortensias, girasoles, claveles, crisantemos y pompones son las flores típicas de la Feria de las Flores. Te contamos cuáles son y qué representan.",

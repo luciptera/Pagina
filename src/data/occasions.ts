@@ -70,7 +70,7 @@ export const occasions: Occasion[] = [
   },
   {
     slug: "regalo-de-cumpleanos-personalizado",
-    title: "Regalo de cumpleaños personalizado y pintado a mano",
+    title: "Regalo de cumpleaños personalizado",
     h1: "Regalo de cumpleaños personalizado",
     metaDescription:
       "Un regalo de cumpleaños que sorprende: retrato pintado a mano de la persona o de su mascota, anime, llavero o case. Pídelo con tiempo. Envíos a toda Colombia.",

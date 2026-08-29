@@ -47,6 +47,18 @@ export const faqs: Faq[] = [
     scope: "global",
   },
   {
+    question: "¿Puedo devolver o cambiar mi pedido?",
+    answer:
+      "Cada pieza se pinta a mano especialmente para ti, por eso no manejamos devoluciones ni cambios en trabajos personalizados. Antes de empezar confirmamos contigo la foto, el tamaño, los colores y el diseño por WhatsApp, y te enviamos avances para que todo quede como lo imaginas.",
+    scope: "global",
+  },
+  {
+    question: "¿Cuánto cuesta el envío?",
+    answer:
+      "El valor del envío o domicilio varía según tu ciudad y no está incluido en los precios. Lo calculamos y te lo confirmamos por WhatsApp antes de que hagas el pago. En Medellín y su área metropolitana hacemos entrega a domicilio.",
+    scope: "global",
+  },
+  {
     question: "¿El precio incluye el envío?",
     answer:
       "No. Todos los precios son del producto pintado a mano y no incluyen el valor del envío o domicilio, que se calcula aparte según tu ciudad y se coordina por WhatsApp.",

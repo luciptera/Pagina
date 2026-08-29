@@ -10,6 +10,21 @@ import type { Faq } from "../data/faqs";
 
 const phone = "+" + WHATSAPP_NUMBER;
 
+/**
+ * Every Luciptera piece is hand-painted to order, so returns are not accepted.
+ * Declared explicitly because Google requires a return policy on offers; the
+ * "not permitted" category is the accurate one for custom-made goods.
+ *
+ * NOTE: shippingDetails is deliberately omitted — shipping is quoted per city
+ * over WhatsApp, and schema.org has no honest way to express "varies" without
+ * publishing a rate we would be inventing.
+ */
+const RETURN_POLICY = {
+  "@type": "MerchantReturnPolicy",
+  applicableCountry: "CO",
+  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+} as const;
+
 /** Google wants a price freshness horizon on Offers; 1 year out from build. */
 function priceValidUntil(): string {
   const d = new Date();
@@ -87,6 +102,7 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
       highPrice: highPrice(p),
       offerCount: p.sizes.length,
       priceValidUntil: priceValidUntil(),
+      hasMerchantReturnPolicy: RETURN_POLICY,
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },
@@ -104,6 +120,7 @@ export function productSchema(p: Product, url: string, imageUrl?: string) {
         valueAddedTaxIncluded: true,
       },
       priceValidUntil: priceValidUntil(),
+      hasMerchantReturnPolicy: RETURN_POLICY,
       availability: "https://schema.org/InStock",
       url,
       seller: { "@type": "Organization", name: BUSINESS.name },

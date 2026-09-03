@@ -266,7 +266,7 @@ export const products: Product[] = [
       "Tu mascota o tu diseño favorito pintado a mano dentro del case de tu celular, en resina.",
     fromPrice: 100000,
     sizes: [
-      { label: "Case con mascota", priceCOP: 110000 },
+      { label: "Case con mascota", priceCOP: 100000 },
       { label: "Case básico (flores, paisajes, objetos)", priceCOP: 120000 },
     ],
     extras: [

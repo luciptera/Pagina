@@ -5,11 +5,11 @@
    Bilingual: Tulum/Playa/Cancún buyers are largely English-speaking tourists
    and expats, plus Mexican locals (Mexican Spanish: "funda", "lomito").
 
-   Prices in MXN are not set yet → everything here is quoted by WhatsApp and
+   Prices: MXN on Spanish pages, USD on English pages (see pricesMx.ts).
    the pages publish Service schema only (no Product/price claims).
 =========================================================================== */
 
-import { fromPetMx, fromPeopleMx, fromClothesMx } from "./pricesMx";
+import { fromPetMx, fromPeopleMx, fromClothesMx, fromPetUsd, fromPeopleUsd, fromClothesUsd } from "./pricesMx";
 
 export const RIVIERA = {
   startISO: "2026-11-24",
@@ -82,7 +82,7 @@ const commonFaqsEn: RmFaq[] = [
   {
     question: "How much does a hand-painted portrait cost in Tulum?",
     answer:
-      `Pet portraits on canvas start at ${fromPetMx}, people portraits at ${fromPeopleMx}, and hand-painted clothing at ${fromClothesMx}, depending on size. We accept any form of payment.`,
+      `Pet portraits on canvas start at ${fromPetUsd}, people portraits at ${fromPeopleUsd}, and hand-painted clothing at ${fromClothesUsd}, depending on size. We accept any form of payment.`,
   },
   {
     question: "How do I order?",

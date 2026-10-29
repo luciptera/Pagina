@@ -1,5 +1,6 @@
 /* ===========================================================================
-   Mexican-peso prices for the Riviera Maya season.
+   Local-currency prices. Rule: English pages show USD; Spanish pages show
+   MXN for Mexico and COP for Colombia (COP pages use products.ts directly).
    Derived from the COP catalog (products.ts) so they follow any price change:
    COP ÷ rate, rounded UP to the next 50 pesos. Rate frozen on purpose so the
    prices don't drift between builds — update it deliberately if needed.
@@ -16,6 +17,18 @@ export function mxn(cop: number): number {
 
 export function fmtMxn(cop: number): string {
   return `$${mxn(cop).toLocaleString("en-US")} MXN`;
+}
+
+/** 1 USD = 3,146.9 COP (open.er-api.com, 2026-10-29) */
+export const COP_PER_USD = 3146.9;
+
+/** COP → USD, rounded UP to the next $5 */
+export function usd(cop: number): number {
+  return Math.ceil(cop / COP_PER_USD / 5) * 5;
+}
+
+export function fmtUsd(cop: number): string {
+  return `$${usd(cop).toLocaleString("en-US")} USD`;
 }
 
 export interface MxRow {
@@ -62,6 +75,7 @@ const extraCop: Record<string, { es: string; en: string; cop: number }> = {
 
 export function mxPriceList(lang: "es" | "en"): MxGroup[] {
   const en = lang === "en";
+  const fmt = en ? fmtUsd : fmtMxn;
   return order
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p): p is Product => Boolean(p))
@@ -69,16 +83,16 @@ export function mxPriceList(lang: "es" | "en"): MxGroup[] {
       const rows: MxRow[] = p.sizes.length
         ? p.sizes.map((s) => ({
             label: en ? labelEn.reduce((l, [a, b]) => l.replace(a, b), s.label) : s.label,
-            price: fmtMxn(s.priceCOP),
+            price: fmt(s.priceCOP),
           }))
         : [
             {
               label: en ? "On your own garment" : "Sobre tu propia prenda",
-              price: `${en ? "From" : "Desde"} ${fmtMxn(p.fromPrice)}`,
+              price: `${en ? "From" : "Desde"} ${fmt(p.fromPrice)}`,
             },
           ];
       const x = extraCop[p.slug];
-      if (x) rows.push({ label: en ? x.en : x.es, price: `+${fmtMxn(x.cop)}` });
+      if (x) rows.push({ label: en ? x.en : x.es, price: `+${fmt(x.cop)}` });
       return { slug: p.slug, name: en ? nameEn[p.slug] : p.name, rows };
     });
 }
@@ -87,3 +101,8 @@ export function mxPriceList(lang: "es" | "en"): MxGroup[] {
 export const fromPetMx = fmtMxn(products.find((p) => p.slug === "retratos-de-mascotas")!.fromPrice);
 export const fromPeopleMx = fmtMxn(products.find((p) => p.slug === "retratos-de-personas")!.fromPrice);
 export const fromClothesMx = fmtMxn(products.find((p) => p.slug === "chaquetas-pintadas-a-mano")!.fromPrice);
+
+const priceOf = (slug: string) => products.find((p) => p.slug === slug)!.fromPrice;
+export const fromPetUsd = fmtUsd(priceOf("retratos-de-mascotas"));
+export const fromPeopleUsd = fmtUsd(priceOf("retratos-de-personas"));
+export const fromClothesUsd = fmtUsd(priceOf("chaquetas-pintadas-a-mano"));

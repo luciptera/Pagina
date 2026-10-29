@@ -4,7 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import WhatsAppCTA from "../../components/WhatsAppCTA.astro";
 import { designHero, designImages } from "../../data/images";
-import { hatDesigns, FERIA } from "../../data/feria";
+import { hatDesigns, FERIA, HAT_PRICES } from "../../data/feria";
+import { fmtUsd } from "../../data/pricesMx";
 import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
 
 const url = new URL(Astro.url.pathname, Astro.site).href;
@@ -42,9 +43,9 @@ const jsonLd = [
       <p class="font-head text-sm uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">Feria de las Flores · Medellín</p>
       <h1 class="mt-2 font-head text-3xl font-bold md:text-4xl">Hand-painted hats for the Flower Festival</h1>
       <p class="mt-3 text-lg text-[var(--color-ink-soft)]">The iconic white "brisa" hat, hand-painted with Colombia's most beautiful flowers — orchids, sunflowers, carnations and more. The perfect way to stand out at the Medellín Flower Festival.</p>
-      <p class="mt-4 text-lg font-bold">Ready-made: $80.000 COP · Custom: from $100.000 COP</p>
+      <p class="mt-4 text-lg font-bold">Ready-made: {fmtUsd(HAT_PRICES.ready)} · Custom: from {fmtUsd(HAT_PRICES.customFrom)}</p>
       <p class="text-sm text-[var(--color-ink-soft)]">Pickup/delivery in Medellín + worldwide shipping</p>
-      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note="Ready-made hats in stock: $80,000 COP · custom design from $100,000 COP." /></div>
+      <div class="mt-6"><WhatsAppCTA message={waMsg} label="Order on WhatsApp" note={`Ready-made hats in stock: ${fmtUsd(HAT_PRICES.ready)} · custom design from ${fmtUsd(HAT_PRICES.customFrom)}.`} /></div>
     </div>
   </section>
 

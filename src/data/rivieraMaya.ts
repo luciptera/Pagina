@@ -103,10 +103,10 @@ export const rmPages: RmPage[] = [
     place: "Riviera Maya",
     title: "Arte personalizado en la Riviera Maya | Luciptera",
     description:
-      "Retratos de mascotas y personas, ropa pintada y body painting, pintados a mano en persona en Tulum, Playa del Carmen y Cancún. Temporada nov 2026 – feb 2027.",
+      "Retratos de mascotas y personas y ropa pintada, hechos a mano en persona en Tulum, Playa del Carmen y Cancún. Temporada nov 2026 – feb 2027.",
     h1: "Arte pintado a mano en la Riviera Maya",
     lead:
-      "Lucía, la artista detrás de Luciptera, se muda a Tulum por una temporada. Durante tres meses pinta en persona retratos de tus mascotas y de tu gente, ropa personalizada y body painting para tus fiestas, en Tulum, Playa del Carmen y Cancún.",
+      "Lucía, la artista detrás de Luciptera, se muda a Tulum por una temporada. Durante tres meses pinta en persona retratos de tus mascotas y de tu gente y ropa personalizada, en Tulum, Playa del Carmen y Cancún.",
     sections: [
       {
         h2: "Una artista colombiana pintando en Tulum por tres meses",
@@ -121,7 +121,6 @@ export const rmPages: RmPage[] = [
           "Retratos de mascotas en lienzo: tu lomito o tu gato pintado a mano desde tu foto favorita, ideal para quienes viven con sus mascotas en Tulum o Playa.",
           "Retratos de personas y parejas: un recuerdo de tu viaje, tu luna de miel o tu boda en la playa.",
           "Ropa pintada a mano: chaquetas, jeans y camisetas con el diseño que imagines, pintados sobre tu propia prenda.",
-          "Body painting y pintura facial: para fiestas, festivales, sesiones de fotos y celebraciones.",
         ],
       },
       {
@@ -144,10 +143,10 @@ export const rmPages: RmPage[] = [
     place: "Riviera Maya",
     title: "Custom Hand-Painted Art in the Riviera Maya | Luciptera",
     description:
-      "Pet and people portraits, hand-painted clothing and body painting — painted in person in Tulum, Playa del Carmen and Cancún. Season: Nov 2026 – Feb 2027.",
+      "Pet and people portraits and hand-painted clothing, made in person in Tulum, Playa del Carmen and Cancún. Season: Nov 2026 – Feb 2027.",
     h1: "Hand-painted custom art in the Riviera Maya",
     lead:
-      "Lucía, the artist behind Luciptera, is moving to Tulum for the season. For three months she's painting in person: portraits of your pets and loved ones, custom clothing, and body painting for your parties — in Tulum, Playa del Carmen and Cancún.",
+      "Lucía, the artist behind Luciptera, is moving to Tulum for the season. For three months she's painting in person: portraits of your pets and loved ones and custom clothing — in Tulum, Playa del Carmen and Cancún.",
     sections: [
       {
         h2: "A Colombian artist painting in Tulum for three months",
@@ -162,7 +161,6 @@ export const rmPages: RmPage[] = [
           "Pet portraits on canvas: your dog or cat painted by hand from your favorite photo — perfect if you live with your pets in Tulum or Playa.",
           "People and couple portraits: a keepsake of your trip, your honeymoon or your beach wedding.",
           "Hand-painted clothing: jackets, jeans and tees with any design you imagine, painted on your own garment.",
-          "Body painting and face painting: for parties, festivals, photo shoots and celebrations.",
         ],
       },
       {
@@ -185,9 +183,9 @@ export const rmPages: RmPage[] = [
     path: "arte-personalizado-tulum",
     kind: "city",
     place: "Tulum",
-    title: "Retratos pintados a mano en Tulum | Luciptera",
+    title: "Cuadros y retratos personalizados en Tulum | Luciptera",
     description:
-      "Retratos de mascotas y personas, ropa pintada y body painting hechos a mano en Tulum por una artista colombiana. Aldea Zamá, La Veleta, Región 15 y centro. Pide por WhatsApp.",
+      "Retratos de mascotas y personas y ropa pintada hechos a mano en Tulum por una artista colombiana. Aldea Zamá, La Veleta, Región 15 y centro. Pide por WhatsApp.",
     h1: "Retratos y arte pintado a mano en Tulum",
     lead:
       "Un retrato de tu lomito, un cuadro de tu viaje o tu ropa convertida en arte: Lucía pinta a mano en Tulum durante toda la temporada, y te lo entrega en persona.",
@@ -210,12 +208,6 @@ export const rmPages: RmPage[] = [
           "Si estás de visita, en vez de otro souvenir genérico llévate un retrato tuyo o de tu pareja pintado a mano. Se envuelve para viajar y cabe en la maleta en los tamaños pequeños.",
         ],
       },
-      {
-        h2: "Body painting para las fiestas de temporada",
-        paras: [
-          "Diciembre y enero son la temporada fuerte de fiestas y festivales en Tulum. Lucía hace body painting y pintura facial para fiestas, sesiones de fotos y celebraciones; escríbenos con tu idea y coordinamos lugar y hora.",
-        ],
-      },
     ],
     faqs: [
       ...commonFaqsEs,
@@ -236,7 +228,7 @@ export const rmPages: RmPage[] = [
     place: "Tulum",
     title: "Custom Hand-Painted Portraits in Tulum | Luciptera",
     description:
-      "Pet and people portraits, hand-painted clothing and body painting made in Tulum by a Colombian artist. Aldea Zamá, La Veleta, Región 15 and downtown. Order on WhatsApp.",
+      "Pet and people portraits and hand-painted clothing made in Tulum by a Colombian artist. Aldea Zamá, La Veleta, Región 15 and downtown. Order on WhatsApp.",
     h1: "Custom hand-painted portraits in Tulum",
     lead:
       "A portrait of your rescue dog, a painting of your trip, or your clothes turned into art: Lucía paints by hand in Tulum all season long, and hands it to you in person.",
@@ -259,12 +251,6 @@ export const rmPages: RmPage[] = [
           "If you're visiting, skip the generic souvenir and take home a hand-painted portrait of yourself or your partner. It's wrapped for travel, and the smaller sizes fit in a suitcase.",
         ],
       },
-      {
-        h2: "Body painting for the party season",
-        paras: [
-          "December and January are Tulum's big season for parties and festivals. Lucía does body painting and face painting for parties, photo shoots and celebrations — send us your idea and we'll set the place and time.",
-        ],
-      },
     ],
     faqs: [
       ...commonFaqsEn,
@@ -285,7 +271,7 @@ export const rmPages: RmPage[] = [
     path: "arte-personalizado-playa-del-carmen",
     kind: "city",
     place: "Playa del Carmen",
-    title: "Retratos pintados a mano en Playa del Carmen | Luciptera",
+    title: "Cuadros personalizados en Playa del Carmen | Luciptera",
     description:
       "Retratos de mascotas, parejas y familias pintados a mano en la Riviera Maya, con entrega coordinada en Playa del Carmen: Quinta Avenida, Playacar y centro. Pide por WhatsApp.",
     h1: "Retratos pintados a mano en Playa del Carmen",
@@ -373,7 +359,7 @@ export const rmPages: RmPage[] = [
     path: "arte-personalizado-cancun",
     kind: "city",
     place: "Cancún",
-    title: "Retratos pintados a mano en Cancún | Luciptera",
+    title: "Cuadros y regalos personalizados en Cancún | Luciptera",
     description:
       "Retratos de pareja, mascotas y familias pintados a mano en la Riviera Maya, con entrega coordinada en Cancún: zona hotelera, centro y Puerto Cancún. Pide por WhatsApp.",
     h1: "Retratos pintados a mano en Cancún",
@@ -456,112 +442,6 @@ export const rmPages: RmPage[] = [
     waMsg: "Hi Luciptera 🌴 I'm in Cancún and I'd like a hand-painted portrait",
   },
 
-  // ------------------------------------------------------- BODY PAINTING
-  {
-    key: "bodypaint",
-    lang: "es",
-    path: "body-painting-tulum",
-    kind: "service",
-    place: "Tulum",
-    title: "Body painting y pintura facial en Tulum | Luciptera",
-    description:
-      "Body painting y pintura facial a mano en Tulum para fiestas, festivales, sesiones de fotos y celebraciones, por una artista colombiana. Temporada nov 2026 – feb 2027.",
-    h1: "Body painting y pintura facial en Tulum",
-    lead:
-      "Llega a la fiesta convertido en arte. Lucía pinta a mano sobre la piel diseños de flores, fauna tropical, estilo catrina o lo que imagines, para fiestas, festivales y sesiones de fotos en Tulum.",
-    sections: [
-      {
-        h2: "Para la temporada de fiestas en Tulum",
-        paras: [
-          `${datesEs} Diciembre y enero llenan Tulum de fiestas en la playa, en la selva y festivales de música. Un body painting hecho a mano es lo que hace que tus fotos de esa noche se vean distintas a todas las demás.`,
-        ],
-      },
-      {
-        h2: "Ideas de diseños",
-        paras: [
-          "Flores y hojas tropicales, jaguares y fauna de la selva maya, constelaciones y lunas, estilo catrina, o un diseño que combine con tu outfit. Mándanos referencias por WhatsApp y armamos el diseño juntos.",
-        ],
-      },
-      {
-        h2: "Sesiones de fotos, cumpleaños y despedidas",
-        paras: [
-          "También para sesiones de fotos en cenotes o en la playa, cumpleaños, despedidas de soltera y eventos de grupo. Escríbenos con la fecha, el número de personas y la idea, y coordinamos lugar y hora.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        question: "¿Cuánto cuesta el body painting en Tulum?",
-        answer:
-          "Depende del tamaño del diseño, del nivel de detalle y del número de personas. Escríbenos por WhatsApp con tu idea y te damos el precio.",
-      },
-      {
-        question: "¿Hacen pintura para grupos?",
-        answer:
-          "Sí, para grupos de amigos, despedidas y eventos. Cuéntanos cuántas personas son y la fecha para organizar el tiempo de pintura.",
-      },
-      {
-        question: "¿Con cuánta anticipación debo reservar?",
-        answer: `La agenda es limitada porque Lucía pinta a cada persona a mano. ${datesEs} Para fechas de fiestas grandes, reserva con varios días de anticipación.`,
-      },
-    ],
-    heroProduct: "retratos-de-personas",
-    galleryProducts: ["retratos-de-personas", "chaquetas-pintadas-a-mano", "jeans-pintados-a-mano"],
-    waMsg: "Hola Luciptera 🎨 quiero un body painting en Tulum",
-  },
-  {
-    key: "bodypaint",
-    lang: "en",
-    path: "en/body-painting-tulum",
-    kind: "service",
-    place: "Tulum",
-    title: "Body Painting & Face Painting in Tulum | Luciptera",
-    description:
-      "Hand-painted body painting and face painting in Tulum for parties, festivals, photo shoots and celebrations, by a Colombian artist. Season: Nov 2026 – Feb 2027.",
-    h1: "Body painting and face painting in Tulum",
-    lead:
-      "Show up to the party as a work of art. Lucía hand-paints designs on skin — tropical flowers, jungle wildlife, catrina style or whatever you imagine — for parties, festivals and photo shoots in Tulum.",
-    sections: [
-      {
-        h2: "Made for Tulum's party season",
-        paras: [
-          `${datesEn} December and January fill Tulum with beach parties, jungle parties and music festivals. Hand-painted body art is what makes your photos from that night look like nobody else's.`,
-        ],
-      },
-      {
-        h2: "Design ideas",
-        paras: [
-          "Tropical flowers and leaves, jaguars and Mayan jungle wildlife, constellations and moons, catrina style, or a design that matches your outfit. Send us references on WhatsApp and we'll build the design together.",
-        ],
-      },
-      {
-        h2: "Photo shoots, birthdays and bachelorettes",
-        paras: [
-          "Also for photo shoots at cenotes or on the beach, birthdays, bachelorette parties and group events. Send us the date, number of people and your idea, and we'll set the place and time.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        question: "How much does body painting cost in Tulum?",
-        answer:
-          "It depends on the size of the design, the level of detail and the number of people. Send us your idea on WhatsApp and we'll give you a price.",
-      },
-      {
-        question: "Do you paint groups?",
-        answer:
-          "Yes — friend groups, bachelorettes and events. Tell us how many people and the date so we can plan the painting time.",
-      },
-      {
-        question: "How far ahead should I book?",
-        answer: `The calendar is limited because Lucía paints each person by hand. ${datesEn} For big party dates, book several days ahead.`,
-      },
-    ],
-    heroProduct: "retratos-de-personas",
-    galleryProducts: ["retratos-de-personas", "chaquetas-pintadas-a-mano", "jeans-pintados-a-mano"],
-    waMsg: "Hi Luciptera 🎨 I'd like body painting in Tulum",
-  },
-
   // ---------------------------------------------------------- EN GUIDES
   {
     key: "guide-souvenirs",
@@ -569,13 +449,20 @@ export const rmPages: RmPage[] = [
     path: "en/unique-souvenirs-tulum",
     kind: "guide",
     place: "Tulum",
-    title: "Unique Tulum Souvenirs, Hand-Painted | Luciptera",
+    title: "Tulum Souvenirs: What to Buy | Luciptera",
     description:
       "Looking for a souvenir from Tulum that isn't mass-produced? A custom hand-painted portrait of your trip, your partner or your pet. How it works, timing and packing tips.",
-    h1: "Unique souvenirs from Tulum: something made by hand, just for you",
+    h1: "Tulum souvenirs: what to buy (and what's actually handmade)",
     lead:
       "The most memorable souvenir from Tulum isn't sold in a shop — it's a painting of your own trip. A hand-painted portrait from a photo you took here, made by an artist who's in Tulum this season.",
     sections: [
+      {
+        h2: "The best souvenirs to buy in Tulum",
+        paras: [
+          "Hand-woven hammocks (the Yucatán Peninsula is famous for them), Maya embroidered blouses and textiles, Mexican vanilla, mezcal or tequila, Mexican chocolate, copal incense — and a custom painting of your own trip.",
+          "Tip: plenty of souvenirs on the main street are mass-produced. Ask who made it and where; real handmade pieces cost more and are worth it.",
+        ],
+      },
       {
         h2: "Why a custom painting beats a store-bought souvenir",
         paras: [
@@ -628,7 +515,7 @@ export const rmPages: RmPage[] = [
       {
         h2: "Gifts for the bridal party",
         paras: [
-          "For bridesmaids or groomsmen, smaller hand-painted pieces make a memorable thank-you. And for the wedding weekend parties, body painting turns the celebration into something everyone photographs.",
+          "For bridesmaids or groomsmen, smaller hand-painted pieces make a memorable thank-you.",
         ],
       },
     ],
@@ -636,6 +523,167 @@ export const rmPages: RmPage[] = [
     heroProduct: "retratos-de-personas",
     galleryProducts: ["retratos-de-personas", "paisajes-en-lienzo"],
     waMsg: "Hi Luciptera 💍 I'd like a hand-painted portrait as a wedding gift in Tulum",
+  },
+  {
+    key: "guide-cancun-playa-souvenirs",
+    lang: "en",
+    path: "en/cancun-playa-del-carmen-souvenirs",
+    kind: "guide",
+    place: "Riviera Maya",
+    title: "Cancún & Playa del Carmen Souvenirs | Luciptera",
+    description:
+      "Authentic souvenirs from Cancún and Playa del Carmen: what's worth buying, how to spot handmade, and a one-of-a-kind option — a portrait painted from your trip.",
+    h1: "Authentic souvenirs from Cancún and Playa del Carmen",
+    lead:
+      "The best souvenir from Cancún or Playa del Carmen is one made by a person, not a factory: a hammock, a hand-embroidered textile, or a portrait painted from a photo of your trip.",
+    sections: [
+      {
+        h2: "What's worth buying",
+        paras: [
+          "Hammocks from the Yucatán, Maya embroidery, Mexican vanilla and chocolate, mezcal, and handmade art. On 5th Avenue and in the Cancún hotel zone, many shops sell the same mass-produced items — ask where things were made.",
+        ],
+      },
+      {
+        h2: "A souvenir nobody else has",
+        paras: [
+          `A hand-painted portrait of you, your partner or your family from a photo taken on the trip. ${datesEn} We arrange delivery in Playa del Carmen and Cancún.`,
+        ],
+      },
+    ],
+    faqs: commonFaqsEn,
+    heroProduct: "paisajes-en-lienzo",
+    galleryProducts: ["paisajes-en-lienzo", "retratos-de-personas"],
+    waMsg: "Hi Luciptera 🌴 I'd like a hand-painted souvenir from my trip",
+  },
+  {
+    key: "guide-bachelorette",
+    lang: "en",
+    path: "en/tulum-bachelorette-gifts",
+    kind: "guide",
+    place: "Tulum",
+    title: "Tulum Bachelorette Gifts: Painted Jackets | Luciptera",
+    description:
+      "Planning a Tulum bachelorette? Hand-painted denim jackets for the bride and the crew — her name, the date, tropical flowers. Painted in Tulum, ordered on WhatsApp.",
+    h1: "Tulum bachelorette gifts: hand-painted jackets for the bride and crew",
+    lead:
+      "The bachelorette gift everyone photographs: a denim jacket hand-painted with the bride's name, the date and a Tulum-style design — and matching ones for the crew.",
+    sections: [
+      {
+        h2: "Ideas for the design",
+        paras: [
+          "\"Bride\" or her name on the back, the trip date, palm leaves, tropical flowers, a jaguar or a moon. For the crew: \"Bride Squad\", each person's name, or the same design in different colors.",
+        ],
+      },
+      {
+        h2: "Timing",
+        paras: [
+          `Painted clothing takes at least 10 days, so order before the trip. You can send your own jackets or jeans. ${datesEn}`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you paint matching jackets for a whole group?",
+        answer: "Yes. Tell us how many people and the date on WhatsApp so we can plan the painting time.",
+      },
+      ...commonFaqsEn.slice(1),
+    ],
+    heroProduct: "chaquetas-pintadas-a-mano",
+    galleryProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano"],
+    waMsg: "Hi Luciptera 👰 I'd like painted jackets for a Tulum bachelorette",
+  },
+  {
+    key: "guide-honeymoon",
+    lang: "en",
+    path: "en/tulum-honeymoon-keepsake",
+    kind: "guide",
+    place: "Tulum",
+    title: "Tulum Honeymoon Keepsake: A Portrait | Luciptera",
+    description:
+      "A keepsake from your Tulum or Cancún honeymoon that isn't a magnet: a couple's portrait hand-painted from a photo of your trip. How it works and timing.",
+    h1: "A honeymoon keepsake from Tulum: your portrait, painted by hand",
+    lead:
+      "Turn your favorite honeymoon photo — the cenote, the beach, the ruins — into a hand-painted portrait you'll hang at home for the rest of your marriage.",
+    sections: [
+      {
+        h2: "How it works on a short trip",
+        paras: [
+          "Canvas portraits take at least 15 days. Message us before you arrive or on day one, and we'll paint from a photo you send — or from your wedding photo if you prefer.",
+        ],
+      },
+      {
+        h2: "Surprise your partner",
+        paras: [
+          "It also works as an anniversary gift later: send us the photo after the trip. Delivery in Tulum, Playa del Carmen or Cancún during the season.",
+        ],
+      },
+    ],
+    faqs: commonFaqsEn,
+    heroProduct: "retratos-de-personas",
+    galleryProducts: ["retratos-de-personas", "paisajes-en-lienzo"],
+    waMsg: "Hi Luciptera 💕 I'd like a honeymoon portrait",
+  },
+  {
+    key: "guide-rescue-dog",
+    lang: "en",
+    path: "en/tulum-rescue-dog-portrait",
+    kind: "guide",
+    place: "Tulum",
+    title: "Adopted a Dog in Tulum? Get Their Portrait | Luciptera",
+    description:
+      "Tulum is full of rescue dogs and cats who found families. Celebrate yours with a portrait hand-painted on canvas from your favorite photo — or honor one who has passed.",
+    h1: "Adopted a dog in Tulum? Celebrate them with a hand-painted portrait",
+    lead:
+      "Tulum's rescue dogs and cats end up in homes all over the world. A canvas portrait painted from your favorite photo is the best way to keep the moment they became family.",
+    sections: [
+      {
+        h2: "Why rescue owners love a portrait",
+        paras: [
+          "Every rescue has a story. A painted portrait captures their face, their look and their personality in a way a printed photo doesn't — and it makes a beautiful gift for anyone who adopted.",
+        ],
+      },
+      {
+        h2: "Memorial portraits",
+        paras: [
+          "If your pet has passed, we paint them from your favorite photo with care. Many of the portraits Lucía paints are memorials.",
+        ],
+      },
+    ],
+    faqs: commonFaqsEn,
+    heroProduct: "retratos-de-mascotas",
+    galleryProducts: ["retratos-de-mascotas", "cuadros-en-madera"],
+    waMsg: "Hi Luciptera 🐶 I'd like a portrait of my rescue",
+  },
+  {
+    key: "guide-christmas",
+    lang: "en",
+    path: "en/christmas-gifts-tulum",
+    kind: "guide",
+    place: "Tulum",
+    title: "Christmas Gifts in Tulum: Custom Portraits | Luciptera",
+    description:
+      "Spending Christmas in Tulum, Playa or Cancún? Give a portrait of family, partner or pet, hand-painted locally. Order by early December to have it for the 24th.",
+    h1: "Christmas gifts in Tulum: a portrait painted by hand",
+    lead:
+      "If you're spending December in Tulum, Playa del Carmen or Cancún, the most personal gift is a portrait of the people or pets you love, hand-painted right here.",
+    sections: [
+      {
+        h2: "Order by early December",
+        paras: [
+          "Canvas portraits take at least 15 days. To have it before December 24, order in the first week of December. Missed it? Valentine's Day is still inside the season.",
+        ],
+      },
+      {
+        h2: "Ideas",
+        paras: [
+          "A family portrait with everyone (pets included), a couple's portrait for your partner, or a portrait of a friend's dog.",
+        ],
+      },
+    ],
+    faqs: commonFaqsEn,
+    heroProduct: "retratos-de-personas",
+    galleryProducts: ["retratos-de-personas", "retratos-de-mascotas"],
+    waMsg: "Hi Luciptera 🎄 I'd like a Christmas portrait",
   },
 ];
 

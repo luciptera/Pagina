@@ -427,25 +427,18 @@ export const articles: Article[] = [
           "Un retrato de su mascota en lienzo. En Tulum muchísimas personas viven con perros y gatos rescatados que son parte de la familia, y verlos pintados a mano emociona de verdad.",
         ],
       },
-      {
-        q: "¿Y para Año Nuevo o una fiesta de fin de año?",
-        a: [
-          "Para las fiestas de fin de año, Lucía también hace body painting y pintura facial: una forma distinta de llegar a la fiesta y salir en todas las fotos.",
-        ],
-      },
     ],
     relatedProducts: ["retratos-de-mascotas", "retratos-de-personas", "paisajes-en-lienzo"],
     heroProduct: "retratos-de-personas",
     extraLinks: [
       { href: "/arte-personalizado-tulum/", label: "Retratos pintados a mano en Tulum" },
       { href: "/arte-personalizado-playa-del-carmen/", label: "Retratos en Playa del Carmen" },
-      { href: "/body-painting-tulum/", label: "Body painting en Tulum" },
     ],
   },
   {
     slug: "souvenirs-originales-de-tulum",
-    title: "Souvenirs originales de Tulum",
-    h1: "Souvenirs originales de Tulum: algo hecho a mano para ti",
+    title: "Qué comprar en Tulum: souvenirs",
+    h1: "Qué comprar en Tulum: souvenirs originales y hechos a mano",
     description:
       "¿Buscas un recuerdo de Tulum que no sea igual a todos? Un retrato pintado a mano de tu viaje, tu pareja o tu mascota. Cómo funciona, tiempos y cómo llevarlo en la maleta.",
     intro:
@@ -454,6 +447,7 @@ export const articles: Article[] = [
       {
         q: "¿Por qué un cuadro personalizado es mejor que un souvenir de tienda?",
         a: [
+          "Lo más buscado: hamacas tejidas (la península de Yucatán es famosa por ellas), bordados mayas, vainilla mexicana, mezcal, chocolate y copal. Pregunta siempre quién lo hizo: mucho de lo que se vende en la avenida principal es de fábrica.",
           "La mayoría de souvenirs se fabrican en serie. Un retrato pintado desde tu foto —el cenote, la playa, tú y tu pareja— es único y guarda el recuerdo, no solo el nombre del lugar.",
         ],
       },
@@ -496,13 +490,14 @@ export const articles: Article[] = [
       {
         q: "¿Lo encargo antes o después de la boda?",
         a: [
+          "Funciona igual para una boda en cenote, en la playa o una boda maya: pintamos el momento que ellos elijan.",
           "Si tienes su foto de compromiso, encárgalo con tiempo para entregarlo en la boda. O pinta un momento de la boda misma y sorpréndelos después: toma mínimo 15 días.",
         ],
       },
       {
         q: "¿Qué regalo para las damas de honor o los padrinos?",
         a: [
-          "Detalles pintados a mano más pequeños son un agradecimiento que recuerdan. Y para las fiestas del fin de semana de boda, el body painting convierte la celebración en algo que todos fotografían.",
+          "Detalles pintados a mano más pequeños son un agradecimiento que recuerdan.",
         ],
       },
     ],
@@ -510,7 +505,60 @@ export const articles: Article[] = [
     heroProduct: "retratos-de-personas",
     extraLinks: [
       { href: "/arte-personalizado-tulum/", label: "Retratos pintados a mano en Tulum" },
-      { href: "/body-painting-tulum/", label: "Body painting en Tulum" },
+    ],
+  },
+  {
+    slug: "regalo-de-navidad-original-para-mi-pareja",
+    title: "Regalo de Navidad original para tu pareja",
+    h1: "Regalo de Navidad original para tu pareja: un retrato pintado a mano",
+    description:
+      "¿Buscas un regalo de Navidad original para tu novio, novia o esposo? Un retrato de pareja pintado a mano desde su foto favorita. Tiempos, tamaños y cómo pedirlo.",
+    intro:
+      "El regalo de Navidad más original para tu pareja es uno que nadie más puede darle: un retrato de ustedes dos, pintado a mano desde su foto favorita.",
+    sections: [
+      {
+        q: "¿Por qué un retrato es mejor que un regalo de tienda?",
+        a: ["Es único, se hace pensando en ustedes y dura toda la vida. No hay otro igual."],
+      },
+      {
+        q: "¿Con cuánto tiempo lo pido para Navidad?",
+        a: ["Los retratos en lienzo toman mínimo 15 días: pídelo a más tardar la primera semana de diciembre."],
+      },
+      {
+        q: "¿Qué foto sirve?",
+        a: ["Una foto nítida donde se vean bien sus caras: un viaje, su boda, el día que se conocieron."],
+      },
+    ],
+    relatedProducts: ["retratos-de-personas", "retratos-anime", "retratos-de-mascotas"],
+    heroProduct: "retratos-de-personas",
+    extraLinks: [
+      { href: "/cuadro-de-pareja/", label: "Cuadro de pareja pintado a mano" },
+      { href: "/arte-personalizado-tulum/", label: "¿Estás en Tulum? Lo pintamos allá" },
+    ],
+  },
+  {
+    slug: "despedida-de-soltera-en-tulum",
+    title: "Despedida de soltera en Tulum: regalos",
+    h1: "Despedida de soltera en Tulum: chaquetas pintadas a mano para la novia",
+    description:
+      "Ideas para una despedida de soltera en Tulum: chaquetas de jean pintadas a mano con el nombre de la novia, la fecha y diseños tropicales, también para todo el grupo.",
+    intro:
+      "El detalle que sale en todas las fotos de una despedida en Tulum: una chaqueta de jean pintada a mano para la novia, con su nombre y la fecha, y otras a juego para las amigas.",
+    sections: [
+      {
+        q: "¿Qué diseño le pinto?",
+        a: ["\"Novia\" o su nombre en la espalda, la fecha, hojas de palma, flores tropicales o una luna. Para el grupo, el nombre de cada una o el mismo diseño en otros colores."],
+      },
+      {
+        q: "¿Con cuánta anticipación lo encargo?",
+        a: ["La ropa pintada toma mínimo 10 días. Puedes mandarnos tus propias chaquetas o jeans."],
+      },
+    ],
+    relatedProducts: ["chaquetas-pintadas-a-mano", "jeans-pintados-a-mano"],
+    heroProduct: "chaquetas-pintadas-a-mano",
+    extraLinks: [
+      { href: "/arte-personalizado-tulum/", label: "Arte pintado a mano en Tulum" },
+      { href: "/chaquetas-pintadas-a-mano/", label: "Chaquetas pintadas a mano" },
     ],
   },
 ];

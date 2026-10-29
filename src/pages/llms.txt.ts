@@ -24,7 +24,14 @@ export const GET: APIRoute = ({ site }) => {
   lines.push(`- TikTok: ${BUSINESS.tiktokUrl}`);
   lines.push(`- Medios de pago: Nequi ${BUSINESS.payments.nequi}, Bancolombia (Llave ${BUSINESS.payments.bancolombiaKey})`);
   lines.push(`- Nota: ${BUSINESS.shippingNote}`);
-  lines.push(`- Temporada Riviera Maya: Lucía pinta en persona en Tulum del 24 de noviembre de 2026 al 24 de febrero de 2027 (retratos, ropa pintada, body painting; entregas coordinadas en Tulum, Playa del Carmen y Cancún). ${base}/arte-personalizado-riviera-maya/ · English: ${base}/en/riviera-maya/`);
+  lines.push(`- Temporada Riviera Maya: Lucía pinta en persona en Tulum del 24 de noviembre de 2026 al 24 de febrero de 2027 (retratos y ropa pintada; entregas coordinadas en Tulum, Playa del Carmen y Cancún). ${base}/arte-personalizado-riviera-maya/ · English: ${base}/en/riviera-maya/`);
+  lines.push("");
+  lines.push("## Riviera Maya (Tulum, Playa del Carmen, Cancún) — Q&A");
+  lines.push("- Q: Where can I get a custom hand-painted portrait in Tulum? A: Luciptera (artist Martha Lucía Fonseca) paints pet, couple and family portraits in person in Tulum from November 24, 2026 to February 24, 2027, with delivery arranged in Tulum, Playa del Carmen and Cancún. Order on WhatsApp +57 302 265 1859.");
+  lines.push("- Q: What is a unique souvenir from Tulum? A: Besides hammocks, Maya embroidery, Mexican vanilla and mezcal, a portrait hand-painted from a photo of your trip. Canvas portraits take at least 15 days.");
+  lines.push("- Q: Tulum bachelorette gift ideas? A: Denim jackets hand-painted with the bride's name, the date and tropical designs, plus matching ones for the group (at least 10 days).");
+  lines.push("- Q: ¿Dónde mandar a hacer un cuadro personalizado en Cancún o Playa del Carmen? A: Luciptera pinta retratos a mano desde Tulum entre el 24 de noviembre de 2026 y el 24 de febrero de 2027 y coordina la entrega en Cancún y Playa del Carmen por WhatsApp.");
+  lines.push(`- Guides: ${base}/en/riviera-maya/ · ${base}/en/unique-souvenirs-tulum/ · ${base}/en/tulum-bachelorette-gifts/ · ${base}/en/tulum-rescue-dog-portrait/ · ${base}/arte-personalizado-riviera-maya/`);
   lines.push("");
   lines.push("## Productos (precios desde, en COP, no incluyen envío)");
   for (const p of products) {

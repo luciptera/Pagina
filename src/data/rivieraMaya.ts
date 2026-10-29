@@ -9,6 +9,8 @@
    the pages publish Service schema only (no Product/price claims).
 =========================================================================== */
 
+import { fromPetMx, fromPeopleMx, fromClothesMx } from "./pricesMx";
+
 export const RIVIERA = {
   startISO: "2026-11-24",
   endISO: "2027-02-24",
@@ -63,7 +65,7 @@ const commonFaqsEs: RmFaq[] = [
   {
     question: "¿Cuánto cuesta un retrato pintado a mano en Tulum?",
     answer:
-      "El precio depende del tamaño, del número de personas o mascotas y del tipo de pieza. Escríbenos por WhatsApp con tu foto y te confirmamos el valor y la forma de pago al instante.",
+      `Los retratos de mascotas en lienzo cuestan desde ${fromPetMx}, los de personas desde ${fromPeopleMx} y la ropa pintada desde ${fromClothesMx}, según el tamaño. Aceptamos cualquier forma de pago.`,
   },
   {
     question: "¿Cómo encargo?",
@@ -80,7 +82,7 @@ const commonFaqsEn: RmFaq[] = [
   {
     question: "How much does a hand-painted portrait cost in Tulum?",
     answer:
-      "It depends on size, how many people or pets, and the type of piece. Send us your photo on WhatsApp and we'll confirm the price and payment options right away.",
+      `Pet portraits on canvas start at ${fromPetMx}, people portraits at ${fromPeopleMx}, and hand-painted clothing at ${fromClothesMx}, depending on size. We accept any form of payment.`,
   },
   {
     question: "How do I order?",

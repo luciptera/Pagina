@@ -10,6 +10,7 @@ import { RIVIERA, rmPages, rmTwin, type RmPage } from "../../data/rivieraMaya";
 import { heroImage, productImages } from "../../data/images";
 import { testimonials } from "../../data/testimonials";
 import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+import { mxPriceList } from "../../data/pricesMx";
 
 interface Props {
   page: RmPage;
@@ -23,6 +24,7 @@ const altHref = twin ? new URL(`/${twin.path}/`, Astro.site).href : undefined;
 const hero = heroImage(page.heroProduct);
 const gallery = page.galleryProducts.flatMap((s) => productImages(s).slice(0, 2)).slice(0, 6);
 
+const prices = page.kind === "guide" ? [] : mxPriceList(page.lang);
 const hub = rmPages.find((p) => p.kind === "hub" && p.lang === page.lang)!;
 const crumbs = [
   { name: en ? "Home" : "Inicio", href: en ? "/en/" : "/" },
@@ -138,6 +140,32 @@ const galleryTitle =
             class="card aspect-[4/5] w-full object-cover"
             loading="lazy"
           />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {prices.length > 0 && (
+    <section class="container-base py-6" id="precios">
+      <h2 class="font-head text-2xl font-bold">{en ? "Prices in Mexican pesos" : "Precios en pesos mexicanos"}</h2>
+      <p class="mt-1 text-sm text-[var(--color-ink-soft)]">
+        {en ? "Hand-painted, one by one. We accept any form of payment." : "Pintado a mano, pieza por pieza. Aceptamos cualquier forma de pago."}
+      </p>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {prices.map((g) => (
+          <div class="card p-4">
+            <h3 class="font-head font-bold">{g.name}</h3>
+            <table class="mt-2 w-full text-sm">
+              <tbody>
+                {g.rows.map((r) => (
+                  <tr class="border-t border-[var(--color-cream-deep)]">
+                    <td class="py-1.5 pr-2">{r.label}</td>
+                    <td class="py-1.5 text-right font-semibold whitespace-nowrap">{r.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         ))}
       </div>
     </section>

@@ -184,14 +184,19 @@ export function eventSchema(opts: {
   };
 }
 
-export function serviceSchema(name: string, description: string, url: string) {
+export function serviceSchema(
+  name: string,
+  description: string,
+  url: string,
+  areaServed: Record<string, unknown> = { "@type": "Country", name: "Colombia" },
+) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
     provider: { "@type": "LocalBusiness", name: BUSINESS.name, telephone: phone },
-    areaServed: { "@type": "Country", name: "Colombia" },
+    areaServed,
     url,
   };
 }

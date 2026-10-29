@@ -6,6 +6,7 @@ import IntentPage from "../components/pages/IntentPage.astro";
 import OccasionPage from "../components/pages/OccasionPage.astro";
 import CityPage from "../components/pages/CityPage.astro";
 import DesignPage from "../components/pages/DesignPage.astro";
+import RivieraPage from "../components/pages/RivieraPage.astro";
 
 import { products, cityMatrixProducts } from "../data/products";
 import { aliases } from "../data/aliases";
@@ -14,6 +15,7 @@ import { occasions } from "../data/occasions";
 import { cities } from "../data/cities";
 import { hatDesigns } from "../data/feria";
 import { meetsContentFloor } from "../data/variations";
+import { rmPages } from "../data/rivieraMaya";
 
 export const getStaticPaths = (() => {
   const paths: any[] = [];
@@ -58,6 +60,11 @@ export const getStaticPaths = (() => {
     }
   }
 
+  // 6) Riviera Maya season pages (ES at root, EN under en/)
+  for (const page of rmPages) {
+    paths.push({ params: { slug: page.path }, props: { type: "riviera", page } });
+  }
+
   return paths;
 }) satisfies GetStaticPaths;
 
@@ -71,3 +78,4 @@ const { type } = props;
 {type === "occasion" && <OccasionPage occasion={props.occasion} />}
 {type === "design" && <DesignPage design={props.design} />}
 {type === "city" && <CityPage product={props.product} city={props.city} otherCityLinks={props.otherCityLinks} />}
+{type === "riviera" && <RivieraPage page={props.page} />}

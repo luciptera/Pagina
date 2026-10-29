@@ -1,0 +1,187 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import WhatsAppCTA from "../WhatsAppCTA.astro";
+import FaqList from "../FaqList.astro";
+import RelatedLinks from "../RelatedLinks.astro";
+import Testimonials from "../Testimonials.astro";
+import { RIVIERA, rmPages, rmTwin, type RmPage } from "../../data/rivieraMaya";
+import { heroImage, productImages } from "../../data/images";
+import { testimonials } from "../../data/testimonials";
+import { serviceSchema, breadcrumbList, faqPage } from "../../lib/schema";
+
+interface Props {
+  page: RmPage;
+}
+const { page } = Astro.props;
+const en = page.lang === "en";
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const twin = rmTwin(page);
+const altHref = twin ? new URL(`/${twin.path}/`, Astro.site).href : undefined;
+const hero = heroImage(page.heroProduct);
+const gallery = page.galleryProducts.flatMap((s) => productImages(s).slice(0, 2)).slice(0, 6);
+
+const hub = rmPages.find((p) => p.kind === "hub" && p.lang === page.lang)!;
+const crumbs = [
+  { name: en ? "Home" : "Inicio", href: en ? "/en/" : "/" },
+  { name: "Riviera Maya", href: `/${hub.path}/` },
+  ...(page.kind === "hub" ? [] : [{ name: page.place, href: `/${page.path}/` }]),
+];
+
+const areaServed =
+  page.place === "Riviera Maya"
+    ? [
+        { "@type": "City", name: "Tulum" },
+        { "@type": "City", name: "Playa del Carmen" },
+        { "@type": "City", name: "Cancún" },
+      ]
+    : { "@type": "City", name: page.place, containedInPlace: { "@type": "State", name: "Quintana Roo" } };
+
+const jsonLd = [
+  serviceSchema(page.h1, page.description, url, areaServed as unknown as Record<string, unknown>),
+  breadcrumbList(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).href }))),
+  faqPage(page.faqs.map((f) => ({ ...f, scope: "global" }))),
+];
+
+const siblings = rmPages
+  .filter((p) => p.lang === page.lang && p.path !== page.path)
+  .map((p) => ({ href: `/${p.path}/`, label: p.kind === "hub" ? (en ? "All of Riviera Maya" : "Toda la Riviera Maya") : p.h1 }));
+
+// Spanish season guides live in the blog; surface them on every ES page
+const guides = en
+  ? []
+  : [
+      { href: "/blog/que-regalar-en-navidad-en-tulum/", label: "Qué regalar en Navidad en Tulum" },
+      { href: "/blog/souvenirs-originales-de-tulum/", label: "Souvenirs originales de Tulum" },
+      { href: "/blog/regalo-de-boda-en-tulum/", label: "Regalo de boda en Tulum" },
+    ];
+
+// real Google reviews are in Spanish → only on Spanish pages
+const reviews = en ? [] : testimonials.slice(0, 3);
+const galleryTitle =
+  page.kind === "service"
+    ? en ? "More of Lucía's hand-painted work" : "Más trabajos pintados a mano por Lucía"
+    : en ? "Real examples of Lucía's work" : "Ejemplos reales del trabajo de Lucía";
+---
+
+<Layout
+  title={page.title}
+  description={page.description}
+  lang={page.lang}
+  altHref={altHref}
+  ogImage={hero?.src}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-base grid items-center gap-8 py-8 md:grid-cols-2">
+    <div>
+      <p
+        id="rm-status"
+        class="inline-block rounded-full bg-[var(--color-gold)]/15 px-4 py-1.5 text-sm font-semibold"
+      >
+        🌴 {en ? `In Tulum: ${RIVIERA.rangeEn}` : `En Tulum ${RIVIERA.rangeEs}`}
+      </p>
+      <h1 class="mt-4 font-head text-3xl font-bold leading-tight md:text-4xl">{page.h1}</h1>
+      <p class="mt-4 text-lg text-[var(--color-ink-soft)]">{page.lead}</p>
+      <div class="mt-6">
+        <WhatsAppCTA
+          message={page.waMsg}
+          label={en ? "Message us on WhatsApp" : "Escríbenos por WhatsApp"}
+          note={en ? "We reply personally, in English or Spanish." : "Te respondemos personalmente."}
+        />
+      </div>
+    </div>
+    <div>
+      {hero && (
+        <Image
+          src={hero}
+          alt={en ? "Portrait hand-painted by Luciptera" : "Retrato pintado a mano por Luciptera"}
+          width={720}
+          height={900}
+          widths={[400, 720]}
+          sizes="(max-width: 768px) 100vw, 480px"
+          class="card aspect-[4/5] w-full object-cover"
+          loading="eager"
+        />
+      )}
+    </div>
+  </section>
+
+  <section class="container-base py-4">
+    <div class="prose-co max-w-3xl">
+      {page.sections.map((s) => (
+        <>
+          <h2 class="mt-8 font-head text-2xl font-bold">{s.h2}</h2>
+          {s.paras.map((p) => <p class="mt-3">{p}</p>)}
+        </>
+      ))}
+    </div>
+  </section>
+
+  {gallery.length > 0 && (
+    <section class="container-base py-6">
+      <h2 class="font-head text-2xl font-bold">{galleryTitle}</h2>
+      <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {gallery.map((img, i) => (
+          <Image
+            src={img}
+            alt={en ? `Hand-painted piece by Luciptera ${i + 1}` : `Pieza pintada a mano por Luciptera ${i + 1}`}
+            width={420}
+            height={525}
+            widths={[260, 420]}
+            sizes="(max-width:640px) 45vw, 280px"
+            class="card aspect-[4/5] w-full object-cover"
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <Testimonials items={reviews} />
+
+  <FaqList faqs={page.faqs.map((f) => ({ ...f, scope: "global" }))} title={en ? "Frequently asked questions" : "Preguntas frecuentes"} />
+
+  <section class="container-base py-8">
+    <div class="card bg-[var(--color-gold)]/10 p-6 text-center">
+      <h2 class="font-head text-2xl font-bold">{en ? "Let's paint something for you" : "Pintemos algo para ti"}</h2>
+      <p class="mt-2 text-[var(--color-ink-soft)]">
+        {en ? "Send your photo or idea and we'll take it from there." : "Mándanos tu foto o tu idea y nosotros nos encargamos del resto."}
+      </p>
+      <div class="mt-4 flex justify-center">
+        <WhatsAppCTA message={page.waMsg} label={en ? "Order on WhatsApp" : "Pedir por WhatsApp"} />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks items={siblings} title={en ? "Riviera Maya season" : "Temporada Riviera Maya"} />
+  <RelatedLinks items={guides} title="Guías para la temporada" />
+</Layout>
+
+<!-- Status badge follows the viewer's date, so a static build stays truthful
+     before, during and after the season without a redeploy. -->
+<script is:inline define:vars={{ start: RIVIERA.startISO, end: RIVIERA.endISO, en }}>
+  (function () {
+    var el = document.getElementById("rm-status");
+    if (!el) return;
+    var now = new Date();
+    var s = new Date(start + "T00:00:00-05:00");
+    var e = new Date(end + "T23:59:59-05:00");
+    if (now < s) {
+      el.textContent = en
+        ? "🌴 Arriving in Tulum November 24 — book your spot now"
+        : "🌴 Llegamos a Tulum el 24 de noviembre — aparta tu lugar";
+    } else if (now <= e) {
+      el.textContent = en
+        ? "🌴 In Tulum now — until February 24"
+        : "🌴 Ya estamos en Tulum — hasta el 24 de febrero";
+    } else {
+      el.textContent = en
+        ? "This Riviera Maya season has ended — message us about shipping to Mexico"
+        : "Esta temporada en la Riviera Maya terminó — escríbenos para envíos a México";
+    }
+  })();
+</script>

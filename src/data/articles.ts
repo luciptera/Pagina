@@ -397,6 +397,122 @@ export const articles: Article[] = [
       { href: "/chaqueta-pintada-con-mi-mascota/", label: "Chaqueta pintada con tu mascota" },
     ],
   },
+  // ---- Temporada Riviera Maya (nov 2026 – feb 2027, Lucía pinta en Tulum) ----
+  {
+    slug: "que-regalar-en-navidad-en-tulum",
+    title: "Qué regalar en Navidad en Tulum",
+    h1: "Qué regalar en Navidad en Tulum y la Riviera Maya",
+    description:
+      "Ideas de regalos de Navidad en Tulum, Playa del Carmen y Cancún que no son de tienda: retratos de mascotas, de familia y de pareja pintados a mano esta temporada.",
+    intro:
+      "El mejor regalo de Navidad en Tulum es uno que no se compra en una tienda: un retrato pintado a mano de las personas o las mascotas que más quieres. Esta temporada, del 24 de noviembre al 24 de febrero, una artista colombiana está pintando en persona en Tulum.",
+    sections: [
+      {
+        q: "¿Qué regalo original puedo dar en Navidad en Tulum?",
+        a: [
+          "Un retrato pintado a mano desde una foto: de la familia reunida, de tu pareja o de la mascota de la casa. Es único, se hace pensando en esa persona y dura toda la vida.",
+          "Si vives en Tulum o en Playa del Carmen, la entrega es en persona, sin envíos internacionales.",
+        ],
+      },
+      {
+        q: "¿Con cuánta anticipación tengo que encargarlo para Navidad?",
+        a: [
+          "Los retratos en lienzo toman mínimo 15 días, así que para recibirlo antes del 24 de diciembre encárgalo durante la primera semana de diciembre, o antes.",
+          "Si se te pasó la fecha, el Día de Reyes (6 de enero) es otra excelente ocasión para regalarlo.",
+        ],
+      },
+      {
+        q: "¿Qué le regalo a alguien que ama a su perro o su gato?",
+        a: [
+          "Un retrato de su mascota en lienzo. En Tulum muchísimas personas viven con perros y gatos rescatados que son parte de la familia, y verlos pintados a mano emociona de verdad.",
+        ],
+      },
+      {
+        q: "¿Y para Año Nuevo o una fiesta de fin de año?",
+        a: [
+          "Para las fiestas de fin de año, Lucía también hace body painting y pintura facial: una forma distinta de llegar a la fiesta y salir en todas las fotos.",
+        ],
+      },
+    ],
+    relatedProducts: ["retratos-de-mascotas", "retratos-de-personas", "paisajes-en-lienzo"],
+    heroProduct: "retratos-de-personas",
+    extraLinks: [
+      { href: "/arte-personalizado-tulum/", label: "Retratos pintados a mano en Tulum" },
+      { href: "/arte-personalizado-playa-del-carmen/", label: "Retratos en Playa del Carmen" },
+      { href: "/body-painting-tulum/", label: "Body painting en Tulum" },
+    ],
+  },
+  {
+    slug: "souvenirs-originales-de-tulum",
+    title: "Souvenirs originales de Tulum",
+    h1: "Souvenirs originales de Tulum: algo hecho a mano para ti",
+    description:
+      "¿Buscas un recuerdo de Tulum que no sea igual a todos? Un retrato pintado a mano de tu viaje, tu pareja o tu mascota. Cómo funciona, tiempos y cómo llevarlo en la maleta.",
+    intro:
+      "El recuerdo más especial de Tulum no está en una tienda: es una pintura de tu propio viaje. Un retrato pintado a mano desde una foto que tomaste aquí, hecho por una artista que está en Tulum esta temporada.",
+    sections: [
+      {
+        q: "¿Por qué un cuadro personalizado es mejor que un souvenir de tienda?",
+        a: [
+          "La mayoría de souvenirs se fabrican en serie. Un retrato pintado desde tu foto —el cenote, la playa, tú y tu pareja— es único y guarda el recuerdo, no solo el nombre del lugar.",
+        ],
+      },
+      {
+        q: "¿Cuánto tiempo toma?",
+        a: [
+          "Los retratos en lienzo toman mínimo 15 días. Si tu viaje es más corto, escríbenos antes de llegar o al inicio de tu estadía para organizarlo con tus fechas.",
+        ],
+      },
+      {
+        q: "¿Cabe en la maleta?",
+        a: [
+          "Los tamaños pequeños (como 20 × 25 cm) viajan bien en la maleta bien envueltos. Para tamaños más grandes, pregúntanos las opciones antes de encargar.",
+        ],
+      },
+    ],
+    relatedProducts: ["retratos-de-personas", "paisajes-en-lienzo", "retratos-de-mascotas"],
+    heroProduct: "paisajes-en-lienzo",
+    extraLinks: [
+      { href: "/arte-personalizado-tulum/", label: "Arte pintado a mano en Tulum" },
+      { href: "/arte-personalizado-cancun/", label: "Retratos en Cancún" },
+      { href: "/arte-personalizado-riviera-maya/", label: "Temporada Riviera Maya" },
+    ],
+  },
+  {
+    slug: "regalo-de-boda-en-tulum",
+    title: "Regalo de boda en Tulum: ideas",
+    h1: "Regalo de boda en Tulum: un retrato pintado a mano",
+    description:
+      "¿Vas a una boda en Tulum? Un retrato de los novios pintado a mano es un regalo que de verdad guardan. Ideas, tiempos y cómo encargarlo en la Riviera Maya.",
+    intro:
+      "Tulum es uno de los destinos de boda favoritos del mundo, y el mejor regalo para los novios es uno que colgarán en su casa por décadas: un retrato de los dos, pintado a mano.",
+    sections: [
+      {
+        q: "¿Por qué un retrato es un buen regalo de boda?",
+        a: [
+          "Los novios reciben muchas cosas que nunca usan. Un retrato pintado a mano desde su foto de compromiso, o de un momento del fin de semana de la boda, es personal, bonito e irrepetible.",
+        ],
+      },
+      {
+        q: "¿Lo encargo antes o después de la boda?",
+        a: [
+          "Si tienes su foto de compromiso, encárgalo con tiempo para entregarlo en la boda. O pinta un momento de la boda misma y sorpréndelos después: toma mínimo 15 días.",
+        ],
+      },
+      {
+        q: "¿Qué regalo para las damas de honor o los padrinos?",
+        a: [
+          "Detalles pintados a mano más pequeños son un agradecimiento que recuerdan. Y para las fiestas del fin de semana de boda, el body painting convierte la celebración en algo que todos fotografían.",
+        ],
+      },
+    ],
+    relatedProducts: ["retratos-de-personas", "paisajes-en-lienzo"],
+    heroProduct: "retratos-de-personas",
+    extraLinks: [
+      { href: "/arte-personalizado-tulum/", label: "Retratos pintados a mano en Tulum" },
+      { href: "/body-painting-tulum/", label: "Body painting en Tulum" },
+    ],
+  },
 ];
 
 export const articleMap: Record<string, Article> = Object.fromEntries(

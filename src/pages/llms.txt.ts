@@ -24,6 +24,7 @@ export const GET: APIRoute = ({ site }) => {
   lines.push(`- TikTok: ${BUSINESS.tiktokUrl}`);
   lines.push(`- Medios de pago: Nequi ${BUSINESS.payments.nequi}, Bancolombia (Llave ${BUSINESS.payments.bancolombiaKey})`);
   lines.push(`- Nota: ${BUSINESS.shippingNote}`);
+  lines.push(`- Temporada Riviera Maya: Lucía pinta en persona en Tulum del 24 de noviembre de 2026 al 24 de febrero de 2027 (retratos, ropa pintada, body painting; entregas coordinadas en Tulum, Playa del Carmen y Cancún). ${base}/arte-personalizado-riviera-maya/ · English: ${base}/en/riviera-maya/`);
   lines.push("");
   lines.push("## Productos (precios desde, en COP, no incluyen envío)");
   for (const p of products) {
